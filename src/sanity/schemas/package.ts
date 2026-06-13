@@ -1,0 +1,36 @@
+export const holidayPackage = {
+  name: "holidayPackage",
+  title: "Holiday Package",
+  type: "document",
+  fields: [
+    { name: "name", title: "Name", type: "string", validation: (r: any) => r.required() },
+    { name: "slug", title: "Slug", type: "slug", options: { source: "name" }, validation: (r: any) => r.required() },
+    { name: "nights", title: "Number of Nights", type: "number" },
+    { name: "priceAud", title: "Price (AUD)", type: "number" },
+    { name: "priceGbp", title: "Price (GBP)", type: "number" },
+    { name: "priceUsd", title: "Price (USD)", type: "number" },
+    { name: "popular", title: "Most Popular?", type: "boolean" },
+    { name: "description", title: "Description", type: "text", rows: 3 },
+    {
+      name: "included",
+      title: "What's Included",
+      type: "array",
+      of: [{ type: "string" }],
+    },
+    {
+      name: "excluded",
+      title: "Not Included",
+      type: "array",
+      of: [{ type: "string" }],
+    },
+    {
+      name: "itinerary",
+      title: "Sample Itinerary",
+      type: "array",
+      of: [{ type: "string" }],
+    },
+    { name: "image", title: "Photo", type: "image", options: { hotspot: true } },
+    { name: "order", title: "Display Order", type: "number" },
+  ],
+  orderings: [{ title: "Order", name: "orderAsc", by: [{ field: "order", direction: "asc" }] }],
+};
