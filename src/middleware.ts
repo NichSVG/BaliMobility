@@ -27,15 +27,9 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // Protect /admin route (already handled by NextAuth, but double-check)
-  if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
-    // NextAuth middleware handles this, but we add a safety check
-    return NextResponse.next();
-  }
-
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/studio/:path*", "/admin/:path*"],
+  matcher: ["/studio/:path*"],
 };

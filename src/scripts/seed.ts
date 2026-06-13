@@ -626,7 +626,6 @@ async function seed() {
 
   console.log("\n✅ Seed complete! All content has been added to Sanity.");
   console.log("👉 Open Sanity Studio at /studio to edit content.");
-  console.log("👉 Open /admin to manage content via the admin dashboard.");
 }
 
 seed().catch((err) => {

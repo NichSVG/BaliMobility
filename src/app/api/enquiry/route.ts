@@ -58,7 +58,7 @@ export async function POST(req: NextRequest) {
           <p><strong>Specific needs:</strong> ${body.specificNeeds || "None"}</p>
           <p><strong>Message:</strong> ${body.message || "None"}</p>
           <hr />
-          <p><a href="http://localhost:3001/admin">View in Admin Dashboard</a></p>
+          <p>View enquiries in Sanity Studio.</p>
         `,
       });
 
