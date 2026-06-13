@@ -14,6 +14,7 @@
     "@sanity/presentation": "^2.0.0",
     "@sanity/vision": "^5.31.1",
     "@sanity/visual-editing": "^5.4.3",
+    "@vercel/analytics": "^2.0.1",
     "bcryptjs": "^3.0.3",
     "dotenv": "^17.4.2",
     "groq": "^5.30.0",

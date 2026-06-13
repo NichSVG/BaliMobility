@@ -5,6 +5,7 @@ import Link from "next/link";
 import { client } from "@/lib/sanity";
 import { siteSettingsQuery } from "@/lib/queries";
 import VisualEditingOverlay from "@/components/VisualEditing";
+import { Analytics } from "@vercel/analytics/next";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -48,6 +49,7 @@ export default async function RootLayout({
     <html lang="en" className={`${poppins.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
         <VisualEditingOverlay />
+        <Analytics />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
