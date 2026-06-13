@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { packagesQuery } from "@/lib/queries";
+import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Accessible Holiday Packages",
@@ -29,14 +30,15 @@ export default async function PackagesPage() {
 
   return (
     <>
-      <section className="bg-ocean text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Holiday Packages</h1>
-            <p className="text-lg text-white/90">All-inclusive accessible holiday packages. Equipment, carers, transport, tours, and accommodation — everything arranged for you.</p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        title="Holiday Packages"
+        subtitle="All-Inclusive"
+        description="All-inclusive accessible holiday packages. Equipment, carers, transport, tours, and accommodation — everything arranged for you."
+        variant="warm"
+        breadcrumbs={[
+          { label: "Packages", href: "/packages" },
+        ]}
+      />
 
       <section className="py-16 md:py-24" aria-label="Holiday packages">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

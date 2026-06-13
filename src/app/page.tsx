@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { client } from "@/lib/sanity";
-import { featuredTestimonialsQuery, servicesQuery } from "@/lib/queries";
+import { featuredTestimonialsQuery, servicesQuery, siteSettingsQuery } from "@/lib/queries";
+import { urlFor } from "@/lib/image";
 
 const stats = [
   { value: "15+", label: "Years Experience", icon: "📅" },
@@ -34,13 +35,18 @@ const fallbackTestimonials = [
 ];
 
 export default async function Home() {
-  const [services, testimonials] = await Promise.all([
+  const [services, testimonials, settings] = await Promise.all([
     client.fetch(servicesQuery).catch(() => []),
     client.fetch(featuredTestimonialsQuery).catch(() => []),
+    client.fetch(siteSettingsQuery).catch(() => null),
   ]);
 
   const displayServices = services.length > 0 ? services : fallbackServices;
   const displayTestimonials = testimonials.length > 0 ? testimonials : fallbackTestimonials;
+  
+  const heroImageUrl = settings?.heroImage 
+    ? urlFor(settings.heroImage).width(1920).quality(80).url()
+    : "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=80";
 
   return (
     <>
@@ -49,7 +55,7 @@ export default async function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=80"
+            src={heroImageUrl}
             alt="Beautiful Bali beach with accessible pathways"
             fill
             className="object-cover"

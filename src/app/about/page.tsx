@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { teamQuery } from "@/lib/queries";
+import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -39,14 +40,13 @@ export default async function AboutPage() {
 
   return (
     <>
-      <section className="bg-ocean text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
-            <p className="text-lg text-white/90">We&apos;re a family-run company in Sanur, Bali, dedicated to making Bali accessible for everyone.</p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        title="About Us"
+        subtitle="Our Story"
+        description="We&apos;re a family-run company in Sanur, Bali, dedicated to making Bali accessible for everyone."
+        variant="dark"
+        breadcrumbs={[{ label: "About", href: "/about" }]}
+      />
 
       <section className="py-16 md:py-24" aria-label="Our story">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -13,5 +13,18 @@ export const siteSettings = {
     { name: "whatsappMessage", title: "WhatsApp Default Message", type: "string" },
     { name: "googleMapsEmbed", title: "Google Maps Embed URL", type: "url" },
     { name: "businessHours", title: "Business Hours", type: "text", rows: 3 },
+    {
+      name: "heroImage",
+      title: "Homepage Hero Image",
+      type: "image",
+      options: { hotspot: true },
+      description: "Main hero image for the homepage (recommended: 1920x1080px)",
+    },
+    {
+      name: "ogImage",
+      title: "Social Share Image (Open Graph)",
+      type: "image",
+      description: "Image shown when sharing on social media (recommended: 1200x630px)",
+    },
   ],
 };

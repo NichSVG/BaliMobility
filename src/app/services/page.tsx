@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { servicesQuery } from "@/lib/queries";
+import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Our Services",
@@ -32,14 +33,13 @@ export default async function ServicesPage() {
 
   return (
     <>
-      <section className="bg-ocean text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
-            <p className="text-lg text-white/90">Complete disability travel support in Bali — from mobility equipment to all-inclusive holiday packages.</p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        title="Our Services"
+        subtitle="What We Offer"
+        description="Complete disability travel support in Bali — from mobility equipment to all-inclusive holiday packages."
+        variant="ocean"
+        breadcrumbs={[{ label: "Services", href: "/services" }]}
+      />
 
       <section className="py-16 md:py-24" aria-label="Service details">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

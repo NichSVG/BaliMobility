@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { testimonialsQuery } from "@/lib/queries";
+import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Guest Reviews",
@@ -30,20 +31,13 @@ export default async function TestimonialsPage() {
 
   return (
     <>
-      {/* Page Hero */}
-      <section className="bg-ocean text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              What Our Guests Say
-            </h1>
-            <p className="text-lg text-white/90">
-              Real stories from travellers who experienced Bali with our support.
-              Every review is from a real guest who used our services.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        title="What Our Guests Say"
+        subtitle="Testimonials"
+        description="Real stories from travellers who experienced Bali with our support. Every review is from a real guest who used our services."
+        variant="ocean"
+        breadcrumbs={[{ label: "Reviews", href: "/testimonials" }]}
+      />
 
       {/* Testimonials Grid */}
       <section className="py-16 md:py-24" aria-label="Guest testimonials">

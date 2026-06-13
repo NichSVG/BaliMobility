@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import EnquiryForm from "./EnquiryForm";
+import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -18,21 +19,13 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      {/* Page Hero */}
-      <section className="bg-ocean text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Plan Your Holiday
-            </h1>
-            <p className="text-lg text-white/90">
-              Tell us about your needs and we&apos;ll create a personalised
-              accessible holiday plan. No obligation — just friendly, expert
-              advice.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        title="Plan Your Holiday"
+        subtitle="Get in Touch"
+        description="Tell us about your needs and we&apos;ll create a personalised accessible holiday plan. No obligation — just friendly, expert advice."
+        variant="warm"
+        breadcrumbs={[{ label: "Contact", href: "/contact" }]}
+      />
 
       <section className="py-16 md:py-24" aria-label="Enquiry form and contact details">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

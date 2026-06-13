@@ -87,5 +87,7 @@ export const siteSettingsQuery = groq`*[_type == "siteSettings"][0] {
   whatsappNumber,
   whatsappMessage,
   googleMapsEmbed,
-  businessHours
+  businessHours,
+  heroImage,
+  ogImage
 }`;

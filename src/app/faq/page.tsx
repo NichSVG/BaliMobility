@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { faqQuery } from "@/lib/queries";
 import FAQClient from "./FAQClient";
+import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
@@ -42,14 +43,13 @@ export default async function FAQPage() {
 
   return (
     <>
-      <section className="bg-ocean text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h1>
-            <p className="text-lg text-white/90">Answers to common questions from travellers planning an accessible Bali holiday. Can&apos;t find what you need? <a href="/contact" className="underline">Get in touch</a>.</p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        title="Frequently Asked Questions"
+        subtitle="FAQ"
+        description="Answers to common questions from travellers planning an accessible Bali holiday. Can&apos;t find what you need? Get in touch."
+        variant="tropical"
+        breadcrumbs={[{ label: "FAQ", href: "/faq" }]}
+      />
       <FAQClient items={display} />
       <section className="bg-sand py-12" aria-label="Still have questions">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { equipmentQuery } from "@/lib/queries";
 import { urlFor } from "@/lib/image";
+import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Mobility Equipment Hire",
@@ -35,14 +36,16 @@ export default async function EquipmentPage() {
 
   return (
     <>
-      <section className="bg-ocean text-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Equipment Hire</h1>
-            <p className="text-lg text-white/90">Quality mobility equipment delivered to your hotel or villa. Rates shown in IDR and AUD.</p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        title="Equipment Hire"
+        subtitle="Mobility Solutions"
+        description="Quality mobility equipment delivered to your hotel or villa. Rates shown in IDR and AUD."
+        variant="tropical"
+        breadcrumbs={[
+          { label: "Services", href: "/services" },
+          { label: "Equipment", href: "/equipment" },
+        ]}
+      />
 
       <section className="py-16 md:py-24" aria-label="Equipment catalogue">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
