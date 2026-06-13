@@ -6,6 +6,7 @@ export const service = {
     { name: "title", title: "Title", type: "string", validation: (r: any) => r.required() },
     { name: "slug", title: "Slug", type: "slug", options: { source: "title" }, validation: (r: any) => r.required() },
     { name: "icon", title: "Icon (emoji)", type: "string" },
+    { name: "image", title: "Photo", type: "image", options: { hotspot: true }, description: "Service photo (recommended: 800x600px)" },
     { name: "description", title: "Short Description", type: "text", rows: 3 },
     {
       name: "details",

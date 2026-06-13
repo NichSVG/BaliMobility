@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { servicesQuery } from "@/lib/queries";
+import { urlFor } from "@/lib/image";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
@@ -47,7 +49,18 @@ export default async function ServicesPage() {
             {displayServices.map((service: any, index: number) => (
               <div key={service.title} className="grid md:grid-cols-2 gap-10 items-start">
                 <div className={index % 2 === 1 ? "md:order-2" : ""}>
-                  <div className="text-5xl mb-4" aria-hidden="true">{service.icon}</div>
+                  {service.image ? (
+                    <div className="relative h-64 rounded-xl overflow-hidden mb-6">
+                      <Image
+                        src={urlFor(service.image).width(800).height(500).quality(80).url()}
+                        alt={service.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="text-5xl mb-4" aria-hidden="true">{service.icon}</div>
+                  )}
                   <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">{service.title}</h2>
                   <p className="text-muted mb-6">{service.description}</p>
                   <Link href={service.ctaLink || "/contact"} className="inline-block bg-ocean text-white px-6 py-3 rounded-full font-semibold hover:bg-ocean-dark transition-colors">{service.ctaText || "Learn More"}</Link>

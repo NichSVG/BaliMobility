@@ -1,6 +1,8 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import { client } from "@/lib/sanity";
 import { testimonialsQuery } from "@/lib/queries";
+import { urlFor } from "@/lib/image";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
@@ -66,9 +68,25 @@ export default async function TestimonialsPage() {
                 <blockquote className="text-foreground mb-4">
                   &ldquo;{t.text}&rdquo;
                 </blockquote>
-                <div>
-                  <div className="font-semibold">{t.name}</div>
-                  <div className="text-sm text-muted">{t.location}</div>
+                <div className="flex items-center gap-3">
+                  {t.photo ? (
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden">
+                      <Image
+                        src={urlFor(t.photo).width(96).height(96).quality(80).url()}
+                        alt={t.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-12 h-12 bg-ocean/10 rounded-full flex items-center justify-center text-ocean font-bold">
+                      {t.name.charAt(0)}
+                    </div>
+                  )}
+                  <div>
+                    <div className="font-semibold">{t.name}</div>
+                    <div className="text-sm text-muted">{t.location}</div>
+                  </div>
                 </div>
               </div>
             ))}

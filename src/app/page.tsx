@@ -151,18 +151,31 @@ export default async function Home() {
               <Link 
                 key={service.title} 
                 href={service.ctaLink || "/services"} 
-                className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-all border border-gray-100 group hover:-translate-y-1"
+                className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-100 group hover:-translate-y-1"
               >
-                <div className="w-14 h-14 bg-ocean/10 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-ocean/20 transition-colors">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-ocean transition-colors">{service.title}</h3>
-                <p className="text-muted leading-relaxed">{service.description}</p>
-                <div className="mt-4 text-ocean font-medium text-sm flex items-center gap-2">
-                  Learn more
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                {service.image ? (
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={urlFor(service.image).width(600).height(400).quality(80).url()}
+                      alt={service.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-14 h-14 bg-ocean/10 rounded-xl flex items-center justify-center text-3xl m-8 mb-0 group-hover:bg-ocean/20 transition-colors">
+                    {service.icon}
+                  </div>
+                )}
+                <div className="p-8">
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-ocean transition-colors">{service.title}</h3>
+                  <p className="text-muted leading-relaxed">{service.description}</p>
+                  <div className="mt-4 text-ocean font-medium text-sm flex items-center gap-2">
+                    Learn more
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
                 </div>
               </Link>
             ))}
@@ -178,7 +191,9 @@ export default async function Home() {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80"
+                  src={settings?.featuredPackageImage 
+                    ? urlFor(settings.featuredPackageImage).width(800).quality(80).url()
+                    : "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80"}
                   alt="Accessible resort pool in Bali"
                   width={800}
                   height={600}
@@ -260,9 +275,20 @@ export default async function Home() {
                 
                 {/* Author */}
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-ocean/10 rounded-full flex items-center justify-center text-ocean font-bold text-lg">
-                    {t.name.charAt(0)}
-                  </div>
+                  {t.photo ? (
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden">
+                      <Image
+                        src={urlFor(t.photo).width(96).height(96).quality(80).url()}
+                        alt={t.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-12 h-12 bg-ocean/10 rounded-full flex items-center justify-center text-ocean font-bold text-lg">
+                      {t.name.charAt(0)}
+                    </div>
+                  )}
                   <div>
                     <div className="font-semibold text-foreground">{t.name}</div>
                     <div className="text-sm text-muted">{t.location}</div>
@@ -318,7 +344,9 @@ export default async function Home() {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1604999333679-b86d54738315?w=800&q=80"
+                  src={settings?.aboutImage 
+                    ? urlFor(settings.aboutImage).width(800).quality(80).url()
+                    : "https://images.unsplash.com/photo-1604999333679-b86d54738315?w=800&q=80"}
                   alt="Friendly Bali local team"
                   width={800}
                   height={600}

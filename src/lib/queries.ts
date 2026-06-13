@@ -5,6 +5,7 @@ export const servicesQuery = groq`*[_type == "service"] | order(order asc) {
   title,
   "slug": slug.current,
   icon,
+  image,
   description,
   details,
   ctaText,
@@ -59,7 +60,8 @@ export const featuredTestimonialsQuery = groq`*[_type == "testimonial" && featur
   name,
   location,
   rating,
-  text
+  text,
+  photo
 }`;
 
 export const faqQuery = groq`*[_type == "faqItem"] | order(category asc, order asc) {
@@ -89,5 +91,7 @@ export const siteSettingsQuery = groq`*[_type == "siteSettings"][0] {
   googleMapsEmbed,
   businessHours,
   heroImage,
-  ogImage
+  ogImage,
+  aboutImage,
+  featuredPackageImage
 }`;

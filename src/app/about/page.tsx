@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { teamQuery } from "@/lib/queries";
+import { urlFor } from "@/lib/image";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
@@ -94,7 +96,18 @@ export default async function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {displayTeam.map((person: any) => (
               <div key={person.name} className="bg-white rounded-xl p-6 border border-sand-dark">
-                <div className="w-16 h-16 bg-ocean/10 rounded-full flex items-center justify-center text-2xl mb-4">👤</div>
+                {person.photo ? (
+                  <div className="relative w-20 h-20 rounded-full overflow-hidden mb-4">
+                    <Image
+                      src={urlFor(person.photo).width(160).height(160).quality(80).url()}
+                      alt={person.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-16 h-16 bg-ocean/10 rounded-full flex items-center justify-center text-2xl mb-4">👤</div>
+                )}
                 <h3 className="font-bold text-foreground">{person.name}</h3>
                 <div className="text-sm text-ocean font-medium mb-2">{person.role}</div>
                 <p className="text-sm text-muted">{person.bio}</p>

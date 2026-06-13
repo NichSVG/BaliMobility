@@ -26,5 +26,19 @@ export const siteSettings = {
       type: "image",
       description: "Image shown when sharing on social media (recommended: 1200x630px)",
     },
+    {
+      name: "aboutImage",
+      title: "About Section Image",
+      type: "image",
+      options: { hotspot: true },
+      description: "Image for the 'Why Choose Us' section on homepage (recommended: 800x600px)",
+    },
+    {
+      name: "featuredPackageImage",
+      title: "Featured Package Image",
+      type: "image",
+      options: { hotspot: true },
+      description: "Image for the featured package section on homepage (recommended: 800x600px)",
+    },
   ],
 };
