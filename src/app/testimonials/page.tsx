@@ -1,5 +1,20 @@
+import { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { testimonialsQuery } from "@/lib/queries";
+
+export const metadata: Metadata = {
+  title: "Guest Reviews",
+  description:
+    "Read real stories from travellers who experienced accessible holidays in Bali with Bali Mobility. 4.9/5 average rating.",
+  alternates: {
+    canonical: "/testimonials",
+  },
+  openGraph: {
+    title: "Guest Reviews | Bali Mobility",
+    description:
+      "Read real stories from travellers who experienced accessible holidays in Bali with Bali Mobility. 4.9/5 average rating.",
+  },
+};
 
 const fallbackTestimonials = [
   { name: "Sarah M.", location: "Melbourne, Australia", rating: 5, text: "Bali Mobility made our family holiday absolutely stress-free. The scooter was waiting at our hotel and the carers were incredible. We could actually relax for the first time in years." },

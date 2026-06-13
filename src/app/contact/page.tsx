@@ -1,4 +1,19 @@
+import { Metadata } from "next";
 import EnquiryForm from "./EnquiryForm";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Plan your accessible Bali holiday. Contact us for a free quote on equipment hire, carers, transport, and all-inclusive packages.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Us | Bali Mobility",
+    description:
+      "Plan your accessible Bali holiday. Contact us for a free quote on equipment hire, carers, transport, and all-inclusive packages.",
+  },
+};
 
 export default function ContactPage() {
   return (

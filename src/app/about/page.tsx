@@ -1,6 +1,21 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { teamQuery } from "@/lib/queries";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about Bali Mobility — our mission to make Bali accessible for everyone. Meet our local team and discover why travellers trust us.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Us | Bali Mobility",
+    description:
+      "Learn about Bali Mobility — our mission to make Bali accessible for everyone. Meet our local team and discover why travellers trust us.",
+  },
+};
 
 const values = [
   { icon: "❤️", title: "Compassion First", description: "We treat every client with dignity, respect, and genuine care." },

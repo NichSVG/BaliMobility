@@ -1,6 +1,21 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { servicesQuery } from "@/lib/queries";
+
+export const metadata: Metadata = {
+  title: "Our Services",
+  description:
+    "Comprehensive accessibility services in Bali: mobility equipment hire, personal carers, accessible transport, and all-inclusive holiday packages.",
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    title: "Our Services | Bali Mobility",
+    description:
+      "Comprehensive accessibility services in Bali: mobility equipment hire, personal carers, accessible transport, and all-inclusive holiday packages.",
+  },
+};
 
 const fallbackServices = [
   { icon: "🦽", title: "Mobility Equipment Hire", description: "Wide range of mobility equipment delivered directly to your hotel or villa. All equipment is well-maintained, clean, and ready to use.", details: ["Mobility scooters — lightweight and travel-friendly", "Electric wheelchairs — joystick controlled, foldable", "Walkers and rollators — with seats and baskets", "Adjustable toilet seats and shower chairs", "Beach wheelchairs — for sand and water access", "Crutches and walking sticks"], ctaText: "View Equipment", ctaLink: "/equipment" },

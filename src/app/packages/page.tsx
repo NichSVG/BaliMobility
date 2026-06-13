@@ -1,6 +1,21 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { packagesQuery } from "@/lib/queries";
+
+export const metadata: Metadata = {
+  title: "Accessible Holiday Packages",
+  description:
+    "All-inclusive accessible holiday packages in Bali. 3, 5, and 7-night packages with accommodation, equipment, carers, transport, and tours.",
+  alternates: {
+    canonical: "/packages",
+  },
+  openGraph: {
+    title: "Accessible Holiday Packages | Bali Mobility",
+    description:
+      "All-inclusive accessible holiday packages in Bali. 3, 5, and 7-night packages with accommodation, equipment, carers, transport, and tours.",
+  },
+};
 
 const fallbackPackages = [
   { name: "Bali Taster", nights: 3, priceAud: 899, priceGbp: 499, priceUsd: 649, popular: false, description: "Perfect for a short getaway. Experience accessible Bali with everything you need.", included: ["3 nights accessible hotel", "Mobility equipment hire", "Personal carer — 8 hours/day", "Airport collection & return", "1 guided accessible tour", "Welcome pack"], excluded: ["Flights", "Travel insurance", "Meals (except breakfast)"], itinerary: ["Day 1: Airport pickup, hotel check-in, welcome briefing", "Day 2: Guided tour — accessible Sanur beach & markets", "Day 3: Free day with equipment", "Day 4: Airport transfer & departure"] },

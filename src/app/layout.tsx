@@ -6,6 +6,7 @@ import { client } from "@/lib/sanity";
 import { siteSettingsQuery } from "@/lib/queries";
 import VisualEditingOverlay from "@/components/VisualEditing";
 import { Analytics } from "@vercel/analytics/next";
+import JsonLd from "@/components/JsonLd";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -26,9 +27,69 @@ const navLinks = [
 ];
 
 export const metadata: Metadata = {
-  title: "Bali Mobility — Accessible Holidays in Bali",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://balimobility.com"),
+  title: {
+    default: "Bali Mobility — Accessible Holidays in Bali",
+    template: "%s | Bali Mobility",
+  },
   description:
     "Stress-free mobility holidays and disability travel services in Bali. Equipment hire, personal carers, accessible transport, and all-inclusive packages.",
+  keywords: [
+    "accessible holidays Bali",
+    "disability travel Bali",
+    "mobility equipment hire Bali",
+    "wheelchair accessible Bali",
+    "disabled holiday packages",
+    "accessible tourism Indonesia",
+    "personal carer Bali",
+    "mobility scooter rental Bali",
+  ],
+  authors: [{ name: "Bali Mobility" }],
+  creator: "Bali Mobility",
+  publisher: "Bali Mobility",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    siteName: "Bali Mobility",
+    title: "Bali Mobility — Accessible Holidays in Bali",
+    description:
+      "Stress-free mobility holidays and disability travel services in Bali. Equipment hire, personal carers, accessible transport, and all-inclusive packages.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Bali Mobility - Accessible Holidays in Paradise",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bali Mobility — Accessible Holidays in Bali",
+    description:
+      "Stress-free mobility holidays and disability travel services in Bali. Equipment hire, personal carers, accessible transport, and all-inclusive packages.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default async function RootLayout({
@@ -50,6 +111,7 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col font-sans">
         <VisualEditingOverlay />
         <Analytics />
+        <JsonLd />
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>

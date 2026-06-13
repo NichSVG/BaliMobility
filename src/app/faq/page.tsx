@@ -1,6 +1,21 @@
+import { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { faqQuery } from "@/lib/queries";
 import FAQClient from "./FAQClient";
+
+export const metadata: Metadata = {
+  title: "Frequently Asked Questions",
+  description:
+    "Get answers to common questions about accessible holidays in Bali. Equipment hire, carers, transport, packages, and more.",
+  alternates: {
+    canonical: "/faq",
+  },
+  openGraph: {
+    title: "FAQ | Bali Mobility",
+    description:
+      "Get answers to common questions about accessible holidays in Bali. Equipment hire, carers, transport, packages, and more.",
+  },
+};
 
 const fallbackFaq = [
   { category: "Equipment & Hire", question: "What mobility equipment do you offer?", answer: "We offer mobility scooters, electric wheelchairs, manual wheelchairs, walkers/rollators, adjustable toilet seats, shower chairs, beach wheelchairs, and pushchairs for children." },

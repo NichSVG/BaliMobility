@@ -1,7 +1,22 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import { client } from "@/lib/sanity";
 import { equipmentQuery } from "@/lib/queries";
 import { urlFor } from "@/lib/image";
+
+export const metadata: Metadata = {
+  title: "Mobility Equipment Hire",
+  description:
+    "Rent mobility scooters, electric wheelchairs, walkers, and beach wheelchairs in Bali. Delivered to your hotel with 24/7 support.",
+  alternates: {
+    canonical: "/equipment",
+  },
+  openGraph: {
+    title: "Mobility Equipment Hire | Bali Mobility",
+    description:
+      "Rent mobility scooters, electric wheelchairs, walkers, and beach wheelchairs in Bali. Delivered to your hotel with 24/7 support.",
+  },
+};
 
 const fallbackEquipment = [
   { name: "Mobility Scooter", icon: "🛵", description: "Lightweight, foldable mobility scooter perfect for exploring Bali.", features: ["Max speed: 8 km/h", "Range: 20 km per charge", "Weight capacity: 120 kg", "Foldable for easy transport"], rateDaily: "IDR 250K", rateWeekly: "IDR 1.2M", rateHoliday: "IDR 1.8M", rateDailyAud: "AUD $25", rateWeeklyAud: "AUD $120", rateHolidayAud: "AUD $180", bestFor: "Travellers with limited mobility who can stand and transfer." },
