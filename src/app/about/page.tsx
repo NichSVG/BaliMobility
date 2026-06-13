@@ -1,22 +1,18 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Metadata } from "next";
-import { client } from "@/lib/sanity";
-import { teamQuery } from "@/lib/queries";
-import { urlFor } from "@/lib/image";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about Bali Mobility — our mission to make Bali accessible for everyone. Meet our local team and discover why travellers trust us.",
+    "Learn about Bali Mobility — our mission to make Bali accessible for everyone.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     title: "About Us | Bali Mobility",
     description:
-      "Learn about Bali Mobility — our mission to make Bali accessible for everyone. Meet our local team and discover why travellers trust us.",
+      "Learn about Bali Mobility — our mission to make Bali accessible for everyone.",
   },
 };
 
@@ -27,19 +23,7 @@ const values = [
   { icon: "💬", title: "Clear Communication", description: "Bilingual team with transparent pricing. No surprises, no hidden costs." },
 ];
 
-const fallbackTeam = [
-  { name: "Wayan Sudarma", role: "Founder & Director", bio: "Born in Sanur, Wayan started Bali Mobility after seeing his own family members struggle to travel." },
-  { name: "Ketut Ariani", role: "Client Coordinator", bio: "Ketut is your first point of contact. Fluent in English and Indonesian." },
-  { name: "Made Dharma", role: "Head of Equipment", bio: "Made ensures all mobility equipment is maintained, cleaned, and delivered on time." },
-  { name: "Ni Luh Sari", role: "Lead Carer", bio: "Ni Luh leads our team of personal carers with 10+ years in disability support." },
-  { name: "Gede Wirawan", role: "Transport Manager", bio: "Gede manages our fleet of accessible vehicles and drivers." },
-  { name: "Putu Eka", role: "Tour Coordinator", bio: "Putu designs and coordinates our accessible tours across Bali." },
-];
-
-export default async function AboutPage() {
-  const team = await client.fetch(teamQuery).catch(() => []);
-  const displayTeam = team.length > 0 ? team : fallbackTeam;
-
+export default function AboutPage() {
   return (
     <>
       <PageHeader
@@ -81,36 +65,6 @@ export default async function AboutPage() {
                 <div className="text-4xl mb-3" aria-hidden="true">{v.icon}</div>
                 <h3 className="font-semibold text-foreground mb-2">{v.title}</h3>
                 <p className="text-sm text-muted">{v.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24" aria-label="Our team">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Meet the Team</h2>
-            <p className="text-muted">The people who make your Bali holiday possible.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {displayTeam.map((person: any) => (
-              <div key={person.name} className="bg-white rounded-xl p-6 border border-sand-dark">
-                {person.photo ? (
-                  <div className="relative w-20 h-20 rounded-full overflow-hidden mb-4">
-                    <Image
-                      src={urlFor(person.photo).width(160).height(160).quality(80).url()}
-                      alt={person.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ) : (
-                  <div className="w-16 h-16 bg-ocean/10 rounded-full flex items-center justify-center text-2xl mb-4">👤</div>
-                )}
-                <h3 className="font-bold text-foreground">{person.name}</h3>
-                <div className="text-sm text-ocean font-medium mb-2">{person.role}</div>
-                <p className="text-sm text-muted">{person.bio}</p>
               </div>
             ))}
           </div>
