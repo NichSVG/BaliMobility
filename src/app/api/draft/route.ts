@@ -1,22 +1,48 @@
 import { draftMode } from "next/headers";
 import { redirect } from "next/navigation";
 import { validatePreviewUrl } from "@sanity/preview-url-secret";
-import { client } from "@/lib/sanity";
+import { createClient } from "next-sanity";
 
-const { SANITY_API_TOKEN } = process.env;
+const token = process.env.SANITY_API_TOKEN;
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
 
 export async function GET(request: Request) {
-  const { isValid, redirectTo = "/" } = await validatePreviewUrl(
-    client.withConfig({ token: SANITY_API_TOKEN }),
-    request.url
-  );
-
-  if (!isValid) {
-    return new Response("Invalid secret", { status: 401 });
+  if (!token) {
+    console.error("Missing SANITY_API_TOKEN environment variable");
+    return new Response("Server misconfiguration", { status: 500 });
   }
 
-  const draft = await draftMode();
-  draft.enable();
+  if (!projectId) {
+    console.error("Missing NEXT_PUBLIC_SANITY_PROJECT_ID environment variable");
+    return new Response("Server misconfiguration", { status: 500 });
+  }
 
-  redirect(redirectTo);
+  try {
+    const client = createClient({
+      projectId,
+      dataset,
+      apiVersion: "2024-01-01",
+      useCdn: false,
+      token,
+    });
+
+    const { isValid, redirectTo = "/" } = await validatePreviewUrl(
+      client,
+      request.url
+    );
+
+    if (!isValid) {
+      console.error("Invalid preview secret. URL:", request.url);
+      return new Response("Invalid secret", { status: 401 });
+    }
+
+    const draft = await draftMode();
+    draft.enable();
+
+    redirect(redirectTo);
+  } catch (error) {
+    console.error("Draft mode error:", error);
+    return new Response("Internal error", { status: 500 });
+  }
 }
