@@ -20,7 +20,9 @@ export default defineConfig({
       previewUrl: {
         origin:
           typeof location === "undefined"
-            ? "http://localhost:3001"
+            ? process.env.VERCEL_URL
+              ? `https://${process.env.VERCEL_URL}`
+              : "http://localhost:3001"
             : location.origin,
         draftMode: {
           enable: "/api/draft",
