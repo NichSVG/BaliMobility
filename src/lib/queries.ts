@@ -95,3 +95,91 @@ export const siteSettingsQuery = groq`*[_type == "siteSettings"][0] {
   aboutImage,
   featuredPackageImage
 }`;
+
+export const pageBySlugQuery = groq`*[_type == "page" && slug.current == $slug && published == true][0] {
+  _id,
+  title,
+  "slug": slug.current,
+  sections[]{
+    _type,
+    _key,
+    ...,
+    _type == "heroSection" => {
+      heading,
+      subheading,
+      image,
+      buttons[]{ text, link, style },
+      overlay,
+      height,
+    },
+    _type == "featuresSection" => {
+      eyebrow,
+      heading,
+      description,
+      columns,
+      features[]{ icon, title, description, link },
+      background,
+    },
+    _type == "textSection" => {
+      eyebrow,
+      heading,
+      content,
+      alignment,
+      background,
+      image,
+      imagePosition,
+    },
+    _type == "ctaSection" => {
+      heading,
+      description,
+      buttons[]{ text, link, style },
+      background,
+    },
+    _type == "statsSection" => {
+      stats[]{ value, label, icon },
+      background,
+    },
+    _type == "gallerySection" => {
+      eyebrow,
+      heading,
+      description,
+      images[]{ image, caption, alt },
+      columns,
+    },
+    _type == "testimonialsSection" => {
+      eyebrow,
+      heading,
+      description,
+      limit,
+      showOnlyFeatured,
+      background,
+    },
+    _type == "faqSection" => {
+      eyebrow,
+      heading,
+      description,
+      category,
+      background,
+    },
+    _type == "imageTextSection" => {
+      eyebrow,
+      heading,
+      text,
+      points[]{ title, description },
+      image,
+      imageAlt,
+      imagePosition,
+      button{ text, link },
+      background,
+    },
+  },
+  seo{
+    metaTitle,
+    metaDescription,
+    ogImage,
+  },
+}`;
+
+export const allPagesSlugsQuery = groq`*[_type == "page" && published == true] {
+  "slug": slug.current,
+}`;

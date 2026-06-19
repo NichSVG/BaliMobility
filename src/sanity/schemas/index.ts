@@ -6,6 +6,8 @@ import { faqItem } from "./faqItem";
 import { teamMember } from "./teamMember";
 import { siteSettings } from "./siteSettings";
 import { enquiry } from "./enquiry";
+import { page } from "./page";
+import { sectionTypes } from "./sections";
 
 export const schemaTypes = [
   service,
@@ -16,4 +18,6 @@ export const schemaTypes = [
   teamMember,
   siteSettings,
   enquiry,
+  page,
+  ...sectionTypes,
 ];
