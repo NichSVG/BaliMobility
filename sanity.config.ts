@@ -35,9 +35,14 @@ export default defineConfig({
       resolve: {
         locations: {
           page: {
-            select: {slug: 'slug.current'},
+            select: {slug: 'slug.current', title: 'title'},
             resolve: (doc) => ({
-              href: `/${doc?.slug || ''}`,
+              locations: [
+                {
+                  title: doc?.title || 'Page',
+                  href: `/${doc?.slug || ''}`,
+                },
+              ],
             }),
           },
         },
