@@ -6,7 +6,7 @@ export default function JsonLd() {
     "@type": "LocalBusiness",
     name: "Bali Mobility",
     description:
-      "Accessible holidays and disability travel services in Bali. Equipment rental, personal carers, accessible transport, and all-inclusive packages.",
+      "Mobility equipment rental in Bali. Scooters, wheelchairs, walker frames, and more delivered to your hotel.",
     url: baseUrl,
     telephone: "+62-821-4652-2084",
     email: "dedikbali@yahoo.com",
@@ -51,7 +51,7 @@ export default function JsonLd() {
     "@type": "TravelAgency",
     name: "Bali Mobility",
     description:
-      "Accessible holidays and disability travel services in Bali. Equipment rental, personal carers, accessible transport, and all-inclusive packages.",
+      "Mobility equipment rental in Bali. Scooters, wheelchairs, walker frames, and more delivered to your hotel.",
     url: baseUrl,
     telephone: "+62-821-4652-2084",
     address: {
@@ -65,9 +65,9 @@ export default function JsonLd() {
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "AUD",
-      lowPrice: "1899",
-      highPrice: "4999",
-      offerCount: "3",
+      lowPrice: "8",
+      highPrice: "250",
+      offerCount: "7",
     },
   };
 

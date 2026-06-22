@@ -20,10 +20,10 @@ export const metadata: Metadata = {
 };
 
 const fallbackTestimonials = [
-  { name: "Sarah M.", location: "Melbourne, Australia", rating: 5, text: "Bali Mobility made our family holiday absolutely stress-free. The scooter was waiting at our hotel and the carers were incredible. We could actually relax for the first time in years." },
-  { name: "James & Linda P.", location: "London, UK", rating: 5, text: "We were nervous about visiting Bali with my wheelchair, but the team handled everything — airport pickup, accessible transport, even arranged a beach wheelchair. Truly life-changing." },
-  { name: "Tom K.", location: "Sydney, Australia", rating: 5, text: "The all-inclusive package was worth every penny. They thought of everything we didn't even know we needed. Highly recommend for anyone with mobility challenges." },
-  { name: "Margaret H.", location: "Auckland, New Zealand", rating: 5, text: "As an elderly traveller, I was worried about visiting Bali alone. The carer they provided was like having a friend by my side. I felt safe and supported the entire trip." },
+  { name: "Sarah M.", location: "Melbourne, Australia", rating: 5, text: "Bali Mobility made our family holiday absolutely stress-free. The scooter was waiting at our hotel and the equipment was in perfect condition. We could actually relax for the first time in years." },
+  { name: "James & Linda P.", location: "London, UK", rating: 5, text: "We were nervous about visiting Bali with my wheelchair, but the team handled everything — delivery, pickup, even made sure we had the right equipment for our needs. Truly life-changing." },
+  { name: "Tom K.", location: "Sydney, Australia", rating: 5, text: "The equipment rental was worth every penny. They thought of everything we didn't even know we needed. Highly recommend for anyone with mobility challenges." },
+  { name: "Margaret H.", location: "Auckland, New Zealand", rating: 5, text: "As an elderly traveller, I was worried about visiting Bali alone. The mobility scooter they provided gave me independence and confidence. I felt safe and supported the entire trip." },
   { name: "David & Karen W.", location: "Perth, Australia", rating: 5, text: "We've used Bali Mobility three times now. The consistency is amazing — every trip has been perfect. The equipment is always in great condition and the team is wonderful." },
 ];
 

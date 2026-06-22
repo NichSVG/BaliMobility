@@ -21,17 +21,14 @@ const trustBadges = [
 // Fallback data if CMS is empty
 const fallbackServices = [
   { icon: "🦽", title: "Equipment Rental", description: "Mobility scooters, wheelchairs, walkers, and more — delivered to your hotel.", ctaLink: "/equipment" },
-  { icon: "🤝", title: "Personal Carers", description: "Experienced day and night carers who understand disability support.", ctaLink: "/services" },
-  { icon: "🚐", title: "Accessible Transport", description: "Mobility car with driver, airport collection and return.", ctaLink: "/services" },
-  { icon: "🏖️", title: "Holiday Packages", description: "All-inclusive packages with tours, accommodation, and full support.", ctaLink: "/packages" },
-  { icon: "👶", title: "Family Services", description: "Pushchairs, car seats, nannies, and babysitters for families.", ctaLink: "/services" },
-  { icon: "🤿", title: "Activities & Tours", description: "Accessible diving, fishing, massages, and Bali cultural nights.", ctaLink: "/packages" },
+  { icon: "👶", title: "Baby Equipment", description: "Pushchairs and car seats for families with young children.", ctaLink: "/equipment" },
+  { icon: "🚿", title: "Bathroom Aids", description: "Shower seats and toilet seats for safer, more comfortable stays.", ctaLink: "/equipment" },
 ];
 
 const fallbackTestimonials = [
-  { name: "Sarah M.", location: "Melbourne, Australia", rating: 5, text: "Bali Mobility made our family holiday absolutely stress-free. The scooter was waiting at our hotel and the carers were incredible. We could actually relax for the first time in years." },
-  { name: "James & Linda P.", location: "London, UK", rating: 5, text: "We were nervous about visiting Bali with my wheelchair, but the team handled everything — airport pickup, accessible transport, even arranged a beach wheelchair. Truly life-changing." },
-  { name: "Tom K.", location: "Sydney, Australia", rating: 5, text: "The all-inclusive package was worth every penny. They thought of everything we didn't even know we needed. Highly recommend for anyone with mobility challenges." },
+  { name: "Sarah M.", location: "Melbourne, Australia", rating: 5, text: "Bali Mobility made our family holiday absolutely stress-free. The scooter was waiting at our hotel and the equipment was in perfect condition. We could actually relax for the first time in years." },
+  { name: "James & Linda P.", location: "London, UK", rating: 5, text: "We were nervous about visiting Bali with my wheelchair, but the team handled everything — delivery, pickup, even arranged the right equipment for our needs. Truly life-changing." },
+  { name: "Tom K.", location: "Sydney, Australia", rating: 5, text: "The equipment rental was worth every penny. They thought of everything we didn't even know we needed. Highly recommend for anyone with mobility challenges." },
 ];
 
 export default async function Home() {
@@ -81,26 +78,26 @@ export default async function Home() {
             
             <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl leading-relaxed">
               A family-run company dedicated to making your Bali holiday enjoyable
-              and stress-free. We specialise in disability holidays, mobility equipment,
-              carers, and accessible transport — so everyone can experience paradise.
+              and stress-free. We specialise in mobility equipment rental —
+              so everyone can experience paradise.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <Link 
-                href="/contact" 
+                href="/equipment" 
                 className="inline-flex items-center justify-center gap-2 bg-coral text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-coral/90 transition-all shadow-lg hover:shadow-xl"
               >
-                Plan My Holiday
+                Rent Equipment
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
               <Link 
-                href="/packages" 
+                href="/contact" 
                 className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/20 transition-all"
               >
-                View Packages
+                Get in Touch
               </Link>
             </div>
 
@@ -142,9 +139,9 @@ export default async function Home() {
       <section className="py-20 md:py-28 bg-gray-50" aria-label="Our services">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="inline-block text-ocean font-semibold text-sm uppercase tracking-wider mb-4">Our Services</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Disability & family support, wherever you go</h2>
-            <p className="text-muted max-w-2xl mx-auto text-lg">From mobility equipment to personal carers and accessible transport, we provide complete support so you can focus on enjoying Bali.</p>
+            <span className="inline-block text-ocean font-semibold text-sm uppercase tracking-wider mb-4">Our Equipment</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Mobility equipment rental for your Bali holiday</h2>
+            <p className="text-muted max-w-2xl mx-auto text-lg">Quality mobility equipment delivered to your hotel or villa. Daily, weekly, or full-holiday rates.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayServices.map((service: any) => (
@@ -179,71 +176,6 @@ export default async function Home() {
                 </div>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Package */}
-      <section className="py-20 md:py-28" aria-label="Featured package">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Image Side */}
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src={settings?.featuredPackageImage 
-                    ? urlFor(settings.featuredPackageImage).width(800).quality(80).url()
-                    : "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80"}
-                  alt="Accessible resort pool in Bali"
-                  width={800}
-                  height={600}
-                  className="w-full h-auto"
-                />
-              </div>
-              {/* Floating Badge */}
-              <div className="absolute -bottom-4 -right-4 md:-right-8 bg-coral text-white rounded-2xl p-4 shadow-xl">
-                <div className="text-sm font-medium">From</div>
-                <div className="text-3xl font-bold">AUD $1,899</div>
-                <div className="text-sm">/ person</div>
-              </div>
-            </div>
-
-            {/* Content Side */}
-            <div>
-              <span className="inline-block bg-ocean/10 text-ocean text-sm font-semibold px-4 py-2 rounded-full mb-6">
-                ⭐ Most Popular
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">7-Night Bali Discovery Package</h2>
-              <p className="text-muted text-lg mb-8 leading-relaxed">
-                Our most popular all-inclusive package. Everything you need for a perfect accessible holiday in Bali — from accommodation to activities.
-              </p>
-              <ul className="space-y-4 mb-8">
-                {["7 nights accessible accommodation", "Mobility equipment rental included", "Personal carer (daytime)", "Accessible transport with driver", "3 guided accessible tours", "Airport collection & return"].map((item) => (
-                  <li key={item} className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-tropical/10 rounded-full flex items-center justify-center shrink-0">
-                      <svg className="w-4 h-4 text-tropical" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <span className="text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link 
-                  href="/packages" 
-                  className="inline-flex items-center justify-center gap-2 bg-ocean text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-ocean-dark transition-colors"
-                >
-                  View All Packages
-                </Link>
-                <Link 
-                  href="/contact" 
-                  className="inline-flex items-center justify-center gap-2 border-2 border-ocean text-ocean px-8 py-4 rounded-lg text-lg font-semibold hover:bg-ocean/5 transition-colors"
-                >
-                  Get Custom Quote
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -364,10 +296,10 @@ export default async function Home() {
       {/* Final CTA */}
       <section className="py-20 md:py-28 bg-ocean text-white" aria-label="Get started">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Make it a holiday all the family remembers</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to explore Bali?</h2>
           <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-            With mobility scooters, wheelchairs, walking frames, and carers day or night —
-            we&apos;ll make your Bali holiday one you&apos;ll want to return to. Get in touch for
+            With mobility scooters, wheelchairs, walker frames, and more —
+            we&apos;ll make your Bali holiday comfortable and stress-free. Get in touch for
             friendly advice from our local team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

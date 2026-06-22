@@ -17,9 +17,7 @@ const poppins = Poppins({
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
   { href: "/equipment", label: "Equipment" },
-  { href: "/packages", label: "Packages" },
   { href: "/testimonials", label: "Reviews" },
   { href: "/about", label: "About" },
   { href: "/faq", label: "FAQ" },
@@ -33,16 +31,14 @@ export const metadata: Metadata = {
     template: "%s | Bali Mobility",
   },
   description:
-    "Stress-free mobility holidays and disability travel services in Bali. Equipment rental, personal carers, accessible transport, and all-inclusive packages.",
+    "Bali Mobility — mobility equipment rental in Bali. Scooters, wheelchairs, walkers, and more delivered to your hotel.",
   keywords: [
     "accessible holidays Bali",
     "disability travel Bali",
-      "mobility equipment rental Bali",
-    "wheelchair accessible Bali",
-    "disabled holiday packages",
-    "accessible tourism Indonesia",
-    "personal carer Bali",
+    "mobility equipment rental Bali",
+    "wheelchair rental Bali",
     "mobility scooter rental Bali",
+    "accessible tourism Indonesia",
   ],
   authors: [{ name: "Bali Mobility" }],
   creator: "Bali Mobility",
@@ -59,7 +55,7 @@ export const metadata: Metadata = {
     siteName: "Bali Mobility",
     title: "Bali Mobility — Accessible Holidays in Bali",
     description:
-      "Stress-free mobility holidays and disability travel services in Bali. Equipment rental, personal carers, accessible transport, and all-inclusive packages.",
+      "Bali Mobility — mobility equipment rental in Bali. Scooters, wheelchairs, walkers, and more delivered to your hotel.",
     images: [
       {
         url: "/og-image.jpg",
@@ -73,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Bali Mobility — Accessible Holidays in Bali",
     description:
-      "Stress-free mobility holidays and disability travel services in Bali. Equipment rental, personal carers, accessible transport, and all-inclusive packages.",
+      "Bali Mobility — mobility equipment rental in Bali. Scooters, wheelchairs, walkers, and more delivered to your hotel.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -171,12 +167,12 @@ export default async function RootLayout({
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold mb-3">Services</h4>
+                <h4 className="font-semibold mb-3">Equipment</h4>
                 <ul className="space-y-2 text-sm text-gray-300">
-                  <li><Link href="/equipment" className="hover:text-white transition-colors">Equipment Rental</Link></li>
-                  <li><Link href="/services" className="hover:text-white transition-colors">Personal Carers</Link></li>
-                  <li><Link href="/services" className="hover:text-white transition-colors">Accessible Transport</Link></li>
-                  <li><Link href="/packages" className="hover:text-white transition-colors">Holiday Packages</Link></li>
+                  <li><Link href="/equipment" className="hover:text-white transition-colors">Mobility Scooters</Link></li>
+                  <li><Link href="/equipment" className="hover:text-white transition-colors">Wheelchairs</Link></li>
+                  <li><Link href="/equipment" className="hover:text-white transition-colors">Walker Frames</Link></li>
+                  <li><Link href="/equipment" className="hover:text-white transition-colors">Baby Equipment</Link></li>
                 </ul>
               </div>
               <div>

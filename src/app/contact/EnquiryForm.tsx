@@ -44,12 +44,6 @@ const serviceOptions = [
   "Walker Frame Rental",
   "Shower Seat Rental",
   "Toilet Seat Rental",
-  "Personal Carer (Daytime)",
-  "Personal Carer (Night-time)",
-  "Accessible Transport",
-  "Airport Transfer",
-  "All-Inclusive Package",
-  "Family Services",
 ];
 
 export default function EnquiryForm() {

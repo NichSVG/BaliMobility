@@ -5,14 +5,14 @@ import PageHeader from "@/components/PageHeader";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Plan your accessible Bali holiday. Contact us for a free quote on equipment rental, carers, transport, and all-inclusive packages.",
+    "Contact us for mobility equipment rental in Bali. Get a free quote on scooters, wheelchairs, and more.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
     title: "Contact Us | Bali Mobility",
     description:
-      "Plan your accessible Bali holiday. Contact us for a free quote on equipment rental, carers, transport, and all-inclusive packages.",
+      "Contact us for mobility equipment rental in Bali. Get a free quote on scooters, wheelchairs, and more.",
   },
 };
 
