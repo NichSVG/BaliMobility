@@ -35,6 +35,7 @@ export default async function PackagesPage() {
         subtitle="All-Inclusive"
         description="All-inclusive accessible holiday packages. Equipment, carers, transport, tours, and accommodation — everything arranged for you."
         variant="warm"
+        image="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80"
         breadcrumbs={[
           { label: "Packages", href: "/packages" },
         ]}

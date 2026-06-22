@@ -38,6 +38,7 @@ export default async function TestimonialsPage() {
         subtitle="Testimonials"
         description="Real stories from travellers who experienced Bali with our support. Every review is from a real guest who used our services."
         variant="ocean"
+        image="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80"
         breadcrumbs={[{ label: "Reviews", href: "/testimonials" }]}
       />
 

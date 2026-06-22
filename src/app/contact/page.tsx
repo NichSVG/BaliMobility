@@ -24,6 +24,7 @@ export default function ContactPage() {
         subtitle="Get in Touch"
         description="Tell us about your needs and we&apos;ll create a personalised accessible holiday plan. No obligation — just friendly, expert advice."
         variant="warm"
+        image="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=1920&q=80"
         breadcrumbs={[{ label: "Contact", href: "/contact" }]}
       />
 

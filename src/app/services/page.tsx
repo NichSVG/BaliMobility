@@ -40,6 +40,7 @@ export default async function ServicesPage() {
         subtitle="What We Offer"
         description="Complete disability travel support in Bali — from mobility equipment to all-inclusive holiday packages."
         variant="ocean"
+        image="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=80"
         breadcrumbs={[{ label: "Services", href: "/services" }]}
       />
 

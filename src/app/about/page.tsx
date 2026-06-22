@@ -31,6 +31,7 @@ export default function AboutPage() {
         subtitle="Our Story"
         description="A family-run company on the beautiful island of Bali, dedicated to making your mobility holiday enjoyable and stress-free."
         variant="dark"
+        image="https://images.unsplash.com/photo-1604999333679-b86d54738315?w=1920&q=80"
         breadcrumbs={[{ label: "About", href: "/about" }]}
       />
 

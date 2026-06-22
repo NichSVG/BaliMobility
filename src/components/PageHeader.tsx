@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface PageHeaderProps {
   title: string;
@@ -7,38 +8,42 @@ interface PageHeaderProps {
   breadcrumbs?: { label: string; href: string }[];
   variant?: "ocean" | "tropical" | "warm" | "dark";
   size?: "sm" | "md" | "lg";
+  image?: string;
 }
 
 const variants = {
   ocean: {
-    bg: "bg-gradient-to-br from-ocean via-ocean-dark to-ocean",
-    pattern: "from-ocean/20 via-transparent to-ocean-dark/20",
+    overlay: "bg-gradient-to-r from-ocean/90 via-ocean-dark/80 to-ocean/70",
     text: "text-white",
     accent: "text-ocean-light",
   },
   tropical: {
-    bg: "bg-gradient-to-br from-tropical via-tropical-dark to-tropical",
-    pattern: "from-tropical/20 via-transparent to-tropical-dark/20",
+    overlay: "bg-gradient-to-r from-emerald-900/90 via-emerald-800/80 to-emerald-700/70",
     text: "text-white",
-    accent: "text-green-200",
+    accent: "text-emerald-200",
   },
   warm: {
-    bg: "bg-gradient-to-br from-coral via-orange-500 to-coral",
-    pattern: "from-coral/20 via-transparent to-orange-500/20",
+    overlay: "bg-gradient-to-r from-amber-900/90 via-amber-800/80 to-amber-700/70",
     text: "text-white",
-    accent: "text-orange-200",
+    accent: "text-amber-200",
   },
   dark: {
-    bg: "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900",
-    pattern: "from-gray-900/20 via-transparent to-gray-800/20",
+    overlay: "bg-gradient-to-r from-slate-900/90 via-slate-800/80 to-slate-900/70",
     text: "text-white",
-    accent: "text-gray-300",
+    accent: "text-slate-300",
   },
 };
 
+const defaultImages = {
+  ocean: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=80",
+  tropical: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80",
+  warm: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=1920&q=80",
+  dark: "https://images.unsplash.com/photo-1501117716987-c8c3ec790c75?w=1920&q=80",
+};
+
 const sizes = {
-  sm: "py-12 md:py-16",
-  md: "py-16 md:py-24",
+  sm: "py-16 md:py-20",
+  md: "py-20 md:py-28",
   lg: "py-24 md:py-32",
 };
 
@@ -49,22 +54,30 @@ export default function PageHeader({
   breadcrumbs,
   variant = "ocean",
   size = "md",
+  image,
 }: PageHeaderProps) {
   const style = variants[variant];
+  const bgImage = image || defaultImages[variant];
 
   return (
-    <section className={`relative ${style.bg} ${style.text} overflow-hidden`}>
-      {/* Decorative Pattern */}
-      <div className="absolute inset-0 opacity-30">
-        {/* Geometric circles */}
-        <div className="absolute top-10 right-10 w-64 h-64 rounded-full bg-white/10 blur-3xl" />
-        <div className="absolute bottom-10 left-10 w-48 h-48 rounded-full bg-white/10 blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-white/5 blur-3xl" />
-        
-        {/* Grid pattern */}
+    <section className={`relative ${style.text} overflow-hidden`}>
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src={bgImage}
+          alt=""
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className={`absolute inset-0 ${style.overlay}`} />
+      </div>
+
+      {/* Subtle Pattern */}
+      <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
+          backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+          backgroundSize: '32px 32px'
         }} />
       </div>
 
@@ -82,7 +95,7 @@ export default function PageHeader({
                 </li>
                 {breadcrumbs.map((crumb, index) => (
                   <li key={crumb.href} className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                     {index === breadcrumbs.length - 1 ? (
@@ -100,7 +113,7 @@ export default function PageHeader({
 
           {/* Subtitle */}
           {subtitle && (
-            <span className={`inline-block ${style.accent} font-semibold text-sm uppercase tracking-wider mb-4`}>
+            <span className={`inline-block ${style.accent} font-semibold text-sm uppercase tracking-widest mb-4`}>
               {subtitle}
             </span>
           )}

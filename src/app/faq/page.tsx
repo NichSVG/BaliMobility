@@ -48,6 +48,7 @@ export default async function FAQPage() {
         subtitle="FAQ"
         description="Answers to common questions from travellers planning an accessible Bali holiday. Can&apos;t find what you need? Get in touch."
         variant="tropical"
+        image="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=1920&q=80"
         breadcrumbs={[{ label: "FAQ", href: "/faq" }]}
       />
       <FAQClient items={display} />
