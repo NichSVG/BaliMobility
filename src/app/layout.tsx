@@ -18,6 +18,7 @@ const poppins = Poppins({
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/equipment", label: "Equipment" },
+  { href: "/blog", label: "Blog" },
   { href: "/testimonials", label: "Reviews" },
   { href: "/about", label: "About" },
   { href: "/faq", label: "FAQ" },
@@ -27,18 +28,20 @@ const navLinks = [
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://balimobility.com"),
   title: {
-    default: "Bali Mobility — Accessible Holidays in Bali",
+    default: "Wheelchair & Mobility Scooter Rental Bali | Bali Mobility",
     template: "%s | Bali Mobility",
   },
   description:
-    "Bali Mobility — mobility equipment rental in Bali. Scooters, wheelchairs, walkers, and more delivered to your hotel.",
+    "Rent wheelchairs, mobility scooters, walker frames and more in Bali. Free delivery to your hotel. Family-run equipment rental service since 2010.",
   keywords: [
-    "accessible holidays Bali",
-    "disability travel Bali",
-    "mobility equipment rental Bali",
     "wheelchair rental Bali",
-    "mobility scooter rental Bali",
-    "accessible tourism Indonesia",
+    "mobility scooter hire Bali",
+    "wheelchair hire Bali",
+    "disability equipment rental Bali",
+    "accessible holidays Bali",
+    "mobility aids Bali",
+    "walker rental Bali",
+    "Bali wheelchair accessible",
   ],
   authors: [{ name: "Bali Mobility" }],
   creator: "Bali Mobility",
@@ -169,8 +172,8 @@ export default async function RootLayout({
               <div>
                 <h4 className="font-semibold mb-3">Equipment</h4>
                 <ul className="space-y-2 text-sm text-gray-300">
-                  <li><Link href="/equipment" className="hover:text-white transition-colors">Mobility Scooters</Link></li>
-                  <li><Link href="/equipment" className="hover:text-white transition-colors">Wheelchairs</Link></li>
+                  <li><Link href="/mobility-scooter-rental-bali" className="hover:text-white transition-colors">Mobility Scooters</Link></li>
+                  <li><Link href="/wheelchair-rental-bali" className="hover:text-white transition-colors">Wheelchairs</Link></li>
                   <li><Link href="/equipment" className="hover:text-white transition-colors">Walker Frames</Link></li>
                   <li><Link href="/equipment" className="hover:text-white transition-colors">Baby Equipment</Link></li>
                 </ul>
@@ -179,6 +182,7 @@ export default async function RootLayout({
                 <h4 className="font-semibold mb-3">Company</h4>
                 <ul className="space-y-2 text-sm text-gray-300">
                   <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+                  <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
                   <li><Link href="/testimonials" className="hover:text-white transition-colors">Reviews</Link></li>
                   <li><Link href="/faq" className="hover:text-white transition-colors">FAQ</Link></li>
                   <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
