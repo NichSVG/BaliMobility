@@ -99,12 +99,12 @@ export default async function RootLayout({
 }>) {
   const settings = await client.fetch(siteSettingsQuery).catch(() => null);
 
-  const phone = settings?.phone || "+62 812 3456 7890";
-  const email = settings?.email || "info@balimobility.com";
-  const address = settings?.address || "Jl. By Pass Ngurah Rai #175, Sanur, Bali, Indonesia";
-  const whatsapp = settings?.whatsappNumber || "6281234567890";
+  const phone = settings?.phone || "+62 812 4652 2084";
+  const email = settings?.email || "dedikbali@yahoo.com";
+  const address = settings?.address || "Perumahan Griya Carik No.16 Bona Kelod, Blahbatuh, Gianyar, Bali, Indonesia";
+  const whatsapp = settings?.whatsappNumber || "6281246522084";
   const whatsappMsg = settings?.whatsappMessage || "Hi Bali Mobility! I'd like to enquire about a holiday.";
-  const hours = settings?.businessHours || "Mon-Sat: 8:00 AM - 6:00 PM (WITA)\nSun: By appointment";
+  const hours = settings?.businessHours || "Daily: 8:00 AM - 4:00 PM (WITA)";
 
   return (
     <html lang="en" className={`${poppins.variable} h-full antialiased`}>

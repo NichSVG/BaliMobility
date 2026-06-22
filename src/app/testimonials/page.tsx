@@ -106,7 +106,7 @@ export default async function TestimonialsPage() {
             travellers plan their trip with confidence.
           </p>
           <a
-            href="mailto:info@balimobility.com?subject=My Bali Mobility Review"
+            href="mailto:dedikbali@yahoo.com?subject=My Bali Mobility Review"
             className="inline-block bg-ocean text-white px-6 py-3 rounded-full font-semibold hover:bg-ocean-dark transition-colors"
           >
             Share Your Story

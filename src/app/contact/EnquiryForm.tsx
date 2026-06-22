@@ -108,7 +108,7 @@ export default function EnquiryForm() {
         <p className="text-sm text-muted">
           Need a faster response?{" "}
           <a
-            href="https://wa.me/6281234567890"
+            href="https://wa.me/6281246522084"
             className="text-ocean font-semibold hover:underline"
           >
             Message us on WhatsApp

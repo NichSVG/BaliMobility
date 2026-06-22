@@ -58,7 +58,7 @@ export default async function FAQPage() {
           <p className="text-muted mb-6">We&apos;re happy to help with any questions about accessible travel in Bali.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/contact" className="inline-block bg-ocean text-white px-6 py-3 rounded-full font-semibold hover:bg-ocean-dark transition-colors">Contact Us</a>
-            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" className="inline-block bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors">WhatsApp Us</a>
+            <a href="https://wa.me/6281246522084" target="_blank" rel="noopener noreferrer" className="inline-block bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors">WhatsApp Us</a>
           </div>
         </div>
       </section>

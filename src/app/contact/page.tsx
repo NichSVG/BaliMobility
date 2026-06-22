@@ -44,39 +44,35 @@ export default function ContactPage() {
                   <div>
                     <div className="font-medium text-foreground">Address</div>
                     <div className="text-muted">
-                      Jl. By Pass Ngurah Rai #175
+                      Perumahan Griya Carik No.16
                       <br />
-                      Sanur, Bali 80228, Indonesia
+                      Bona Kelod, Blahbatuh, Gianyar
+                      <br />
+                      Bali, Indonesia
                     </div>
                   </div>
                   <div>
-                    <div className="font-medium text-foreground">Phone</div>
+                    <div className="font-medium text-foreground">WhatsApp</div>
                     <a
-                      href="tel:+6281234567890"
+                      href="https://wa.me/6281246522084"
                       className="text-ocean hover:underline"
                     >
-                      +62 812 3456 7890
+                      +62 812 4652 2084
                     </a>
                   </div>
                   <div>
                     <div className="font-medium text-foreground">Email</div>
                     <a
-                      href="mailto:info@balimobility.com"
+                      href="mailto:dedikbali@yahoo.com"
                       className="text-ocean hover:underline"
                     >
-                      info@balimobility.com
+                      dedikbali@yahoo.com
                     </a>
                   </div>
                   <div>
                     <div className="font-medium text-foreground">Hours</div>
                     <div className="text-muted">
-                      Mon–Sat: 8:00 AM – 6:00 PM (WITA)
-                      <br />
-                      Sun: By appointment
-                      <br />
-                      <span className="text-xs">
-                        Emergency support available 24/7
-                      </span>
+                      Daily: 8:00 AM – 4:00 PM (WITA)
                     </div>
                   </div>
                 </div>
@@ -91,7 +87,7 @@ export default function ContactPage() {
                   within minutes during business hours.
                 </p>
                 <a
-                  href="https://wa.me/6281234567890?text=Hi%20Bali%20Mobility!%20I%27d%20like%20to%20enquire%20about%20a%20holiday."
+                  href="https://wa.me/6281246522084?text=Hi%20Bali%20Mobility!%20I%27d%20like%20to%20enquire%20about%20a%20holiday."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-center bg-white text-green-600 py-3 rounded-full font-semibold hover:bg-white/90 transition-colors"

@@ -381,7 +381,7 @@ export default async function Home() {
               </svg>
             </Link>
             <Link 
-              href="https://wa.me/6281234567890?text=Hi%20Bali%20Mobility!%20I'd%20like%20to%20enquire%20about%20a%20holiday."
+              href="https://wa.me/6281246522084?text=Hi%20Bali%20Mobility!%20I'd%20like%20to%20enquire%20about%20a%20holiday."
               className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border-2 border-white text-white px-10 py-4 rounded-lg text-lg font-semibold hover:bg-white/20 transition-all"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
