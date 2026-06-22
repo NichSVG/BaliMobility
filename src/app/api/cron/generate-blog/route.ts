@@ -9,7 +9,7 @@ const sanity = createClient({
   useCdn: false,
 });
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 const BLOG_TOPICS = [
   // Bali Culture & Festivals
@@ -75,44 +75,57 @@ Requirements:
 - Focus on accessibility and mobility where relevant
 - Be informative and SEO-friendly
 
-Return the response as JSON with these fields:
-- title: The blog post title
-- excerpt: A 2-3 sentence summary
-- content: The full blog post in markdown format
-- category: One of "bali-culture", "accessibility", "travel-tips", "equipment", "destinations"
-- tags: Array of 3-5 relevant tags
-- seoTitle: SEO-optimized title (max 60 chars)
-- seoDescription: Meta description (max 160 chars)`;
+Return the response as a valid JSON object with these fields:
+- title: The blog post title (string)
+- excerpt: A 2-3 sentence summary (string)
+- content: The full blog post in markdown format (string)
+- category: One of "bali-culture", "accessibility", "travel-tips", "equipment", "destinations" (string)
+- tags: Array of 3-5 relevant tags (array of strings)
+- seoTitle: SEO-optimized title (max 60 chars) (string)
+- seoDescription: Meta description (max 160 chars) (string)
 
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${OPENAI_API_KEY}`,
-    },
-    body: JSON.stringify({
-      model: "gpt-4o-mini",
-      messages: [
-        {
-          role: "system",
-          content: "You are a travel blogger specializing in accessible travel in Bali. Write engaging, helpful content that ranks well in search engines.",
+IMPORTANT: Return ONLY valid JSON, no other text.`;
+
+  const response = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [
+              {
+                text: `You are a travel blogger specializing in accessible travel in Bali. Write engaging, helpful content that ranks well in search engines. Always respond with valid JSON only.\n\n${prompt}`,
+              },
+            ],
+          },
+        ],
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 4096,
         },
-        {
-          role: "user",
-          content: prompt,
-        },
-      ],
-      temperature: 0.7,
-      response_format: { type: "json_object" },
-    }),
-  });
+      }),
+    }
+  );
 
   if (!response.ok) {
-    throw new Error(`OpenAI API error: ${response.statusText}`);
+    const error = await response.text();
+    throw new Error(`Gemini API error: ${response.status} - ${error}`);
   }
 
   const data = await response.json();
-  return JSON.parse(data.choices[0].message.content);
+  const text = data.candidates[0].content.parts[0].text;
+
+  // Clean the response - remove markdown code blocks if present
+  const cleanedText = text
+    .replace(/```json\n?/g, "")
+    .replace(/```\n?/g, "")
+    .trim();
+
+  return JSON.parse(cleanedText);
 }
 
 export async function GET(req: NextRequest) {
@@ -122,8 +135,11 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  if (!OPENAI_API_KEY) {
-    return NextResponse.json({ error: "OPENAI_API_KEY not configured" }, { status: 500 });
+  if (!GEMINI_API_KEY) {
+    return NextResponse.json(
+      { error: "GEMINI_API_KEY not configured" },
+      { status: 500 }
+    );
   }
 
   try {
