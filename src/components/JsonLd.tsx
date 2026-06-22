@@ -6,7 +6,7 @@ export default function JsonLd() {
     "@type": "LocalBusiness",
     name: "Bali Mobility",
     description:
-      "Accessible holidays and disability travel services in Bali. Equipment hire, personal carers, accessible transport, and all-inclusive packages.",
+      "Accessible holidays and disability travel services in Bali. Equipment rental, personal carers, accessible transport, and all-inclusive packages.",
     url: baseUrl,
     telephone: "+62-821-4652-2084",
     email: "dedikbali@yahoo.com",
@@ -51,7 +51,7 @@ export default function JsonLd() {
     "@type": "TravelAgency",
     name: "Bali Mobility",
     description:
-      "Accessible holidays and disability travel services in Bali. Equipment hire, personal carers, accessible transport, and all-inclusive packages.",
+      "Accessible holidays and disability travel services in Bali. Equipment rental, personal carers, accessible transport, and all-inclusive packages.",
     url: baseUrl,
     telephone: "+62-821-4652-2084",
     address: {

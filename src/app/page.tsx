@@ -20,7 +20,7 @@ const trustBadges = [
 
 // Fallback data if CMS is empty
 const fallbackServices = [
-  { icon: "🦽", title: "Equipment Hire", description: "Mobility scooters, electric wheelchairs, walkers, and more — delivered to your hotel.", ctaLink: "/equipment" },
+  { icon: "🦽", title: "Equipment Rental", description: "Mobility scooters, wheelchairs, walkers, and more — delivered to your hotel.", ctaLink: "/equipment" },
   { icon: "🤝", title: "Personal Carers", description: "Experienced day and night carers who understand disability support.", ctaLink: "/services" },
   { icon: "🚐", title: "Accessible Transport", description: "Mobility car with driver, airport collection and return.", ctaLink: "/services" },
   { icon: "🏖️", title: "Holiday Packages", description: "All-inclusive packages with tours, accommodation, and full support.", ctaLink: "/packages" },
@@ -218,7 +218,7 @@ export default async function Home() {
                 Our most popular all-inclusive package. Everything you need for a perfect accessible holiday in Bali — from accommodation to activities.
               </p>
               <ul className="space-y-4 mb-8">
-                {["7 nights accessible accommodation", "Mobility equipment hire included", "Personal carer (daytime)", "Accessible transport with driver", "3 guided accessible tours", "Airport collection & return"].map((item) => (
+                {["7 nights accessible accommodation", "Mobility equipment rental included", "Personal carer (daytime)", "Accessible transport with driver", "3 guided accessible tours", "Airport collection & return"].map((item) => (
                   <li key={item} className="flex items-center gap-3">
                     <div className="w-6 h-6 bg-tropical/10 rounded-full flex items-center justify-center shrink-0">
                       <svg className="w-4 h-4 text-tropical" fill="currentColor" viewBox="0 0 20 20">

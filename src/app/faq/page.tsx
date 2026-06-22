@@ -7,29 +7,29 @@ import PageHeader from "@/components/PageHeader";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Get answers to common questions about accessible holidays in Bali. Equipment hire, carers, transport, packages, and more.",
+    "Get answers to common questions about accessible holidays in Bali. Equipment rental, carers, transport, packages, and more.",
   alternates: {
     canonical: "/faq",
   },
   openGraph: {
     title: "FAQ | Bali Mobility",
     description:
-      "Get answers to common questions about accessible holidays in Bali. Equipment hire, carers, transport, packages, and more.",
+      "Get answers to common questions about accessible holidays in Bali. Equipment rental, carers, transport, packages, and more.",
   },
 };
 
 const fallbackFaq = [
-  { category: "Equipment & Hire", question: "What mobility equipment do you offer?", answer: "We offer mobility scooters, electric wheelchairs, manual wheelchairs, walkers/rollators, adjustable toilet seats, shower chairs, beach wheelchairs, and pushchairs for children." },
-  { category: "Equipment & Hire", question: "How does equipment delivery work?", answer: "We deliver directly to your hotel or villa in Sanur, Kuta, Seminyak, Nusa Dua, Ubud, and surrounding areas. Delivery is free." },
-  { category: "Equipment & Hire", question: "What if the equipment breaks down?", answer: "Call or WhatsApp us immediately. We offer 24/7 support and will repair or replace equipment within hours." },
-  { category: "Equipment & Hire", question: "Can I hire equipment for just one day?", answer: "Yes! We offer daily, weekly, and full-holiday rates." },
-  { category: "Equipment & Hire", question: "Is the equipment suitable for Bali's terrain?", answer: "Our scooters and wheelchairs are chosen for Bali's conditions. For uneven terrain, we recommend electric wheelchairs or a carer." },
+  { category: "Equipment & Rental", question: "What mobility equipment do you offer?", answer: "We offer mobility scooters, wheelchairs, walker frames, shower seats, toilet seats, baby push chairs, and baby car seats." },
+  { category: "Equipment & Rental", question: "How does equipment delivery work?", answer: "We deliver directly to your hotel or villa across Bali. Delivery is free." },
+  { category: "Equipment & Rental", question: "What if the equipment breaks down?", answer: "Call or WhatsApp us immediately. We offer 24/7 support and will repair or replace equipment within hours." },
+  { category: "Equipment & Rental", question: "Can I rent equipment for just one day?", answer: "Yes! We offer daily, weekly, and full-holiday rates." },
+  { category: "Equipment & Rental", question: "Is the equipment suitable for Bali's terrain?", answer: "Our scooters and wheelchairs are chosen for Bali's conditions. For uneven terrain, we recommend a carer." },
   { category: "Carers & Support", question: "What qualifications do your carers have?", answer: "All carers are professionally trained in disability support, transfers, bathing assistance, and mobility aid." },
   { category: "Carers & Support", question: "Do carers speak English?", answer: "Yes, all our carers speak both Indonesian and English." },
   { category: "Carers & Support", question: "Can a carer accompany me on tours?", answer: "Absolutely. Our carers can accompany you on tours, restaurants, beaches, and any activities." },
   { category: "Transport & Getting Around", question: "How does airport pickup work?", answer: "We meet you at arrivals with a sign. Our accessible vehicle has a wheelchair ramp/lift. We track your flight for delays." },
   { category: "Transport & Getting Around", question: "Are your vehicles wheelchair accessible?", answer: "Yes. Our mobility vehicles have ramps or lifts. Drivers are trained in secure wheelchair tie-down procedures." },
-  { category: "Packages & Pricing", question: "What's included in the holiday packages?", answer: "Packages include accommodation, equipment hire, carer, transport, tours, and activities. See our Packages page for full details." },
+  { category: "Packages & Pricing", question: "What's included in the holiday packages?", answer: "Packages include accommodation, equipment rental, carer, transport, tours, and activities. See our Packages page for full details." },
   { category: "Packages & Pricing", question: "Can I customise a package?", answer: "Yes! We can adjust any package — different accommodation, extra tours, longer stays, more carer hours." },
   { category: "Packages & Pricing", question: "What currency are prices shown in?", answer: "Primary pricing in AUD, with GBP and USD conversions. We accept bank transfer, credit card, or PayPal." },
   { category: "Packages & Pricing", question: "What's your cancellation policy?", answer: "30+ days: full refund minus admin fee. 15-29 days: 50% refund. Within 14 days: non-refundable but can reschedule." },

@@ -33,11 +33,11 @@ export const metadata: Metadata = {
     template: "%s | Bali Mobility",
   },
   description:
-    "Stress-free mobility holidays and disability travel services in Bali. Equipment hire, personal carers, accessible transport, and all-inclusive packages.",
+    "Stress-free mobility holidays and disability travel services in Bali. Equipment rental, personal carers, accessible transport, and all-inclusive packages.",
   keywords: [
     "accessible holidays Bali",
     "disability travel Bali",
-    "mobility equipment hire Bali",
+      "mobility equipment rental Bali",
     "wheelchair accessible Bali",
     "disabled holiday packages",
     "accessible tourism Indonesia",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     siteName: "Bali Mobility",
     title: "Bali Mobility — Accessible Holidays in Bali",
     description:
-      "Stress-free mobility holidays and disability travel services in Bali. Equipment hire, personal carers, accessible transport, and all-inclusive packages.",
+      "Stress-free mobility holidays and disability travel services in Bali. Equipment rental, personal carers, accessible transport, and all-inclusive packages.",
     images: [
       {
         url: "/og-image.jpg",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Bali Mobility — Accessible Holidays in Bali",
     description:
-      "Stress-free mobility holidays and disability travel services in Bali. Equipment hire, personal carers, accessible transport, and all-inclusive packages.",
+      "Stress-free mobility holidays and disability travel services in Bali. Equipment rental, personal carers, accessible transport, and all-inclusive packages.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -173,7 +173,7 @@ export default async function RootLayout({
               <div>
                 <h4 className="font-semibold mb-3">Services</h4>
                 <ul className="space-y-2 text-sm text-gray-300">
-                  <li><Link href="/equipment" className="hover:text-white transition-colors">Equipment Hire</Link></li>
+                  <li><Link href="/equipment" className="hover:text-white transition-colors">Equipment Rental</Link></li>
                   <li><Link href="/services" className="hover:text-white transition-colors">Personal Carers</Link></li>
                   <li><Link href="/services" className="hover:text-white transition-colors">Accessible Transport</Link></li>
                   <li><Link href="/packages" className="hover:text-white transition-colors">Holiday Packages</Link></li>

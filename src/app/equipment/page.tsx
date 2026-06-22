@@ -6,16 +6,16 @@ import { urlFor } from "@/lib/image";
 import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
-  title: "Equipment Hire",
+  title: "Equipment Rental",
   description:
-    "Hire mobility scooters, wheelchairs, baby push chairs, car seats, walker frames, shower seats, and toilet seats in Bali. Delivered to your hotel.",
+    "Rent mobility scooters, wheelchairs, baby push chairs, car seats, walker frames, shower seats, and toilet seats in Bali. Delivered to your hotel.",
   alternates: {
     canonical: "/equipment",
   },
   openGraph: {
-    title: "Equipment Hire | Bali Mobility",
+    title: "Equipment Rental | Bali Mobility",
     description:
-      "Hire mobility scooters, wheelchairs, baby push chairs, car seats, walker frames, shower seats, and toilet seats in Bali. Delivered to your hotel.",
+      "Rent mobility scooters, wheelchairs, baby push chairs, car seats, walker frames, shower seats, and toilet seats in Bali. Delivered to your hotel.",
   },
 };
 
@@ -36,7 +36,7 @@ export default async function EquipmentPage() {
   return (
     <>
       <PageHeader
-        title="Equipment Hire"
+        title="Equipment Rental"
         subtitle="Mobility Solutions"
         description="Quality mobility equipment delivered to your hotel or villa. Rates shown in IDR and AUD."
         variant="tropical"
@@ -70,7 +70,7 @@ export default async function EquipmentPage() {
                     </ul>
                   </div>
                   <div className="mb-4 bg-sand rounded-lg p-4">
-                    <h3 className="text-sm font-semibold text-foreground mb-2">Hire Rates:</h3>
+                    <h3 className="text-sm font-semibold text-foreground mb-2">Rental Rates:</h3>
                     <div className="grid grid-cols-3 gap-2 text-center">
                       <div><div className="text-xs text-muted">Daily</div><div className="font-bold text-ocean text-sm">{item.rateDailyAud}</div><div className="text-xs text-muted">{item.rateDaily}</div></div>
                       <div><div className="text-xs text-muted">Weekly</div><div className="font-bold text-ocean text-sm">{item.rateWeeklyAud}</div><div className="text-xs text-muted">{item.rateWeekly}</div></div>
@@ -91,7 +91,7 @@ export default async function EquipmentPage() {
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div><div className="text-3xl mb-2" aria-hidden="true">🚚</div><h3 className="font-semibold mb-1">Free Delivery</h3><p className="text-sm text-muted">Delivered to your hotel in Sanur, Kuta, Seminyak, Nusa Dua, and Ubud.</p></div>
             <div><div className="text-3xl mb-2" aria-hidden="true">🔧</div><h3 className="font-semibold mb-1">Well Maintained</h3><p className="text-sm text-muted">All equipment serviced, cleaned, and tested. 24/7 support available.</p></div>
-            <div><div className="text-3xl mb-2" aria-hidden="true">📦</div><h3 className="font-semibold mb-1">Flexible Hire</h3><p className="text-sm text-muted">Daily, weekly, or full-holiday rates. Extend anytime.</p></div>
+            <div><div className="text-3xl mb-2" aria-hidden="true">📦</div><h3 className="font-semibold mb-1">Flexible Rental</h3><p className="text-sm text-muted">Daily, weekly, or full-holiday rates. Extend anytime.</p></div>
           </div>
         </div>
       </section>

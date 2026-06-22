@@ -37,11 +37,13 @@ const initialData: FormData = {
 };
 
 const serviceOptions = [
-  "Mobility Scooter Hire",
-  "Electric Wheelchair Hire",
-  "Manual Wheelchair Hire",
-  "Walker / Rollator Hire",
-  "Toilet Seat & Shower Chair",
+  "Mobility Scooter Rental",
+  "Wheelchair Rental",
+  "Baby Push Chair Rental",
+  "Baby Car Seat Rental",
+  "Walker Frame Rental",
+  "Shower Seat Rental",
+  "Toilet Seat Rental",
   "Personal Carer (Daytime)",
   "Personal Carer (Night-time)",
   "Accessible Transport",

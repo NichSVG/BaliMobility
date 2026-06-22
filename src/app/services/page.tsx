@@ -9,24 +9,24 @@ import PageHeader from "@/components/PageHeader";
 export const metadata: Metadata = {
   title: "Our Services",
   description:
-    "Comprehensive accessibility services in Bali: mobility equipment hire, personal carers, accessible transport, and all-inclusive holiday packages.",
+    "Comprehensive accessibility services in Bali: mobility equipment rental, personal carers, accessible transport, and all-inclusive holiday packages.",
   alternates: {
     canonical: "/services",
   },
   openGraph: {
     title: "Our Services | Bali Mobility",
     description:
-      "Comprehensive accessibility services in Bali: mobility equipment hire, personal carers, accessible transport, and all-inclusive holiday packages.",
+      "Comprehensive accessibility services in Bali: mobility equipment rental, personal carers, accessible transport, and all-inclusive holiday packages.",
   },
 };
 
 const fallbackServices = [
-  { icon: "🦽", title: "Mobility Equipment Hire", description: "Wide range of mobility equipment delivered directly to your hotel or villa. All equipment is well-maintained, clean, and ready to use.", details: ["Mobility scooters — lightweight and travel-friendly", "Electric wheelchairs — joystick controlled, foldable", "Walkers and rollators — with seats and baskets", "Adjustable toilet seats and shower chairs", "Beach wheelchairs — for sand and water access", "Crutches and walking sticks"], ctaText: "View Equipment", ctaLink: "/equipment" },
+  { icon: "🦽", title: "Mobility Equipment Rental", description: "Wide range of mobility equipment delivered directly to your hotel or villa. All equipment is well-maintained, clean, and ready to use.", details: ["Mobility scooters — lightweight and travel-friendly", "Wheelchairs — comfortable and foldable", "Walker frames — with seats and baskets", "Shower seats and toilet seats", "Baby push chairs and car seats", "All equipment delivered to you"], ctaText: "View Equipment", ctaLink: "/equipment" },
   { icon: "🤝", title: "Personal Carers", description: "Experienced, compassionate carers available day or night. Our team is trained in disability support and speaks both Indonesian and English.", details: ["Daytime carers — assistance from morning to evening", "Night-time carers — overnight support available", "Experienced with spinal cord injuries, MS, cerebral palsy, and more", "Help with transfers, bathing, dressing, and mobility", "Bilingual team (Indonesian / English)", "Can accompany you on tours and activities"], ctaText: "Enquire About Carers", ctaLink: "/contact" },
   { icon: "🚐", title: "Accessible Transport", description: "Comfortable, air-conditioned mobility vehicles with professional drivers. Airport transfers and daily transport around Bali.", details: ["Mobility car with wheelchair ramp or lift", "Airport collection and return — any time of day", "Daily transport to attractions, restaurants, beaches", "Professional, English-speaking drivers", "Vehicles accommodate wheelchairs and mobility aids", "Child car seats available on request"], ctaText: "Book Transport", ctaLink: "/contact" },
-  { icon: "🏖️", title: "All-Inclusive Holiday Packages", description: "Stress-free holiday bundles that include accommodation, equipment, carers, transport, tours, and activities — all arranged for you.", details: ["3, 5, and 7-night packages available", "Accessible hotel or villa accommodation", "Mobility equipment hire included", "Personal carer included", "Accessible transport with driver", "Guided tours and cultural experiences"], ctaText: "View Packages", ctaLink: "/packages" },
+    { icon: "🏖️", title: "All-Inclusive Holiday Packages", description: "Stress-free holiday bundles that include accommodation, equipment, carers, transport, tours, and activities — all arranged for you.", details: ["3, 5, and 7-night packages available", "Accessible hotel or villa accommodation", "Mobility equipment rental included", "Personal carer included", "Accessible transport with driver", "Guided tours and cultural experiences"], ctaText: "View Packages", ctaLink: "/packages" },
   { icon: "🤿", title: "Activities & Experiences", description: "Accessible activities and cultural experiences curated for travellers with mobility needs. Enjoy the best of Bali without barriers.", details: ["Accessible diving and snorkelling", "Fishing trips with accessible boat", "Traditional Balinese massage and spa", "Cultural Bali nights — dance, music, dinner", "Ubud art and temple tours", "Beach days with beach wheelchair"], ctaText: "Explore Activities", ctaLink: "/packages" },
-  { icon: "👶", title: "Family Services", description: "Extra support for families travelling with young children. Pushchairs, car seats, nannies, and babysitters so parents can relax.", details: ["Pushchair and stroller hire", "Child car safety seats", "Qualified nannies and babysitters", "Family-friendly accessible tours", "Cots and highchairs for accommodation", "Kids' activity recommendations"], ctaText: "Learn More", ctaLink: "/contact" },
+    { icon: "👶", title: "Family Services", description: "Extra support for families travelling with young children. Pushchairs, car seats, nannies, and babysitters so parents can relax.", details: ["Pushchair and stroller rental", "Child car safety seats", "Qualified nannies and babysitters", "Family-friendly accessible tours", "Cots and highchairs for accommodation", "Kids' activity recommendations"], ctaText: "Learn More", ctaLink: "/contact" },
 ];
 
 export default async function ServicesPage() {
