@@ -46,12 +46,66 @@ const serviceOptions = [
   "Toilet Seat Rental",
 ];
 
+const WHATSAPP_NUMBER = "6282146522084";
+
+function buildWhatsAppMessage(data: FormData): string {
+  const lines: string[] = [];
+
+  lines.push("Hi Bali Mobility! I'd like to enquire about equipment rental.");
+  lines.push("");
+  lines.push(`*Name:* ${data.firstName} ${data.lastName}`);
+  lines.push(`*Email:* ${data.email}`);
+  if (data.phone) lines.push(`*Phone:* ${data.phone}`);
+
+  if (data.services.length > 0) {
+    lines.push("");
+    lines.push("*Equipment needed:*");
+    data.services.forEach((s) => lines.push(`- ${s}`));
+  }
+
+  if (data.dateFrom || data.dateTo) {
+    lines.push("");
+    lines.push("*Travel dates:*");
+    if (data.dateFrom) lines.push(`Arrival: ${data.dateFrom}`);
+    if (data.dateTo) lines.push(`Departure: ${data.dateTo}`);
+  }
+
+  if (data.people && data.people !== "1") {
+    lines.push(`*Number of people:* ${data.people}`);
+  }
+
+  if (data.accommodation) {
+    lines.push(`*Accommodation area:* ${data.accommodation}`);
+  }
+
+  if (data.mobilityLevel) {
+    const mobilityLabels: Record<string, string> = {
+      walking: "Can walk with some assistance",
+      "wheelchair-some": "Use wheelchair sometimes",
+      "wheelchair-full": "Full-time wheelchair user",
+      scooter: "Use mobility scooter",
+      other: "Other",
+    };
+    lines.push(`*Mobility level:* ${mobilityLabels[data.mobilityLevel] || data.mobilityLevel}`);
+  }
+
+  if (data.specificNeeds) {
+    lines.push("");
+    lines.push(`*Specific needs:* ${data.specificNeeds}`);
+  }
+
+  if (data.message) {
+    lines.push("");
+    lines.push(`*Message:* ${data.message}`);
+  }
+
+  return lines.join("\n");
+}
+
 export default function EnquiryForm() {
   const [step, setStep] = useState(1);
   const [data, setData] = useState<FormData>(initialData);
-  const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState("");
+  const [sent, setSent] = useState(false);
 
   const update = (field: keyof FormData, value: string | string[]) =>
     setData((prev) => ({ ...prev, [field]: value }));
@@ -65,51 +119,33 @@ export default function EnquiryForm() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitting(true);
-    setError("");
-
-    try {
-      const res = await fetch("/api/enquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        const err = await res.json();
-        setError(err.error || "Something went wrong. Please try again.");
-      }
-    } catch {
-      setError("Network error. Please try again or contact us on WhatsApp.");
-    }
-    setSubmitting(false);
+    const message = buildWhatsAppMessage(data);
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+    setSent(true);
   };
 
-  if (submitted) {
+  if (sent) {
     return (
       <div className="bg-white rounded-xl p-8 text-center">
         <div className="text-5xl mb-4">✅</div>
         <h2 className="text-2xl font-bold text-foreground mb-3">
-          Enquiry Submitted!
+          Enquiry Ready!
         </h2>
         <p className="text-muted mb-6">
-          Thank you, {data.firstName}! We&apos;ve received your enquiry and will
-          get back to you within 24 hours. Check your email ({data.email}) for a
-          confirmation.
+          Your enquiry has been sent to WhatsApp. If it didn&apos;t open
+          automatically, click the button below.
         </p>
-        <p className="text-sm text-muted">
-          Need a faster response?{" "}
-          <a
-            href="https://wa.me/6282146522084"
-            className="text-ocean font-semibold hover:underline"
-          >
-            Message us on WhatsApp
-          </a>
-        </p>
+        <a
+          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildWhatsAppMessage(data))}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors"
+        >
+          Open WhatsApp
+        </a>
       </div>
     );
   }
@@ -140,11 +176,11 @@ export default function EnquiryForm() {
         ))}
       </div>
 
-      {/* Step 1: Services */}
+      {/* Step 1: Equipment */}
       {step === 1 && (
         <div>
           <h2 className="text-xl font-bold text-foreground mb-2">
-            What services do you need?
+            What equipment do you need?
           </h2>
           <p className="text-sm text-muted mb-6">
             Select all that apply. You can always change this later.
@@ -250,7 +286,7 @@ export default function EnquiryForm() {
             Specific needs
           </h2>
           <p className="text-sm text-muted mb-6">
-            Help us prepare the right support for you. This is optional.
+            Help us prepare the right equipment for you. This is optional.
           </p>
           <div className="mb-4">
             <label htmlFor="mobilityLevel" className="block text-sm font-medium mb-1">
@@ -279,7 +315,7 @@ export default function EnquiryForm() {
               rows={4}
               value={data.specificNeeds}
               onChange={(e) => update("specificNeeds", e.target.value)}
-              placeholder="E.g. condition type, specific equipment needs, dietary requirements, accessibility requirements for accommodation..."
+              placeholder="E.g. condition type, specific equipment needs, weight requirements..."
               className="w-full border border-sand-dark rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ocean"
             />
           </div>
@@ -293,7 +329,7 @@ export default function EnquiryForm() {
             Your contact details
           </h2>
           <p className="text-sm text-muted mb-6">
-            How can we reach you with your personalised holiday plan?
+            How can we reach you to confirm your rental?
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
@@ -351,26 +387,6 @@ export default function EnquiryForm() {
               />
             </div>
           </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium mb-2">
-              Preferred contact method
-            </label>
-            <div className="flex gap-4">
-              {["email", "whatsapp", "phone"].map((method) => (
-                <label key={method} className="flex items-center gap-2 text-sm cursor-pointer">
-                  <input
-                    type="radio"
-                    name="contactMethod"
-                    value={method}
-                    checked={data.contactMethod === method}
-                    onChange={(e) => update("contactMethod", e.target.value)}
-                    className="accent-ocean"
-                  />
-                  {method.charAt(0).toUpperCase() + method.slice(1)}
-                </label>
-              ))}
-            </div>
-          </div>
           <div>
             <label htmlFor="message" className="block text-sm font-medium mb-1">
               Additional message
@@ -388,11 +404,6 @@ export default function EnquiryForm() {
       )}
 
       {/* Navigation */}
-      {error && (
-        <div className="bg-red-50 text-red-600 text-sm p-3 rounded-lg border border-red-200 mt-4">
-          {error}
-        </div>
-      )}
       <div className="flex justify-between mt-8">
         {step > 1 ? (
           <button
@@ -416,10 +427,12 @@ export default function EnquiryForm() {
         ) : (
           <button
             type="submit"
-            disabled={submitting}
-            className="px-8 py-2 bg-coral text-white rounded-full text-sm font-semibold hover:bg-coral/90 transition-colors disabled:opacity-50"
+            className="px-8 py-2 bg-green-500 text-white rounded-full text-sm font-semibold hover:bg-green-600 transition-colors flex items-center gap-2"
           >
-            {submitting ? "Submitting..." : "Submit Enquiry"}
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            Send via WhatsApp
           </button>
         )}
       </div>
