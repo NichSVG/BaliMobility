@@ -6,16 +6,12 @@ type FormData = {
   services: string[];
   dateFrom: string;
   dateTo: string;
-  duration: string;
   accommodation: string;
   people: string;
   mobilityLevel: string;
   specificNeeds: string;
   firstName: string;
   lastName: string;
-  email: string;
-  phone: string;
-  contactMethod: string;
   message: string;
 };
 
@@ -23,75 +19,82 @@ const initialData: FormData = {
   services: [],
   dateFrom: "",
   dateTo: "",
-  duration: "",
   accommodation: "",
   people: "1",
   mobilityLevel: "",
   specificNeeds: "",
   firstName: "",
   lastName: "",
-  email: "",
-  phone: "",
-  contactMethod: "email",
   message: "",
 };
 
 const serviceOptions = [
-  "Mobility Scooter Rental",
-  "Wheelchair Rental",
-  "Baby Push Chair Rental",
-  "Baby Car Seat Rental",
-  "Walker Frame Rental",
-  "Shower Seat Rental",
-  "Toilet Seat Rental",
+  "Mobility Scooter",
+  "Wheelchair",
+  "Baby Push Chair",
+  "Baby Car Seat",
+  "Walker Frame",
+  "Shower Seat",
+  "Toilet Seat",
 ];
 
 const WHATSAPP_NUMBER = "6282146522084";
 
+const accommodationLabels: Record<string, string> = {
+  sanur: "Sanur",
+  kuta: "Kuta / Legian",
+  seminyak: "Seminyak",
+  "nusa-dua": "Nusa Dua",
+  ubud: "Ubud",
+  canggu: "Canggu",
+  other: "Other / Not booked yet",
+};
+
+const mobilityLabels: Record<string, string> = {
+  walking: "Can walk with some assistance",
+  "wheelchair-some": "Use wheelchair sometimes",
+  "wheelchair-full": "Full-time wheelchair user",
+  scooter: "Use mobility scooter",
+  other: "Other",
+};
+
 function buildWhatsAppMessage(data: FormData): string {
   const lines: string[] = [];
 
-  lines.push("Hi Bali Mobility! I'd like to enquire about equipment rental.");
+  lines.push("*New Equipment Rental Enquiry*");
+  lines.push("━━━━━━━━━━━━━━━━━━━━");
   lines.push("");
   lines.push(`*Name:* ${data.firstName} ${data.lastName}`);
-  lines.push(`*Email:* ${data.email}`);
-  if (data.phone) lines.push(`*Phone:* ${data.phone}`);
 
   if (data.services.length > 0) {
     lines.push("");
-    lines.push("*Equipment needed:*");
-    data.services.forEach((s) => lines.push(`- ${s}`));
+    lines.push("*Equipment:*");
+    data.services.forEach((s) => lines.push(`  • ${s}`));
   }
 
   if (data.dateFrom || data.dateTo) {
     lines.push("");
-    lines.push("*Travel dates:*");
-    if (data.dateFrom) lines.push(`Arrival: ${data.dateFrom}`);
-    if (data.dateTo) lines.push(`Departure: ${data.dateTo}`);
+    lines.push("*Travel Dates:*");
+    if (data.dateFrom) lines.push(`  Arrival: ${data.dateFrom}`);
+    if (data.dateTo) lines.push(`  Departure: ${data.dateTo}`);
   }
 
-  if (data.people && data.people !== "1") {
-    lines.push(`*Number of people:* ${data.people}`);
-  }
-
-  if (data.accommodation) {
-    lines.push(`*Accommodation area:* ${data.accommodation}`);
+  const details: string[] = [];
+  if (data.people && data.people !== "1") details.push(`${data.people} people`);
+  if (data.accommodation) details.push(accommodationLabels[data.accommodation] || data.accommodation);
+  if (details.length > 0) {
+    lines.push("");
+    lines.push(`*Details:* ${details.join(" · ")}`);
   }
 
   if (data.mobilityLevel) {
-    const mobilityLabels: Record<string, string> = {
-      walking: "Can walk with some assistance",
-      "wheelchair-some": "Use wheelchair sometimes",
-      "wheelchair-full": "Full-time wheelchair user",
-      scooter: "Use mobility scooter",
-      other: "Other",
-    };
-    lines.push(`*Mobility level:* ${mobilityLabels[data.mobilityLevel] || data.mobilityLevel}`);
+    lines.push("");
+    lines.push(`*Mobility:* ${mobilityLabels[data.mobilityLevel] || data.mobilityLevel}`);
   }
 
   if (data.specificNeeds) {
     lines.push("");
-    lines.push(`*Specific needs:* ${data.specificNeeds}`);
+    lines.push(`*Notes:* ${data.specificNeeds}`);
   }
 
   if (data.message) {
@@ -154,7 +157,7 @@ export default function EnquiryForm() {
     <form onSubmit={handleSubmit} className="bg-white rounded-xl p-6 md:p-8">
       {/* Progress */}
       <div className="flex items-center justify-between mb-8">
-        {[1, 2, 3, 4].map((s) => (
+        {[1, 2, 3].map((s) => (
           <div key={s} className="flex items-center">
             <div
               className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
@@ -165,9 +168,9 @@ export default function EnquiryForm() {
             >
               {s}
             </div>
-            {s < 4 && (
+            {s < 3 && (
               <div
-                className={`hidden sm:block w-12 md:w-20 h-0.5 ${
+                className={`hidden sm:block w-16 md:w-24 h-0.5 ${
                   step > s ? "bg-ocean" : "bg-sand-dark"
                 }`}
               />
@@ -183,7 +186,7 @@ export default function EnquiryForm() {
             What equipment do you need?
           </h2>
           <p className="text-sm text-muted mb-6">
-            Select all that apply. You can always change this later.
+            Select all that apply.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
             {serviceOptions.map((service) => (
@@ -205,14 +208,14 @@ export default function EnquiryForm() {
         </div>
       )}
 
-      {/* Step 2: Dates & Details */}
+      {/* Step 2: Travel Details */}
       {step === 2 && (
         <div>
           <h2 className="text-xl font-bold text-foreground mb-2">
             Travel details
           </h2>
           <p className="text-sm text-muted mb-6">
-            When are you planning to visit Bali?
+            When are you visiting Bali?
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
@@ -276,21 +279,9 @@ export default function EnquiryForm() {
               </select>
             </div>
           </div>
-        </div>
-      )}
-
-      {/* Step 3: Mobility needs */}
-      {step === 3 && (
-        <div>
-          <h2 className="text-xl font-bold text-foreground mb-2">
-            Specific needs
-          </h2>
-          <p className="text-sm text-muted mb-6">
-            Help us prepare the right equipment for you. This is optional.
-          </p>
           <div className="mb-4">
             <label htmlFor="mobilityLevel" className="block text-sm font-medium mb-1">
-              Mobility level
+              Mobility level (optional)
             </label>
             <select
               id="mobilityLevel"
@@ -308,28 +299,28 @@ export default function EnquiryForm() {
           </div>
           <div>
             <label htmlFor="specificNeeds" className="block text-sm font-medium mb-1">
-              Anything else we should know?
+              Anything else we should know? (optional)
             </label>
             <textarea
               id="specificNeeds"
-              rows={4}
+              rows={3}
               value={data.specificNeeds}
               onChange={(e) => update("specificNeeds", e.target.value)}
-              placeholder="E.g. condition type, specific equipment needs, weight requirements..."
+              placeholder="E.g. specific equipment needs, weight requirements..."
               className="w-full border border-sand-dark rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ocean"
             />
           </div>
         </div>
       )}
 
-      {/* Step 4: Contact */}
-      {step === 4 && (
+      {/* Step 3: Name & Submit */}
+      {step === 3 && (
         <div>
           <h2 className="text-xl font-bold text-foreground mb-2">
-            Your contact details
+            Your name
           </h2>
           <p className="text-sm text-muted mb-6">
-            How can we reach you to confirm your rental?
+            So we know who we&apos;re speaking with.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
@@ -359,37 +350,9 @@ export default function EnquiryForm() {
               />
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-1">
-                Email *
-              </label>
-              <input
-                id="email"
-                type="email"
-                required
-                value={data.email}
-                onChange={(e) => update("email", e.target.value)}
-                className="w-full border border-sand-dark rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ocean"
-              />
-            </div>
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium mb-1">
-                Phone (with country code)
-              </label>
-              <input
-                id="phone"
-                type="tel"
-                value={data.phone}
-                onChange={(e) => update("phone", e.target.value)}
-                placeholder="+61 400 000 000"
-                className="w-full border border-sand-dark rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-ocean"
-              />
-            </div>
-          </div>
           <div>
             <label htmlFor="message" className="block text-sm font-medium mb-1">
-              Additional message
+              Additional message (optional)
             </label>
             <textarea
               id="message"
@@ -416,7 +379,7 @@ export default function EnquiryForm() {
         ) : (
           <div />
         )}
-        {step < 4 ? (
+        {step < 3 ? (
           <button
             type="button"
             onClick={() => setStep(step + 1)}
