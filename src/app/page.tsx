@@ -74,15 +74,15 @@ export default async function Home() {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Accessible holidays
+              Your mobility holiday
               <br />
               <span className="text-ocean-light">in beautiful Bali</span>
             </h1>
             
             <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl leading-relaxed">
-              Stress-free mobility holidays with equipment hire, personal carers,
-              accessible transport, and all-inclusive packages. We handle everything
-              so you can enjoy paradise.
+              A family-run company dedicated to making your Bali holiday enjoyable
+              and stress-free. We specialise in disability holidays, mobility equipment,
+              carers, and accessible transport — so everyone can experience paradise.
             </p>
 
             {/* CTA Buttons */}
@@ -143,8 +143,8 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-block text-ocean font-semibold text-sm uppercase tracking-wider mb-4">Our Services</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Everything you need for a carefree holiday</h2>
-            <p className="text-muted max-w-2xl mx-auto text-lg">From mobility equipment to personal carers, we provide complete support so you can focus on enjoying Bali.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Disability & family support, wherever you go</h2>
+            <p className="text-muted max-w-2xl mx-auto text-lg">From mobility equipment to personal carers and accessible transport, we provide complete support so you can focus on enjoying Bali.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayServices.map((service: any) => (
@@ -317,15 +317,18 @@ export default async function Home() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <span className="inline-block text-ocean font-semibold text-sm uppercase tracking-wider mb-4">Why Choose Us</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Local expertise, genuine care</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">A truly unforgettable experience for all</h2>
               <p className="text-muted text-lg mb-8 leading-relaxed">
-                We&apos;re not just a service — we&apos;re your local Bali family. Our team lives here, knows every accessible corner of the island, and genuinely cares about making your holiday unforgettable.
+                We&apos;re a family-run company with deep local knowledge. We take you to well-known
+                tourist destinations and hidden beauty spots that mobility-impaired travellers
+                can access — making your stay not just a holiday, but an experience you&apos;ll
+                want to return to again and again.
               </p>
               <div className="space-y-6">
                 {[
-                  { title: "Local Knowledge", desc: "Our team knows Bali inside out — every accessible restaurant, beach, and attraction." },
-                  { title: "24/7 Support", desc: "We&apos;re always just a phone call away, day or night, for any need." },
-                  { title: "Personalised Care", desc: "Every holiday is tailored to your specific needs and preferences." },
+                  { title: "Family-Run & Caring", desc: "We&apos;re a local Balinese family who genuinely care about your comfort and wellbeing." },
+                  { title: "Local Knowledge", desc: "We know every accessible corner of Bali — tourist spots and hidden gems alike." },
+                  { title: "For Everyone", desc: "Whether you have disabilities or young children, we make Bali enjoyable for the whole family." },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4">
                     <div className="w-12 h-12 bg-ocean/10 rounded-xl flex items-center justify-center shrink-0">
@@ -361,9 +364,11 @@ export default async function Home() {
       {/* Final CTA */}
       <section className="py-20 md:py-28 bg-ocean text-white" aria-label="Get started">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready for your Bali adventure?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Make it a holiday all the family remembers</h2>
           <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-            Tell us about your needs and we&apos;ll create a personalised holiday plan. No obligation, no pressure — just friendly advice from our local team.
+            With mobility scooters, wheelchairs, walking frames, and carers day or night —
+            we&apos;ll make your Bali holiday one you&apos;ll want to return to. Get in touch for
+            friendly advice from our local team.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
