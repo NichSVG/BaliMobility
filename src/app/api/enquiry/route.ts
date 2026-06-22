@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
         to: process.env.ADMIN_EMAIL || "admin@balimobility.com",
         subject: `New Enquiry from ${body.firstName} ${body.lastName}`,
         html: `
-          <h2>New Holiday Enquiry</h2>
+          <h2>New Equipment Rental Enquiry</h2>
           <p><strong>Name:</strong> ${body.firstName} ${body.lastName}</p>
           <p><strong>Email:</strong> ${body.email}</p>
           <p><strong>Phone:</strong> ${body.phone || "Not provided"}</p>
@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
             <li>Travel dates: ${body.dateFrom || "TBD"} to ${body.dateTo || "TBD"}</li>
             <li>Number of people: ${body.people}</li>
           </ul>
-          <p>If you need a faster response, message us on WhatsApp: +62 812 3456 7890</p>
+          <p>If you need a faster response, message us on WhatsApp: +62 821-4652-2084</p>
           <p>Warm regards,<br />The Bali Mobility Team</p>
         `,
       });
