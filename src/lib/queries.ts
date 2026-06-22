@@ -183,3 +183,39 @@ export const pageBySlugQuery = groq`*[_type == "page" && slug.current == $slug &
 export const allPagesSlugsQuery = groq`*[_type == "page" && published == true] {
   "slug": slug.current,
 }`;
+
+export const blogPostsQuery = groq`*[_type == "blogPost"] | order(publishedAt desc) {
+  _id,
+  title,
+  "slug": slug.current,
+  excerpt,
+  category,
+  tags,
+  publishedAt,
+  featured,
+  seoTitle,
+  seoDescription
+}`;
+
+export const blogPostBySlugQuery = groq`*[_type == "blogPost" && slug.current == $slug][0] {
+  _id,
+  title,
+  "slug": slug.current,
+  excerpt,
+  content,
+  category,
+  tags,
+  publishedAt,
+  featured,
+  seoTitle,
+  seoDescription
+}`;
+
+export const featuredBlogPostsQuery = groq`*[_type == "blogPost" && featured == true] | order(publishedAt desc) [0...3] {
+  _id,
+  title,
+  "slug": slug.current,
+  excerpt,
+  category,
+  publishedAt
+}`;

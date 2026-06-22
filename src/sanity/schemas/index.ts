@@ -7,6 +7,7 @@ import { teamMember } from "./teamMember";
 import { siteSettings } from "./siteSettings";
 import { enquiry } from "./enquiry";
 import { page } from "./page";
+import { blogPost } from "./blogPost";
 import { sectionTypes } from "./sections";
 
 export const schemaTypes = [
@@ -19,5 +20,6 @@ export const schemaTypes = [
   siteSettings,
   enquiry,
   page,
+  blogPost,
   ...sectionTypes,
 ];
