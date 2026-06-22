@@ -8,7 +8,7 @@ export default function JsonLd() {
     description:
       "Accessible holidays and disability travel services in Bali. Equipment hire, personal carers, accessible transport, and all-inclusive packages.",
     url: baseUrl,
-    telephone: "+62-812-4652-2084",
+    telephone: "+62-821-4652-2084",
     email: "dedikbali@yahoo.com",
     address: {
       "@type": "PostalAddress",
@@ -53,7 +53,7 @@ export default function JsonLd() {
     description:
       "Accessible holidays and disability travel services in Bali. Equipment hire, personal carers, accessible transport, and all-inclusive packages.",
     url: baseUrl,
-    telephone: "+62-812-4652-2084",
+    telephone: "+62-821-4652-2084",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Perumahan Griya Carik No.16 Bona Kelod",
