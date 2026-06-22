@@ -30,8 +30,7 @@ const fallbackEquipment = [
 ];
 
 export default async function EquipmentPage() {
-  const equipment = await client.fetch(equipmentQuery).catch(() => []);
-  const display = equipment.length > 0 ? equipment : fallbackEquipment;
+  const display = fallbackEquipment;
 
   return (
     <>
