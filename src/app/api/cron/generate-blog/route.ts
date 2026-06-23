@@ -9,7 +9,7 @@ const sanity = createClient({
   useCdn: false,
 });
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GROQ_API_KEY = process.env.GROQ_API_KEY;
 
 const BLOG_TOPICS = [
   // Bali Culture & Festivals
@@ -87,65 +87,54 @@ Return the response as a valid JSON object with these fields:
 IMPORTANT: Return ONLY valid JSON, no other text.`;
 
   const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${GEMINI_API_KEY}`,
+    "https://api.groq.com/openai/v1/chat/completions",
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${GROQ_API_KEY}`,
       },
       body: JSON.stringify({
-        contents: [
+        model: "llama-3.3-70b-versatile",
+        messages: [
           {
-            parts: [
-              {
-                text: `You are a travel blogger specializing in accessible travel in Bali. Write engaging, helpful content that ranks well in search engines. Always respond with valid JSON only.\n\n${prompt}`,
-              },
-            ],
+            role: "system",
+            content:
+              "You are a travel blogger specializing in accessible travel in Bali. Write engaging, helpful content that ranks well in search engines. Always respond with valid JSON only.",
+          },
+          {
+            role: "user",
+            content: prompt,
           },
         ],
-        generationConfig: {
-          temperature: 0.7,
-          maxOutputTokens: 4096,
-        },
+        temperature: 0.7,
+        max_tokens: 4096,
+        response_format: { type: "json_object" },
       }),
     }
   );
 
   if (!response.ok) {
     const error = await response.text();
-    throw new Error(`Gemini API error: ${response.status} - ${error}`);
+    throw new Error(`Groq API error: ${response.status} - ${error}`);
   }
 
   const data = await response.json();
-  const text = data.candidates[0].content.parts[0].text;
-
-  // Clean the response - remove markdown code blocks if present
-  const cleanedText = text
-    .replace(/```json\n?/g, "")
-    .replace(/```\n?/g, "")
-    .trim();
-
-  return JSON.parse(cleanedText);
+  return JSON.parse(data.choices[0].message.content);
 }
 
 export async function GET(req: NextRequest) {
-  // Verify cron secret to prevent unauthorized access
-  // Support both header and query parameter for flexibility
-  const authHeader = req.headers.get("authorization");
+  // Verify cron secret
   const querySecret = req.nextUrl.searchParams.get("secret");
   const cronSecret = process.env.CRON_SECRET;
-  
-  const isAuthorized = 
-    authHeader === `Bearer ${cronSecret}` || 
-    querySecret === cronSecret;
-  
-  if (!isAuthorized) {
+
+  if (querySecret !== cronSecret) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
-  if (!GEMINI_API_KEY) {
+  if (!GROQ_API_KEY) {
     return NextResponse.json(
-      { error: "GEMINI_API_KEY not configured" },
+      { error: "GROQ_API_KEY not configured" },
       { status: 500 }
     );
   }
