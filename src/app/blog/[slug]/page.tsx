@@ -6,6 +6,8 @@ import { blogPostBySlugQuery, blogPostsQuery } from "@/lib/queries";
 import PageHeader from "@/components/PageHeader";
 import { PortableText } from "@portabletext/react";
 
+export const revalidate = 0;
+
 const categoryLabels: Record<string, string> = {
   "bali-culture": "Bali Culture & Festivals",
   accessibility: "Accessibility & Disability",

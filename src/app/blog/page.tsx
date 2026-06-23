@@ -4,6 +4,8 @@ import { client } from "@/lib/sanity";
 import { blogPostsQuery } from "@/lib/queries";
 import PageHeader from "@/components/PageHeader";
 
+export const revalidate = 0;
+
 export const metadata: Metadata = {
   title: "Bali Accessibility Blog — Travel Tips & Guides",
   description:
