@@ -131,8 +131,22 @@ IMPORTANT: Return ONLY valid JSON, no other text.`;
 export async function GET(req: NextRequest) {
   // Verify cron secret to prevent unauthorized access
   const authHeader = req.headers.get("authorization");
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const expectedAuth = `Bearer ${process.env.CRON_SECRET}`;
+  
+  // Debug logging (remove in production)
+  console.log("Auth header received:", authHeader ? `${authHeader.substring(0, 15)}...` : "null");
+  console.log("Expected auth:", expectedAuth ? `${expectedAuth.substring(0, 15)}...` : "null");
+  console.log("Match:", authHeader === expectedAuth);
+  
+  if (authHeader !== expectedAuth) {
+    return NextResponse.json({ 
+      error: "Unauthorized",
+      debug: {
+        headerReceived: !!authHeader,
+        headerLength: authHeader?.length || 0,
+        expectedLength: expectedAuth?.length || 0,
+      }
+    }, { status: 401 });
   }
 
   if (!GEMINI_API_KEY) {
