@@ -1,7 +1,7 @@
 {
   "crons": [
     {
-      "path": "/api/cron/generate-blog",
+      "path": "/api/cron/generate-blog?secret=4oBRlVqydsxvK7utPaA59TQF18eSZkJC",
       "schedule": "0 10 1,15 * *"
     }
   ]
