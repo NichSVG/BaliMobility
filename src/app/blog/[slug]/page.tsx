@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { client } from "@/lib/sanity";
 import { blogPostBySlugQuery, blogPostsQuery } from "@/lib/queries";
 import PageHeader from "@/components/PageHeader";
-import { PortableText } from "@portabletext/react";
+import { PortableText, type PortableTextComponents } from "@portabletext/react";
 
 export const revalidate = 0;
 
@@ -14,6 +14,29 @@ const categoryLabels: Record<string, string> = {
   "travel-tips": "Travel Tips",
   equipment: "Equipment Guides",
   destinations: "Destinations",
+};
+
+function stripMarkdownHeaders(text: string): string {
+  return text
+    .replace(/^#{1,6}\s+.*$/gm, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+const components: PortableTextComponents = {
+  block: {
+    normal: ({ children }) => {
+      if (typeof children === 'string') {
+        const cleaned = stripMarkdownHeaders(children);
+        if (!cleaned) return null;
+        return <p className="text-muted mb-4">{cleaned}</p>;
+      }
+      return <p className="text-muted mb-4">{children}</p>;
+    },
+  },
+  marks: {
+    strong: ({ children }) => <strong className="font-semibold text-foreground">{children}</strong>,
+  },
 };
 
 export async function generateStaticParams() {
@@ -93,7 +116,7 @@ export default async function BlogPostPage({
 
           <div className="prose prose-lg max-w-none">
             {post.content ? (
-              <PortableText value={post.content} />
+              <PortableText value={post.content} components={components} />
             ) : (
               <p className="text-muted">Content loading...</p>
             )}
