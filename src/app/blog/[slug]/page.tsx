@@ -28,10 +28,12 @@ function cleanContent(content: any[]): string {
     )
     .join('\n\n');
   
-  // Strip markdown headers and clean up
+  // Strip markdown headers aggressively
   return text
-    .replace(/^#{1,6}\s+.*$/gm, '') // Remove header lines
+    .replace(/^#{1,6}\s+.*$/gm, '') // Remove entire header lines
+    .replace(/#{1,6}\s+/g, '') // Remove any remaining ## patterns
     .replace(/\n{3,}/g, '\n\n') // Collapse multiple blank lines
+    .replace(/^\s+$/gm, '') // Remove empty lines
     .trim();
 }
 
