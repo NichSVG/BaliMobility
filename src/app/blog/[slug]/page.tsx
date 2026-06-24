@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { client } from "@/lib/sanity";
 import { blogPostBySlugQuery, blogPostsQuery } from "@/lib/queries";
 import PageHeader from "@/components/PageHeader";
-import { PortableText, type PortableTextComponents } from "@portabletext/react";
 
 export const revalidate = 0;
 
@@ -16,28 +15,25 @@ const categoryLabels: Record<string, string> = {
   destinations: "Destinations",
 };
 
-function stripMarkdownHeaders(text: string): string {
+function cleanContent(content: any[]): string {
+  if (!content || !Array.isArray(content)) return '';
+  
+  const text = content
+    .filter((block: any) => block._type === 'block')
+    .map((block: any) => 
+      (block.children || [])
+        .filter((child: any) => child._type === 'span')
+        .map((span: any) => span.text)
+        .join('')
+    )
+    .join('\n\n');
+  
+  // Strip markdown headers and clean up
   return text
-    .replace(/^#{1,6}\s+.*$/gm, '')
-    .replace(/\n{3,}/g, '\n\n')
+    .replace(/^#{1,6}\s+.*$/gm, '') // Remove header lines
+    .replace(/\n{3,}/g, '\n\n') // Collapse multiple blank lines
     .trim();
 }
-
-const components: PortableTextComponents = {
-  block: {
-    normal: ({ children }) => {
-      if (typeof children === 'string') {
-        const cleaned = stripMarkdownHeaders(children);
-        if (!cleaned) return null;
-        return <p className="text-muted mb-4">{cleaned}</p>;
-      }
-      return <p className="text-muted mb-4">{children}</p>;
-    },
-  },
-  marks: {
-    strong: ({ children }) => <strong className="font-semibold text-foreground">{children}</strong>,
-  },
-};
 
 export async function generateStaticParams() {
   const posts = await client.fetch(blogPostsQuery).catch(() => []);
@@ -116,7 +112,11 @@ export default async function BlogPostPage({
 
           <div className="prose prose-lg max-w-none">
             {post.content ? (
-              <PortableText value={post.content} components={components} />
+              <div>
+                {cleanContent(post.content).split('\n\n').map((paragraph, i) => (
+                  <p key={i} className="text-muted mb-4">{paragraph}</p>
+                ))}
+              </div>
             ) : (
               <p className="text-muted">Content loading...</p>
             )}
