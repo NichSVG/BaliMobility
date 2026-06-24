@@ -28,57 +28,22 @@ export default function BlogPost() {
               Renting a wheelchair in Bali is straightforward — if you know what to expect. Here&apos;s our complete guide based on years of helping travellers get the right equipment.
             </p>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">Step 1: Choose Your Wheelchair</h2>
             <p className="text-muted mb-4">
-              We offer lightweight, foldable wheelchairs with the following features:
-            </p>
-            <ul className="space-y-2 text-muted mb-6">
-              <li>Lightweight aluminium frame (easy to lift and transport)</li>
-              <li>Removable footrests</li>
-              <li>Folding design (fits in car boots)</li>
-              <li>Weight capacity: 120kg</li>
-              <li>Comfortable padded seating</li>
-            </ul>
-
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">Step 2: Book in Advance</h2>
-            <p className="text-muted mb-4">
-              We recommend booking at least <strong>1 week before</strong> your trip. This ensures availability and gives us time to arrange delivery to your hotel.
-            </p>
-            <p className="text-muted mb-4">
-              You can book via:
-            </p>
-            <ul className="space-y-2 text-muted mb-6">
-              <li><strong>WhatsApp:</strong> Message us at +62 821-4652-2084 (fastest)</li>
-              <li><strong>Contact form:</strong> Fill out our <Link href="/contact" className="text-ocean hover:underline">enquiry form</Link></li>
-            </ul>
-
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">Step 3: Delivery</h2>
-            <p className="text-muted mb-4">
-              We deliver free of charge to hotels and villas across Bali:
-            </p>
-            <ul className="space-y-2 text-muted mb-6">
-              <li>Sanur</li>
-              <li>Kuta / Legian</li>
-              <li>Seminyak</li>
-              <li>Nusa Dua</li>
-              <li>Ubud</li>
-              <li>And surrounding areas</li>
-            </ul>
-            <p className="text-muted mb-4">
-              We can deliver <strong>before you arrive</strong> so the wheelchair is waiting at your hotel when you check in.
+              We offer lightweight, foldable wheelchairs with removable footrests, a folding design that fits in car boots, and a weight capacity of 120kg. They have comfortable padded seating and are easy to lift and transport.
             </p>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">Step 4: During Your Rental</h2>
             <p className="text-muted mb-4">
-              If you have any issues with the wheelchair, contact us anytime. We offer <strong>24/7 support</strong> and can repair or replace equipment within hours.
+              We recommend booking at least <strong>1 week before</strong> your trip. This ensures availability and gives us time to arrange delivery to your hotel. You can book via WhatsApp at +62 821-4652-2084 (fastest) or fill out our enquiry form.
             </p>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">Step 5: Return</h2>
             <p className="text-muted mb-4">
-              When you&apos;re done, simply leave the wheelchair at your hotel and we&apos;ll pick it up. No need to drop it off anywhere.
+              We deliver free of charge to hotels and villas across Bali including Sanur, Kuta, Seminyak, Nusa Dua, Ubud, and surrounding areas. We can deliver <strong>before you arrive</strong> so the wheelchair is waiting at your hotel when you check in.
             </p>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">Rental Rates</h2>
+            <p className="text-muted mb-4">
+              If you have any issues with the wheelchair, contact us anytime. We offer <strong>24/7 support</strong> and can repair or replace equipment within hours. When you&apos;re done, simply leave the wheelchair at your hotel and we&apos;ll pick it up. No need to drop it off anywhere.
+            </p>
+
             <div className="overflow-x-auto mb-8">
               <table className="w-full text-sm border-collapse">
                 <thead>

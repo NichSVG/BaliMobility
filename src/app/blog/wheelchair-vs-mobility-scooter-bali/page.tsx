@@ -33,31 +33,14 @@ export default function BlogPost() {
               One of the most common questions we get from travellers is: <strong>should I rent a wheelchair or a mobility scooter for Bali?</strong> The answer depends on your mobility level, where you&apos;re staying, and what you plan to do.
             </p>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">Mobility Scooter: Best for Independent Exploration</h2>
             <p className="text-muted mb-4">
-              A mobility scooter is ideal if you can transfer yourself on and off, and want the freedom to explore independently. Here&apos;s what to consider:
+              A mobility scooter is ideal if you can transfer yourself on and off, and want the freedom to explore independently. They have a range of up to 20km per charge, which is enough for a full day of sightseeing. The max speed is 8 km/h (walking pace), so it&apos;s safe and comfortable. They fold down to fit in most car boots, making it easy to get to attractions. The best places to use them are shopping areas, footpaths, smooth roads, and hotel grounds. They&apos;re not ideal for very uneven terrain, steep hills, or sandy beaches.
             </p>
-            <ul className="space-y-2 text-muted mb-6">
-              <li><strong>Range:</strong> Up to 20km per charge — enough for a full day of sightseeing</li>
-              <li><strong>Speed:</strong> Max 8 km/h (walking pace) — safe and comfortable</li>
-              <li><strong>Foldable:</strong> Fits in most car boots for transport to attractions</li>
-              <li><strong>Best for:</strong> Shopping areas, footpaths, smooth roads, hotel grounds</li>
-              <li><strong>Not ideal for:</strong> Very uneven terrain, steep hills, sandy beaches</li>
-            </ul>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">Wheelchair: Best for All-Day Comfort</h2>
             <p className="text-muted mb-4">
-              A wheelchair is the better choice if you need full-time seating support or prefer someone to push you. Here&apos;s the breakdown:
+              A wheelchair is the better choice if you need full-time seating support or prefer someone to push you. They&apos;re designed for extended sitting with good back support, lightweight and easy to fold and transport. They work well in restaurants, hotels, temples, and most tourist spots. They&apos;re best for all-day use and indoor venues, but not ideal for long distances without a companion to push.
             </p>
-            <ul className="space-y-2 text-muted mb-6">
-              <li><strong>Comfort:</strong> Designed for extended sitting with good back support</li>
-              <li><strong>Lightweight:</strong> Easy to fold and transport</li>
-              <li><strong>Versatile:</strong> Works in restaurants, hotels, temples, and most tourist spots</li>
-              <li><strong>Best for:</strong> All-day use, indoor venues, restaurants, temples</li>
-              <li><strong>Not ideal for:</strong> Long distances without a companion to push</li>
-            </ul>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">Side-by-Side Comparison</h2>
             <div className="overflow-x-auto mb-8">
               <table className="w-full text-sm border-collapse">
                 <thead>
@@ -97,7 +80,6 @@ export default function BlogPost() {
               </table>
             </div>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">Our Recommendation</h2>
             <p className="text-muted mb-4">
               <strong>Choose a mobility scooter if:</strong> You can transfer independently and want to explore at your own pace. Great for shopping areas, beachside paths, and hotel grounds.
             </p>

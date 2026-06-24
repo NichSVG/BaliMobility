@@ -28,47 +28,21 @@ export default function BlogPost() {
               Bali&apos;s beaches are world-famous, but not all are easy to access in a wheelchair. After years of helping travellers with mobility challenges, here are our top picks for accessible beach experiences.
             </p>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">1. Sanur Beach</h2>
             <p className="text-muted mb-4">
-              Sanur is our top recommendation for wheelchair users. The beachfront has a <strong>paved boardwalk</strong> that runs for several kilometres along the coast. You can roll along the path, enjoy ocean views, and stop at beachside cafes.
+              <strong>Sanur Beach</strong> is our top recommendation for wheelchair users. The beachfront has a paved boardwalk that runs for several kilometres along the coast. You can roll along the path, enjoy ocean views, and stop at beachside cafes. The surfaces are flat and smooth, there are accessible restaurants and cafes, and the water is calm (protected by a reef). There are wheelchair-friendly hotels nearby too.
             </p>
-            <ul className="space-y-2 text-muted mb-6">
-              <li>✅ Paved boardwalk along the beach</li>
-              <li>✅ Flat, smooth surfaces</li>
-              <li>✅ Accessible restaurants and cafes</li>
-              <li>✅ Calm water (protected by reef)</li>
-              <li>✅ Wheelchair-friendly hotels nearby</li>
-            </ul>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">2. Nusa Dua Beach</h2>
             <p className="text-muted mb-4">
-              Nusa Dua is a resort area with well-maintained paths and accessible beach access points. The beaches here are clean and the water is calm — perfect for a relaxed day out.
+              <strong>Nusa Dua Beach</strong> is a resort area with well-maintained paths and accessible beach access points. The beaches here are clean and the water is calm — perfect for a relaxed day out. The pathways are well-maintained and the resort-area accessibility is excellent.
             </p>
-            <ul className="space-y-2 text-muted mb-6">
-              <li>✅ Well-maintained pathways</li>
-              <li>✅ Resort-area accessibility</li>
-              <li>✅ Clean, manicured beaches</li>
-              <li>✅ Calm swimming conditions</li>
-            </ul>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">3. Kuta Beach</h2>
             <p className="text-muted mb-4">
-              Kuta has improved accessibility in recent years. The beachfront walkway is wheelchair-friendly, and there are accessible entry points to the beach. It&apos;s busier than Sanur but has great sunset views.
+              <strong>Kuta Beach</strong> has improved accessibility in recent years. The beachfront walkway is wheelchair-friendly, and there are accessible entry points to the beach. It&apos;s busier than Sanur but has great sunset views. Just note that it can be crowded and the sand can be soft in places.
             </p>
-            <ul className="space-y-2 text-muted mb-6">
-              <li>✅ Beachfront walkway</li>
-              <li>✅ Accessible entry points</li>
-              <li>⚠️ Can be crowded</li>
-              <li>⚠️ Sand can be soft in places</li>
-            </ul>
 
-            <h2 className="text-2xl font-bold text-foreground mt-12 mb-4">Tips for Beach Visits</h2>
-            <ul className="space-y-2 text-muted mb-6">
-              <li><strong>Go early morning:</strong> Fewer people, cooler temperatures, easier to navigate</li>
-              <li><strong>Bring a beach wheelchair:</strong> Wide wheels handle sand much better than standard chairs</li>
-              <li><strong>Ask your hotel:</strong> Many resorts have beach wheelchairs available for guests</li>
-              <li><strong>Stay near the boardwalk:</strong> You can enjoy the ocean views without going on sand</li>
-            </ul>
+            <p className="text-muted mb-6">
+              <strong>Tips for beach visits:</strong> Go early morning for fewer people and cooler temperatures. Bring a beach wheelchair if you have one — wide wheels handle sand much better than standard chairs. Ask your hotel if they have beach wheelchairs available. And stay near the boardwalk so you can enjoy ocean views without going on sand.
+            </p>
 
             <div className="bg-sand rounded-xl p-6 mt-8">
               <h3 className="font-bold text-foreground mb-2">Need mobility equipment for your beach trip?</h3>
