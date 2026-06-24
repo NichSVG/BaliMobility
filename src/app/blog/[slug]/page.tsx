@@ -28,13 +28,24 @@ function cleanContent(content: any[]): string {
     )
     .join('\n\n');
   
-  // Strip markdown headers aggressively
-  return text
-    .replace(/^#{1,6}\s+.*$/gm, '') // Remove entire header lines
-    .replace(/#{1,6}\s+/g, '') // Remove any remaining ## patterns
-    .replace(/\n{3,}/g, '\n\n') // Collapse multiple blank lines
-    .replace(/^\s+$/gm, '') // Remove empty lines
-    .trim();
+  // Strip markdown headers aggressively - multiple passes
+  let cleaned = text;
+  
+  // Remove lines that are entirely headers
+  cleaned = cleaned.replace(/^#{1,6}\s+.*$/gm, '');
+  
+  // Remove ## patterns followed by text (inline headers)
+  cleaned = cleaned.replace(/#{1,6}\s+[^#\n]*/g, '');
+  
+  // Remove any remaining ## that might be left
+  cleaned = cleaned.replace(/#{1,6}\s*/g, '');
+  
+  // Clean up extra whitespace and line breaks
+  cleaned = cleaned.replace(/\n{3,}/g, '\n\n');
+  cleaned = cleaned.replace(/<br\/>\s*<br\/>/g, '<br/>');
+  cleaned = cleaned.trim();
+  
+  return cleaned;
 }
 
 export async function generateStaticParams() {
