@@ -61,30 +61,36 @@ function generateSlug(title: string): string {
 }
 
 async function generateBlogPost(topic: string) {
-  const prompt = `Write a detailed, engaging blog post about: "${topic}"
+  const prompt = `Write a blog post about: "${topic}"
 
 This is for Bali Mobility (balimobility.com), a family-run company in Bali that rents mobility equipment (wheelchairs, mobility scooters, walker frames, shower seats, toilet seats, baby push chairs, baby car seats).
 
-Requirements:
-- Write in a friendly, helpful tone
-- 800-1200 words
-- Include practical tips and advice
-- Mention Bali Mobility naturally where relevant (not spammy)
-- Include a call-to-action at the end
-- Use subheadings (## format)
-- Focus on accessibility and mobility where relevant
-- Be informative and SEO-friendly
+WRITING STYLE:
+- Write like a real person having a conversation, not like a textbook
+- Use short paragraphs (2-4 sentences max)
+- Mix up sentence lengths - some short, some longer
+- Only use ## headings for major section breaks (2-3 per article max), not for every paragraph
+- Use bullet points sparingly, only for actual lists of items
+- Tell stories and give examples, not just generic advice
+- Be warm and helpful, not corporate
+- 600-900 words (shorter is fine, don't pad it out)
 
-Return the response as a valid JSON object with these fields:
-- title: The blog post title (string)
-- excerpt: A 2-3 sentence summary (string)
-- content: The full blog post in markdown format (string)
-- category: One of "bali-culture", "accessibility", "travel-tips", "equipment", "destinations" (string)
-- tags: Array of 3-5 relevant tags (array of strings)
-- seoTitle: SEO-optimized title (max 60 chars) (string)
-- seoDescription: Meta description (max 160 chars) (string)
+CONTENT:
+- Share real practical tips someone would actually use
+- Mention Bali Mobility naturally once or twice (don't force it)
+- End with a casual call-to-action, not a sales pitch
+- Focus on accessibility and mobility where it fits naturally
 
-IMPORTANT: Return ONLY valid JSON, no other text.`;
+Return as valid JSON:
+- title: string
+- excerpt: 1-2 sentences, conversational summary
+- content: the blog post in markdown (minimal ## headers, natural flow)
+- category: "bali-culture" | "accessibility" | "travel-tips" | "equipment" | "destinations"
+- tags: string[] (3-5 tags)
+- seoTitle: string (max 60 chars)
+- seoDescription: string (max 160 chars)
+
+Return ONLY valid JSON.`;
 
   const response = await fetch(
     "https://api.groq.com/openai/v1/chat/completions",
@@ -100,7 +106,7 @@ IMPORTANT: Return ONLY valid JSON, no other text.`;
           {
             role: "system",
             content:
-              "You are a travel blogger specializing in accessible travel in Bali. Write engaging, helpful content that ranks well in search engines. Always respond with valid JSON only.",
+              "You are a friendly travel blogger who writes like you're talking to a friend. You know Bali well and care about helping people with disabilities travel comfortably. Write naturally, not like AI. Never use more than 3 ## headings in an article. Respond with valid JSON only.",
           },
           {
             role: "user",
