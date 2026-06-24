@@ -69,7 +69,7 @@ WRITING STYLE:
 - Write like a real person having a conversation, not like a textbook
 - Use short paragraphs (2-4 sentences max)
 - Mix up sentence lengths - some short, some longer
-- Only use ## headings for major section breaks (2-3 per article max), not for every paragraph
+- NEVER use ## or # markdown headers - just write in flowing paragraphs
 - Use bullet points sparingly, only for actual lists of items
 - Tell stories and give examples, not just generic advice
 - Be warm and helpful, not corporate
@@ -84,7 +84,7 @@ CONTENT:
 Return as valid JSON:
 - title: string
 - excerpt: 1-2 sentences, conversational summary
-- content: the blog post in markdown (minimal ## headers, natural flow)
+- content: the blog post in plain text paragraphs (NO ## headers at all)
 - category: "bali-culture" | "accessibility" | "travel-tips" | "equipment" | "destinations"
 - tags: string[] (3-5 tags)
 - seoTitle: string (max 60 chars)
@@ -106,7 +106,7 @@ Return ONLY valid JSON.`;
           {
             role: "system",
             content:
-              "You are a friendly travel blogger who writes like you're talking to a friend. You know Bali well and care about helping people with disabilities travel comfortably. Write naturally, not like AI. Never use more than 3 ## headings in an article. Respond with valid JSON only.",
+              "You are a friendly travel blogger who writes like you're talking to a friend. You know Bali well and care about helping people with disabilities travel comfortably. Write naturally, not like AI. NEVER use ## or # headers in your content - just write flowing paragraphs. Respond with valid JSON only.",
           },
           {
             role: "user",
@@ -126,7 +126,17 @@ Return ONLY valid JSON.`;
   }
 
   const data = await response.json();
-  return JSON.parse(data.choices[0].message.content);
+  const result = JSON.parse(data.choices[0].message.content);
+  
+  // Strip any ## headers from content
+  if (result.content) {
+    result.content = result.content
+      .replace(/^#{1,6}\s+.*$/gm, '') // Remove markdown headers
+      .replace(/\n{3,}/g, '\n\n') // Collapse multiple blank lines
+      .trim();
+  }
+  
+  return result;
 }
 
 export async function GET(req: NextRequest) {
