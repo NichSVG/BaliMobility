@@ -110,7 +110,7 @@ export default function ContactPage() {
               <div className="rounded-xl overflow-hidden border border-sand-dark">
                 <iframe
                   title="Bali Mobility office location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.1!2d115.25!3d-8.68!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwNDAnNDguMCJTIDExNcKwMTUnMDAuMCJF!5e0!3m2!1sen!2sid!4v1"
+                  src="https://www.google.com/maps?q=Perumahan+Griya+Carik+No.16+Bona+Kelod+Blahbatuh+Gianyar+Bali+Indonesia&output=embed"
                   width="100%"
                   height="250"
                   style={{ border: 0 }}
