@@ -17,13 +17,13 @@ export const metadata: Metadata = {
 };
 
 const fallbackEquipment = [
-  { name: "Mobility Scooter", icon: "🛵", description: "Lightweight, foldable mobility scooter perfect for exploring Bali.", features: ["Max speed: 8 km/h", "Range: 20 km per charge", "Weight capacity: 120 kg", "Foldable for easy transport"], rateDaily: "IDR 250K", rate3Days: "IDR 600K", rateWeekly: "IDR 1.2M", rateDailyAud: "AUD $25", rate3DaysAud: "AUD $60", rateWeeklyAud: "AUD $120", bestFor: "Travellers with limited mobility who can stand and transfer." },
-  { name: "Wheelchair", icon: "🦽", description: "Comfortable wheelchair with supportive seating and easy manoeuvrability.", features: ["Lightweight frame", "Removable footrests", "Folding design", "Weight capacity: 120 kg"], rateDaily: "IDR 200K", rate3Days: "IDR 450K", rateWeekly: "IDR 900K", rateDailyAud: "AUD $20", rate3DaysAud: "AUD $45", rateWeeklyAud: "AUD $90", bestFor: "Travellers who need a wheelchair for getting around Bali." },
-  { name: "Baby Push Chair", icon: "👶", description: "Lightweight baby stroller for families with young children.", features: ["Ages 6 months – 4 years", "Reclining seat", "Sun canopy with UV protection", "5-point safety harness"], rateDaily: "IDR 100K", rate3Days: "IDR 250K", rateWeekly: "IDR 500K", rateDailyAud: "AUD $10", rate3DaysAud: "AUD $25", rateWeeklyAud: "AUD $50", bestFor: "Families with young children." },
-  { name: "Baby Car Seat", icon: "🚗", description: "Safe and secure baby car seat for worry-free travel around Bali.", features: ["Suitable for ages 0–4 years", "5-point safety harness", "Easy installation", "Meets safety standards"], rateDaily: "IDR 100K", rate3Days: "IDR 250K", rateWeekly: "IDR 500K", rateDailyAud: "AUD $10", rate3DaysAud: "AUD $25", rateWeeklyAud: "AUD $50", bestFor: "Families travelling with infants or toddlers." },
-  { name: "Walker Frame", icon: "🦯", description: "Sturdy four-wheel walker with seat, brakes, and basket.", features: ["Four-wheel design with brakes", "Built-in padded seat", "Storage basket underneath", "Adjustable height"], rateDaily: "IDR 100K", rate3Days: "IDR 250K", rateWeekly: "IDR 500K", rateDailyAud: "AUD $10", rate3DaysAud: "AUD $25", rateWeeklyAud: "AUD $50", bestFor: "Travellers who can walk but need extra stability." },
-  { name: "Shower Seat", icon: "🚿", description: "Adjustable shower chair with backrest and armrests for safe bathing.", features: ["Adjustable seat height", "Backrest and armrests", "Non-slip rubber feet", "Rust-resistant aluminium"], rateDaily: "IDR 75K", rate3Days: "IDR 180K", rateWeekly: "IDR 350K", rateDailyAud: "AUD $8", rate3DaysAud: "AUD $18", rateWeeklyAud: "AUD $35", bestFor: "Travellers who need seated support while showering." },
-  { name: "Toilet Seat", icon: "🚽", description: "Raised toilet seat with armrests for safer bathroom use.", features: ["Height adjustable", "Padded armrests", "Fits most toilets", "Tool-free installation"], rateDaily: "IDR 75K", rate3Days: "IDR 180K", rateWeekly: "IDR 350K", rateDailyAud: "AUD $8", rate3DaysAud: "AUD $18", rateWeeklyAud: "AUD $35", bestFor: "Anyone needing extra height or support in the bathroom." },
+  { name: "Mobility Scooter", icon: "🛵", description: "Lightweight, foldable mobility scooter perfect for exploring Bali.", features: ["Max speed: 8 km/h", "Range: 20 km per charge", "Weight capacity: 120 kg", "Foldable for easy transport"], rateDaily: "$25", rate3Days: "$65", rateWeekly: "$130", bestFor: "Travellers with limited mobility who can stand and transfer." },
+  { name: "Wheelchair", icon: "🦽", description: "Comfortable wheelchair with supportive seating and easy manoeuvrability.", features: ["Lightweight frame", "Removable footrests", "Folding design", "Weight capacity: 120 kg"], rateDaily: "$10", rate3Days: "$25", rateWeekly: "$50", bestFor: "Travellers who need a wheelchair for getting around Bali." },
+  { name: "Baby Push Chair", icon: "👶", description: "Lightweight baby stroller for families with young children.", features: ["Ages 6 months – 4 years", "Reclining seat", "Sun canopy with UV protection", "5-point safety harness"], rateDaily: "$7", rate3Days: "$18", rateWeekly: "$35", bestFor: "Families with young children." },
+  { name: "Baby Car Seat", icon: "🚗", description: "Safe and secure baby car seat for worry-free travel around Bali.", features: ["Suitable for ages 0–4 years", "5-point safety harness", "Easy installation", "Meets safety standards"], rateDaily: "$7", rate3Days: "$18", rateWeekly: "$35", bestFor: "Families travelling with infants or toddlers." },
+  { name: "Walker Frame", icon: "🦯", description: "Sturdy four-wheel walker with seat, brakes, and basket.", features: ["Four-wheel design with brakes", "Built-in padded seat", "Storage basket underneath", "Adjustable height"], rateDaily: "$7", rate3Days: "$18", rateWeekly: "$35", bestFor: "Travellers who can walk but need extra stability." },
+  { name: "Shower Seat", icon: "🚿", description: "Adjustable shower chair with backrest and armrests for safe bathing.", features: ["Adjustable seat height", "Backrest and armrests", "Non-slip rubber feet", "Rust-resistant aluminium"], rateDaily: "$5", rate3Days: "$13", rateWeekly: "$25", bestFor: "Travellers who need seated support while showering." },
+  { name: "Toilet Seat", icon: "🚽", description: "Raised toilet seat with armrests for safer bathroom use.", features: ["Height adjustable", "Padded armrests", "Fits most toilets", "Tool-free installation"], rateDaily: "$5", rate3Days: "$13", rateWeekly: "$25", bestFor: "Anyone needing extra height or support in the bathroom." },
 ];
 
 export default async function EquipmentPage() {
@@ -34,7 +34,7 @@ export default async function EquipmentPage() {
       <PageHeader
         title="Equipment Rental"
         subtitle="Mobility Solutions"
-        description="Quality mobility equipment delivered to your hotel or villa. Rates shown in IDR and AUD."
+        description="Quality mobility equipment delivered to your hotel or villa. Rates shown in USD."
         variant="tropical"
         image="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=1920&q=80"
         breadcrumbs={[
@@ -68,9 +68,9 @@ export default async function EquipmentPage() {
                   <div className="mb-4 bg-sand rounded-lg p-4">
                     <h3 className="text-sm font-semibold text-foreground mb-2">Rental Rates:</h3>
                     <div className="grid grid-cols-3 gap-2 text-center">
-                      <div><div className="text-xs text-muted">Daily</div><div className="font-bold text-ocean text-sm">{item.rateDailyAud}</div><div className="text-xs text-muted">{item.rateDaily}</div></div>
-                      <div><div className="text-xs text-muted">3 Days</div><div className="font-bold text-ocean text-sm">{item.rate3DaysAud}</div><div className="text-xs text-muted">{item.rate3Days}</div></div>
-                      <div><div className="text-xs text-muted">Weekly</div><div className="font-bold text-ocean text-sm">{item.rateWeeklyAud}</div><div className="text-xs text-muted">{item.rateWeekly}</div></div>
+                      <div><div className="text-xs text-muted">Daily</div><div className="font-bold text-ocean text-sm">{item.rateDaily}</div></div>
+                      <div><div className="text-xs text-muted">3 Days</div><div className="font-bold text-ocean text-sm">{item.rate3Days}</div></div>
+                      <div><div className="text-xs text-muted">Weekly</div><div className="font-bold text-ocean text-sm">{item.rateWeekly}</div></div>
                     </div>
                   </div>
                   <p className="text-xs text-muted mb-4"><strong>Best for:</strong> {item.bestFor}</p>
