@@ -28,12 +28,33 @@ const nextConfig: NextConfig = {
       {
         source: "/services",
         destination: "/equipment",
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/packages",
         destination: "/equipment",
-        permanent: false,
+        permanent: true,
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "DENY",
+          },
+          {
+            key: "X-XSS-Protection",
+            value: "1; mode=block",
+          },
+        ],
       },
     ];
   },
