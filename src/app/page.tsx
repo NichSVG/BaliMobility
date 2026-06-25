@@ -259,7 +259,7 @@ export default async function Home() {
               </p>
               <div className="space-y-6">
                 {[
-                  { title: "Family-Run & Caring", desc: "We&apos;re a local Balinese family who genuinely care about your comfort and wellbeing." },
+                  { title: "Family-Run & Caring", desc: "We're a local Balinese family who genuinely care about your comfort and wellbeing." },
                   { title: "Local Knowledge", desc: "We know every accessible corner of Bali — tourist spots and hidden gems alike." },
                   { title: "For Everyone", desc: "Whether you have disabilities or young children, we make Bali enjoyable for the whole family." },
                 ].map((item) => (
