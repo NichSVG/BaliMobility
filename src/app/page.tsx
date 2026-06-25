@@ -250,18 +250,18 @@ export default async function Home() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <span className="inline-block text-ocean font-semibold text-sm uppercase tracking-wider mb-4">Why Choose Us</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">A truly unforgettable experience for all</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Why travellers choose Bali Mobility</h2>
               <p className="text-muted text-lg mb-8 leading-relaxed">
-                We&apos;re a family-run company with deep local knowledge. We take you to well-known
-                tourist destinations and hidden beauty spots that mobility-impaired travellers
-                can access — making your stay not just a holiday, but an experience you&apos;ll
-                want to return to again and again.
+                We&apos;re not a booking agency or a faceless rental company. We&apos;re a local
+                Balinese family who personally handle every rental — from answering your first
+                WhatsApp message to delivering equipment at your hotel and picking it up when
+                you leave.
               </p>
               <div className="space-y-6">
                 {[
-                  { title: "Family-Run & Caring", desc: "We're a local Balinese family who genuinely care about your comfort and wellbeing." },
-                  { title: "Local Knowledge", desc: "We know every accessible corner of Bali — tourist spots and hidden gems alike." },
-                  { title: "For Everyone", desc: "Whether you have disabilities or young children, we make Bali enjoyable for the whole family." },
+                  { title: "Family-Run & Caring", desc: "We're a local Balinese family — not a big corporation. When you message us, you talk to the owners. We personally deliver your equipment and make sure everything works perfectly before we leave." },
+                  { title: "Local Knowledge", desc: "We've lived in Bali our whole lives. We know which hotels have accessible rooms, which restaurants have ramps, and which beaches work for wheelchairs. We'll save you hours of research." },
+                  { title: "Equipment Ready When You Arrive", desc: "No airport queues, no searching for a rental shop. We deliver scooters, wheelchairs, and more straight to your hotel before you check in. Free delivery across Bali." },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4">
                     <div className="w-12 h-12 bg-ocean/10 rounded-xl flex items-center justify-center shrink-0">
