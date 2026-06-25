@@ -105,12 +105,9 @@ export default async function RootLayout({
 }>) {
   const settings = await client.fetch(siteSettingsQuery).catch(() => null);
 
-  const phone = settings?.phone || PHONE_DISPLAY;
-  const email = settings?.email || EMAIL;
-  const address = settings?.address || ADDRESS;
-  const whatsapp = settings?.whatsappNumber || WHATSAPP_NUMBER;
   const whatsappMsg = settings?.whatsappMessage || DEFAULT_WHATSAPP_MSG;
-  const hours = settings?.businessHours || BUSINESS_HOURS;
+
+  const heroImageUrl = settings?.heroImage;
 
   return (
     <html lang="en" className={`${poppins.variable} h-full antialiased`}>
@@ -169,11 +166,11 @@ export default async function RootLayout({
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div>
                 <h3 className="font-bold text-lg mb-3">Bali Mobility</h3>
-                <p className="text-sm text-gray-300 whitespace-pre-line">{address}</p>
+                <p className="text-sm text-gray-300 whitespace-pre-line">{ADDRESS}</p>
                 <div className="text-sm text-gray-300 mt-2 space-y-1">
-                  <a href={`tel:${phone.replace(/\s/g, "")}`} className="block hover:text-white transition-colors">{phone}</a>
-                  <a href={`mailto:${email}`} className="block hover:text-white transition-colors">{email}</a>
-                  <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">WhatsApp Us</a>
+                  <a href={`tel:${PHONE_DISPLAY.replace(/\s/g, "")}`} className="block hover:text-white transition-colors">{PHONE_DISPLAY}</a>
+                  <a href={`mailto:${EMAIL}`} className="block hover:text-white transition-colors">{EMAIL}</a>
+                  <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">WhatsApp Us</a>
                 </div>
               </div>
               <div>
@@ -199,7 +196,7 @@ export default async function RootLayout({
               </div>
               <div>
                 <h4 className="font-semibold mb-3">Hours</h4>
-                <p className="text-sm text-gray-300 whitespace-pre-line mb-4">{hours}</p>
+                <p className="text-sm text-gray-300 whitespace-pre-line mb-4">{BUSINESS_HOURS}</p>
                 <Link
                   href="/contact"
                   className="inline-block bg-coral text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-coral/90 transition-colors"
@@ -216,7 +213,7 @@ export default async function RootLayout({
 
         {/* WhatsApp floating button */}
         <a
-          href={`https://wa.me/${whatsapp}?text=${encodeURIComponent(whatsappMsg)}`}
+          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(whatsappMsg)}`}
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg z-50 transition-transform hover:scale-110"
