@@ -19,12 +19,12 @@ export const metadata: Metadata = {
 };
 
 const tourIdeas = [
-  { icon: "🌾", title: "Ubud Rice Terraces", description: "Tegallalang rice terraces, Ubud Monkey Forest, art galleries, and local craft markets." },
-  { icon: "🛕", title: "Tanah Lot Temple", description: "Iconic sea temple with stunning sunset views. Combine with Canggu beach stops." },
-  { icon: "🏖️", title: "Uluwatu & Beaches", description: "Clifftop temple, Kecak fire dance, and beautiful beaches around the Bukit peninsula." },
-  { icon: "🌋", title: "Kintamani & Mt Batur", description: "Volcano views, hot springs, and coffee plantation visits in the highlands." },
-  { icon: "🛍️", title: "Shopping & Markets", description: "Seminyak boutiques, Kuta markets, Sukawati art market, and local souvenir shops." },
-  { icon: "🐬", title: "Lovina & North Bali", description: "Dolphin watching, Gitgit waterfall, and quiet northern beaches (full day)." },
+  { icon: "🌾", title: "Ubud Rice Terraces", description: "Tegallalang rice terraces, Ubud Monkey Forest, art galleries, and local craft markets.", duration: "Half or full day" },
+  { icon: "🛕", title: "Tanah Lot Temple", description: "Iconic sea temple with stunning sunset views. Combine with Canggu beach stops.", duration: "Half day (afternoon)" },
+  { icon: "🏖️", title: "Uluwatu & Beaches", description: "Clifftop temple, Kecak fire dance, and beautiful beaches around the Bukit peninsula.", duration: "Half or full day" },
+  { icon: "🌋", title: "Kintamani & Mt Batur", description: "Volcano views, hot springs, and coffee plantation visits in the highlands.", duration: "Full day" },
+  { icon: "🛍️", title: "Shopping & Markets", description: "Seminyak boutiques, Kuta markets, Sukawati art market, and local souvenir shops.", duration: "Half day" },
+  { icon: "🐬", title: "Lovina & North Bali", description: "Dolphin watching, Gitgit waterfall, and quiet northern beaches.", duration: "Full day" },
 ];
 
 const faqs = [
@@ -49,6 +49,31 @@ export default function ToursPage() {
         variant="tropical"
         image="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1920&q=80"
       />
+
+      {/* How It Works */}
+      <section className="py-16 md:py-24" aria-label="How it works">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How It Works</h2>
+            <p className="text-muted text-lg max-w-2xl mx-auto">Booking a tour is simple. No online payments, no complicated forms — just WhatsApp us and go.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { step: "1", icon: "💬", title: "Message Us", description: "Tell us your dates, where you want to go, and how many people. We'll reply with a quote." },
+              { step: "2", icon: "✅", title: "Confirm", description: "Reply to confirm. We'll arrange the driver and send you the pickup details." },
+              { step: "3", icon: "🚗", title: "Get Picked Up", description: "The driver arrives at your hotel at the agreed time. Hop in and enjoy the ride." },
+              { step: "4", icon: "🌴", title: "Explore Bali", description: "Visit temples, beaches, rice terraces, markets — wherever you want. The driver waits for you." },
+            ].map((item) => (
+              <div key={item.step} className="text-center">
+                <div className="w-12 h-12 bg-ocean text-white rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-4">{item.step}</div>
+                <div className="text-3xl mb-3">{item.icon}</div>
+                <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
+                <p className="text-sm text-muted">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Pricing */}
       <section className="py-16 md:py-24" aria-label="Tour pricing">
@@ -104,6 +129,57 @@ export default function ToursPage() {
         </div>
       </section>
 
+      {/* Sample Itineraries */}
+      <section className="py-16 md:py-24" aria-label="Sample itineraries">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Sample Itineraries</h2>
+            <p className="text-muted text-lg max-w-2xl mx-auto">Here are some popular routes to give you ideas. We can customise any itinerary to suit your interests.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-xl border border-sand-dark p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="bg-ocean/10 text-ocean text-xs font-bold px-3 py-1 rounded-full">Half Day</span>
+                <h3 className="font-bold text-lg text-foreground">Ubud Culture & Nature</h3>
+              </div>
+              <ol className="space-y-3 text-sm text-muted">
+                <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">8:00 AM</span> Hotel pickup</li>
+                <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">9:00 AM</span> Tegallalang Rice Terraces — walk the paths, take photos</li>
+                <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">10:30 AM</span> Ubud Monkey Forest — meet the macaques</li>
+                <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">11:30 AM</span> Ubud Art Market — browse local crafts and souvenirs</li>
+                <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">12:30 PM</span> Lunch at a local restaurant (own expense)</li>
+                <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">1:30 PM</span> Return to hotel</li>
+              </ol>
+              <div className="mt-4 pt-4 border-t border-sand-dark flex items-center justify-between">
+                <span className="text-ocean font-bold text-lg">$60</span>
+                <a href={whatsappLink("Hi Bali Mobility! I'd like to book the half-day Ubud Culture & Nature tour.")} target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-600 transition-colors">Book on WhatsApp</a>
+              </div>
+            </div>
+            <div className="bg-white rounded-xl border border-ocean p-6 relative">
+              <span className="absolute top-0 left-6 -translate-y-1/2 bg-ocean text-white text-xs font-bold px-3 py-1 rounded-full">Popular</span>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="bg-ocean/10 text-ocean text-xs font-bold px-3 py-1 rounded-full">Full Day</span>
+                <h3 className="font-bold text-lg text-foreground">Temples & Sunset</h3>
+              </div>
+              <ol className="space-y-3 text-sm text-muted">
+                <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">8:00 AM</span> Hotel pickup</li>
+                <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">9:30 AM</span> Taman Ayun Temple — beautiful royal temple with gardens</li>
+                <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">11:00 AM</span> Alas Kedaton Monkey Forest — forest temple with friendly monkeys</li>
+                <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">12:30 PM</span> Lunch at a local warung (own expense)</li>
+                <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">2:00 PM</span> Canggu Beach — relax, watch the surfers</li>
+                <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">4:30 PM</span> Tanah Lot Temple — explore the iconic sea temple</li>
+                <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">6:00 PM</span> Watch the sunset over Tanah Lot</li>
+                <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">7:00 PM</span> Return to hotel</li>
+              </ol>
+              <div className="mt-4 pt-4 border-t border-sand-dark flex items-center justify-between">
+                <span className="text-ocean font-bold text-lg">$100</span>
+                <a href={whatsappLink("Hi Bali Mobility! I'd like to book the full-day Temples & Sunset tour.")} target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-600 transition-colors">Book on WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Tour Ideas */}
       <section className="py-16 md:py-24 bg-gray-50" aria-label="Tour ideas">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -115,7 +191,8 @@ export default function ToursPage() {
             {tourIdeas.map((tour) => (
               <div key={tour.title} className="bg-white rounded-xl p-6 text-center border border-sand-dark hover:shadow-md transition-shadow">
                 <div className="text-4xl mb-3">{tour.icon}</div>
-                <h3 className="font-semibold text-foreground mb-2">{tour.title}</h3>
+                <h3 className="font-semibold text-foreground mb-1">{tour.title}</h3>
+                <span className="inline-block text-xs bg-ocean/10 text-ocean px-2 py-0.5 rounded-full mb-2">{tour.duration}</span>
                 <p className="text-sm text-muted">{tour.description}</p>
               </div>
             ))}

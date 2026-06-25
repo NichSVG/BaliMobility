@@ -20,6 +20,7 @@ const poppins = Poppins({
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/equipment", label: "Equipment" },
+  { href: "/tours", label: "Tours" },
   { href: "/blog", label: "Blog" },
   { href: "/testimonials", label: "Reviews" },
   { href: "/about", label: "About" },
