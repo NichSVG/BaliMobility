@@ -92,6 +92,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default async function RootLayout({
@@ -166,11 +170,11 @@ export default async function RootLayout({
               <div>
                 <h3 className="font-bold text-lg mb-3">Bali Mobility</h3>
                 <p className="text-sm text-gray-300 whitespace-pre-line">{address}</p>
-                <p className="text-sm text-gray-300 mt-2">
-                  {phone}
-                  <br />
-                  {email}
-                </p>
+                <div className="text-sm text-gray-300 mt-2 space-y-1">
+                  <a href={`tel:${phone.replace(/\s/g, "")}`} className="block hover:text-white transition-colors">{phone}</a>
+                  <a href={`mailto:${email}`} className="block hover:text-white transition-colors">{email}</a>
+                  <a href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">WhatsApp Us</a>
+                </div>
               </div>
               <div>
                 <h4 className="font-semibold mb-3">Equipment</h4>

@@ -9,6 +9,7 @@ interface PageHeaderProps {
   variant?: "ocean" | "tropical" | "warm" | "dark";
   size?: "sm" | "md" | "lg";
   image?: string;
+  imageAlt?: string;
 }
 
 const variants = {
@@ -55,9 +56,11 @@ export default function PageHeader({
   variant = "ocean",
   size = "md",
   image,
+  imageAlt,
 }: PageHeaderProps) {
   const style = variants[variant];
   const bgImage = image || defaultImages[variant];
+  const altText = imageAlt || `${title} - Bali Mobility`;
 
   return (
     <section className={`relative ${style.text} overflow-hidden`}>
@@ -65,7 +68,7 @@ export default function PageHeader({
       <div className="absolute inset-0">
         <Image
           src={bgImage}
-          alt=""
+          alt={altText}
           fill
           className="object-cover"
           priority
