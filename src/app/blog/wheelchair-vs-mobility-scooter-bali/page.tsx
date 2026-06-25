@@ -73,8 +73,8 @@ export default function BlogPost() {
                   </tr>
                   <tr className="border-b border-sand-dark">
                     <td className="p-3 text-muted">Daily rate</td>
-                    <td className="p-3 text-muted">AUD $25</td>
-                    <td className="p-3 text-muted">AUD $20</td>
+                    <td className="p-3 text-muted">$25</td>
+                    <td className="p-3 text-muted">$10</td>
                   </tr>
                 </tbody>
               </table>

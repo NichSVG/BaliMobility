@@ -54,8 +54,8 @@ export default function AccessibleTransportPage() {
             <div className="bg-white rounded-2xl border border-sand-dark overflow-hidden shadow-sm p-6 text-center">
               <h3 className="text-lg font-bold text-foreground mb-2">Airport Transfer</h3>
               <p className="text-sm text-muted mb-4">One-way Ngurah Rai Airport to/from your hotel</p>
-              <div className="text-3xl font-bold text-ocean mb-1">AUD $45</div>
-              <div className="text-xs text-muted mb-4">IDR 450K</div>
+              <div className="text-3xl font-bold text-ocean mb-1">$30</div>
+              <div className="text-xs text-muted mb-4">one-way</div>
               <a href={whatsappLink("Hi Bali Mobility! I'd like to book an accessible airport transfer. My flight is [details].")} target="_blank" rel="noopener noreferrer" className="block text-center bg-green-500 text-white py-2.5 rounded-full text-sm font-semibold hover:bg-green-600 transition-colors">
                 Book Transfer
               </a>
@@ -64,8 +64,8 @@ export default function AccessibleTransportPage() {
               <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-ocean text-white text-xs font-bold px-3 py-1 rounded-full">Popular</span>
               <h3 className="text-lg font-bold text-foreground mb-2">Half-Day Tour</h3>
               <p className="text-sm text-muted mb-4">4 hours with driver and accessible vehicle</p>
-              <div className="text-3xl font-bold text-ocean mb-1">AUD $80</div>
-              <div className="text-xs text-muted mb-4">IDR 800K</div>
+              <div className="text-3xl font-bold text-ocean mb-1">$55</div>
+              <div className="text-xs text-muted mb-4">4 hours</div>
               <a href={whatsappLink("Hi Bali Mobility! I'd like to book a half-day accessible tour in Bali.")} target="_blank" rel="noopener noreferrer" className="block text-center bg-green-500 text-white py-2.5 rounded-full text-sm font-semibold hover:bg-green-600 transition-colors">
                 Book Tour
               </a>
@@ -73,8 +73,8 @@ export default function AccessibleTransportPage() {
             <div className="bg-white rounded-2xl border border-sand-dark overflow-hidden shadow-sm p-6 text-center">
               <h3 className="text-lg font-bold text-foreground mb-2">Full-Day Tour</h3>
               <p className="text-sm text-muted mb-4">8 hours with driver and accessible vehicle</p>
-              <div className="text-3xl font-bold text-ocean mb-1">AUD $140</div>
-              <div className="text-xs text-muted mb-4">IDR 1.4M</div>
+              <div className="text-3xl font-bold text-ocean mb-1">$95</div>
+              <div className="text-xs text-muted mb-4">8 hours</div>
               <a href={whatsappLink("Hi Bali Mobility! I'd like to book a full-day accessible tour in Bali.")} target="_blank" rel="noopener noreferrer" className="block text-center bg-green-500 text-white py-2.5 rounded-full text-sm font-semibold hover:bg-green-600 transition-colors">
                 Book Tour
               </a>

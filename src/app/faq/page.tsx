@@ -1,7 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { client } from "@/lib/sanity";
-import { faqQuery } from "@/lib/queries";
 import FAQClient from "./FAQClient";
 import PageHeader from "@/components/PageHeader";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
@@ -21,8 +19,7 @@ export const metadata: Metadata = {
   },
 };
 
-const fallbackFaq = [
-  // ── Equipment ──────────────────────────────────────────────
+const faqItems = [
   {
     category: "Equipment",
     question: "What equipment do you rent?",
@@ -53,40 +50,30 @@ const fallbackFaq = [
     answer:
       "We offer lightweight, foldable aluminium wheelchairs with removable footrests and a weight capacity of 120 kg. They're designed for travel and easy to transport in cars.",
   },
-
-  // ── Pricing & Rental ──────────────────────────────────────
   {
-    category: "Pricing & Rental",
+    category: "Pricing",
     question: "How much does it cost to rent equipment?",
     answer:
-      "Equipment page prices are shown in USD. Landing pages show AUD and IDR. Example daily rates: mobility scooter USD $25, wheelchair USD $10, shower seat USD $5. We also offer 3-day and weekly rates. Contact us for current pricing.",
+      "Daily rates: mobility scooter $25, wheelchair $10, walker frame $7, shower seat $5, toilet seat $5. We also offer 3-day and weekly rates at a discount. See our equipment page for full pricing.",
   },
   {
-    category: "Pricing & Rental",
+    category: "Pricing",
     question: "What are your rental periods?",
     answer:
       "We offer three rental periods: daily, 3-day, and weekly. There is no minimum rental — you can rent for a single day. You can also extend your rental anytime during your trip.",
   },
   {
-    category: "Pricing & Rental",
+    category: "Pricing",
     question: "Do I need to pay a deposit?",
     answer:
       "No deposit is required for most rentals. Payment is due on delivery. For longer rentals (1 week or more) during peak season, we may ask for a small advance to secure your booking.",
   },
   {
-    category: "Pricing & Rental",
+    category: "Pricing",
     question: "What is your cancellation policy?",
     answer:
       "You can cancel or modify your booking anytime before delivery at no charge. For same-day cancellations after delivery has been arranged, contact us directly.",
   },
-  {
-    category: "Pricing & Rental",
-    question: "What currency are prices shown in?",
-    answer:
-      "The equipment catalogue shows prices in USD. Our landing pages show prices in AUD and IDR. We accept cash (IDR), bank transfer, and credit card payments.",
-  },
-
-  // ── Delivery ──────────────────────────────────────────────
   {
     category: "Delivery",
     question: "Do you deliver to my hotel?",
@@ -105,8 +92,6 @@ const fallbackFaq = [
     answer:
       "Tell us your hotel or villa name, check-in date, and preferred delivery time. We'll coordinate with your accommodation so the equipment is waiting for you when you arrive. Pickup is also free — just let us know when you're done.",
   },
-
-  // ── Airport Assistance ────────────────────────────────────
   {
     category: "Airport Assistance",
     question: "What is your airport wheelchair assistance?",
@@ -117,7 +102,7 @@ const fallbackFaq = [
     category: "Airport Assistance",
     question: "How much does airport wheelchair assistance cost?",
     answer:
-      "Arrival-only assistance is AUD $35 (IDR 350K). Arrival plus accessible transfer to your hotel is AUD $65 (IDR 650K). Both include wheelchair, meet-and-greet, and luggage assistance.",
+      "Arrival-only assistance is $25. Arrival plus accessible transfer to your hotel is $45. Both include wheelchair, meet-and-greet, and luggage assistance.",
   },
   {
     category: "Airport Assistance",
@@ -125,13 +110,11 @@ const fallbackFaq = [
     answer:
       "We recommend booking at least 48 hours before your flight. For peak season (July-August, December-January), a week's notice is best. Same-day requests are possible but not guaranteed.",
   },
-
-  // ── Accessible Transport ──────────────────────────────────
   {
     category: "Accessible Transport",
     question: "Do you offer accessible transport in Bali?",
     answer:
-      "Yes — we have wheelchair-accessible vehicles with ramps and secure tie-down systems. We offer airport transfers (AUD $45), half-day tours (AUD $80), and full-day tours (AUD $140). All include a trained driver.",
+      "Yes — we have wheelchair-accessible vehicles with ramps and secure tie-down systems. We offer airport transfers ($30), half-day tours ($55), and full-day tours ($95). All include a trained driver.",
   },
   {
     category: "Accessible Transport",
@@ -139,8 +122,6 @@ const fallbackFaq = [
     answer:
       "Yes! We offer half-day (4 hours) and full-day (8 hours) accessible tours. Popular routes include Ubud rice terraces, Tanah Lot temple, Uluwatu, and beach tours. All vehicles are wheelchair accessible.",
   },
-
-  // ── Support ───────────────────────────────────────────────
   {
     category: "Support",
     question: "What if the equipment breaks down?",
@@ -161,10 +142,7 @@ const fallbackFaq = [
   },
 ];
 
-export default async function FAQPage() {
-  const faqs = await client.fetch(faqQuery).catch(() => []);
-  const display = faqs.length > 0 ? faqs : fallbackFaq;
-
+export default function FAQPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[
@@ -179,7 +157,7 @@ export default async function FAQPage() {
         image="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=1920&q=80"
         breadcrumbs={[{ label: "FAQ", href: "/faq" }]}
       />
-      <FAQClient items={display} />
+      <FAQClient items={faqItems} />
       <section className="bg-sand py-12" aria-label="Still have questions">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-foreground mb-3">Still have questions?</h2>
@@ -196,7 +174,7 @@ export default async function FAQPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: display.map((faq: { question: string; answer: string }) => ({
+            mainEntity: faqItems.map((faq) => ({
               "@type": "Question",
               name: faq.question,
               acceptedAnswer: {

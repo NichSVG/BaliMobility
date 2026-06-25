@@ -57,13 +57,11 @@ export default function AirportWheelchairAssistancePage() {
               <div className="grid grid-cols-2 gap-4 text-center mb-6">
                 <div className="bg-sand rounded-xl p-4">
                   <div className="text-sm text-muted mb-1">Arrival Only</div>
-                  <div className="text-2xl font-bold text-ocean">AUD $35</div>
-                  <div className="text-xs text-muted">IDR 350K</div>
+                  <div className="text-2xl font-bold text-ocean">$25</div>
                 </div>
                 <div className="bg-sand rounded-xl p-4">
                   <div className="text-sm text-muted mb-1">Arrival + Transfer</div>
-                  <div className="text-2xl font-bold text-ocean">AUD $65</div>
-                  <div className="text-xs text-muted">IDR 650K</div>
+                  <div className="text-2xl font-bold text-ocean">$45</div>
                 </div>
               </div>
               <div className="flex flex-col gap-2">

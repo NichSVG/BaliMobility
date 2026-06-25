@@ -49,25 +49,21 @@ export default function BlogPost() {
                 <thead>
                   <tr className="bg-sand">
                     <th className="text-left p-3 font-semibold text-foreground">Duration</th>
-                    <th className="text-left p-3 font-semibold text-foreground">AUD</th>
-                    <th className="text-left p-3 font-semibold text-foreground">IDR</th>
+                    <th className="text-left p-3 font-semibold text-foreground">USD</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-sand-dark">
                     <td className="p-3 text-muted">Daily</td>
-                    <td className="p-3 text-muted">$20</td>
-                    <td className="p-3 text-muted">200,000</td>
+                    <td className="p-3 text-muted">$10</td>
+                  </tr>
+                  <tr className="border-b border-sand-dark">
+                    <td className="p-3 text-muted">3 Days</td>
+                    <td className="p-3 text-muted">$25</td>
                   </tr>
                   <tr className="border-b border-sand-dark">
                     <td className="p-3 text-muted">Weekly</td>
-                    <td className="p-3 text-muted">$90</td>
-                    <td className="p-3 text-muted">900,000</td>
-                  </tr>
-                  <tr className="border-b border-sand-dark">
-                    <td className="p-3 text-muted">Full Holiday</td>
-                    <td className="p-3 text-muted">$130</td>
-                    <td className="p-3 text-muted">1,300,000</td>
+                    <td className="p-3 text-muted">$50</td>
                   </tr>
                 </tbody>
               </table>

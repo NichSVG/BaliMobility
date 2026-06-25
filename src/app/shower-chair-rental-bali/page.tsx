@@ -57,18 +57,16 @@ export default function ShowerChairRentalPage() {
               <div className="grid grid-cols-3 gap-4 text-center mb-6">
                 <div className="bg-sand rounded-xl p-4">
                   <div className="text-sm text-muted mb-1">Daily</div>
-                  <div className="text-2xl font-bold text-ocean">AUD $10</div>
-                  <div className="text-xs text-muted">IDR 100K</div>
+                  <div className="text-2xl font-bold text-ocean">$5</div>
+                  <div className="text-xs text-muted">per day</div>
+                </div>
+                <div className="bg-sand rounded-xl p-4">
+                  <div className="text-sm text-muted mb-1">3 Days</div>
+                  <div className="text-2xl font-bold text-ocean">$13</div>
                 </div>
                 <div className="bg-sand rounded-xl p-4">
                   <div className="text-sm text-muted mb-1">Weekly</div>
-                  <div className="text-2xl font-bold text-ocean">AUD $45</div>
-                  <div className="text-xs text-muted">IDR 450K</div>
-                </div>
-                <div className="bg-sand rounded-xl p-4">
-                  <div className="text-sm text-muted mb-1">Full Holiday</div>
-                  <div className="text-2xl font-bold text-ocean">AUD $70</div>
-                  <div className="text-xs text-muted">IDR 700K</div>
+                  <div className="text-2xl font-bold text-ocean">$25</div>
                 </div>
               </div>
               <div className="flex flex-col gap-2">

@@ -75,7 +75,7 @@ export function TravelAgencyJsonLd() {
     },
     offers: {
       "@type": "AggregateOffer",
-      priceCurrency: "AUD",
+      priceCurrency: "USD",
       lowPrice: "8",
       highPrice: "250",
       offerCount: "7",
@@ -115,7 +115,7 @@ export function BreadcrumbJsonLd({ items }: { items: BreadcrumbItem[] }) {
   );
 }
 
-export function ProductJsonLd({ name, description, price, currency = "AUD" }: { name: string; description: string; price: string; currency?: string }) {
+export function ProductJsonLd({ name, description, price, currency = "USD" }: { name: string; description: string; price: string; currency?: string }) {
   const product = {
     "@context": "https://schema.org",
     "@type": "Product",

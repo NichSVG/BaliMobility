@@ -6,8 +6,8 @@ import { whatsappLink } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "Mobility Scooter Rental Bali — Hire a Scooter",
-  description:
-    "Rent a mobility scooter in Bali. Lightweight, foldable scooters delivered to your hotel. Explore Bali independently. Daily, weekly, and holiday rates.",
+    description:
+      "Rent a mobility scooter in Bali. Lightweight, foldable scooters delivered to your hotel. Explore Bali independently. Daily, 3-day, and weekly rates.",
   alternates: {
     canonical: "/mobility-scooter-rental-bali",
   },
@@ -68,18 +68,16 @@ export default function MobilityScooterRentalPage() {
               <div className="grid grid-cols-3 gap-4 text-center mb-6">
                 <div className="bg-sand rounded-xl p-4">
                   <div className="text-sm text-muted mb-1">Daily</div>
-                  <div className="text-2xl font-bold text-ocean">AUD $25</div>
-                  <div className="text-xs text-muted">IDR 250K</div>
+                  <div className="text-2xl font-bold text-ocean">$25</div>
+                  <div className="text-xs text-muted">per day</div>
+                </div>
+                <div className="bg-sand rounded-xl p-4">
+                  <div className="text-sm text-muted mb-1">3 Days</div>
+                  <div className="text-2xl font-bold text-ocean">$65</div>
                 </div>
                 <div className="bg-sand rounded-xl p-4">
                   <div className="text-sm text-muted mb-1">Weekly</div>
-                  <div className="text-2xl font-bold text-ocean">AUD $120</div>
-                  <div className="text-xs text-muted">IDR 1.2M</div>
-                </div>
-                <div className="bg-sand rounded-xl p-4">
-                  <div className="text-sm text-muted mb-1">Full Holiday</div>
-                  <div className="text-2xl font-bold text-ocean">AUD $180</div>
-                  <div className="text-xs text-muted">IDR 1.8M</div>
+                  <div className="text-2xl font-bold text-ocean">$130</div>
                 </div>
               </div>
               <Link href="/contact" className="block text-center bg-coral text-white py-3 rounded-full font-semibold hover:bg-coral/90 transition-colors">
