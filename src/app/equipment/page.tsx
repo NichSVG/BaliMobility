@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { client } from "@/lib/sanity";
+import { equipmentQuery } from "@/lib/queries";
+import { whatsappLink } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "Equipment Rental",
@@ -17,20 +21,43 @@ export const metadata: Metadata = {
 };
 
 const fallbackEquipment = [
-  { name: "Mobility Scooter", icon: "🛵", description: "Lightweight, foldable mobility scooter perfect for exploring Bali.", features: ["Max speed: 8 km/h", "Range: 20 km per charge", "Weight capacity: 120 kg", "Foldable for easy transport"], rateDaily: "$25", rate3Days: "$65", rateWeekly: "$130", bestFor: "Travellers with limited mobility who can stand and transfer." },
-  { name: "Wheelchair", icon: "🦽", description: "Comfortable wheelchair with supportive seating and easy manoeuvrability.", features: ["Lightweight frame", "Removable footrests", "Folding design", "Weight capacity: 120 kg"], rateDaily: "$10", rate3Days: "$25", rateWeekly: "$50", bestFor: "Travellers who need a wheelchair for getting around Bali." },
-  { name: "Baby Push Chair", icon: "👶", description: "Lightweight baby stroller for families with young children.", features: ["Ages 6 months – 4 years", "Reclining seat", "Sun canopy with UV protection", "5-point safety harness"], rateDaily: "$7", rate3Days: "$18", rateWeekly: "$35", bestFor: "Families with young children." },
-  { name: "Baby Car Seat", icon: "🚗", description: "Safe and secure baby car seat for worry-free travel around Bali.", features: ["Suitable for ages 0–4 years", "5-point safety harness", "Easy installation", "Meets safety standards"], rateDaily: "$7", rate3Days: "$18", rateWeekly: "$35", bestFor: "Families travelling with infants or toddlers." },
-  { name: "Walker Frame", icon: "🦯", description: "Sturdy four-wheel walker with seat, brakes, and basket.", features: ["Four-wheel design with brakes", "Built-in padded seat", "Storage basket underneath", "Adjustable height"], rateDaily: "$7", rate3Days: "$18", rateWeekly: "$35", bestFor: "Travellers who can walk but need extra stability." },
-  { name: "Shower Seat", icon: "🚿", description: "Adjustable shower chair with backrest and armrests for safe bathing.", features: ["Adjustable seat height", "Backrest and armrests", "Non-slip rubber feet", "Rust-resistant aluminium"], rateDaily: "$5", rate3Days: "$13", rateWeekly: "$25", bestFor: "Travellers who need seated support while showering." },
-  { name: "Toilet Seat", icon: "🚽", description: "Raised toilet seat with armrests for safer bathroom use.", features: ["Height adjustable", "Padded armrests", "Fits most toilets", "Tool-free installation"], rateDaily: "$5", rate3Days: "$13", rateWeekly: "$25", bestFor: "Anyone needing extra height or support in the bathroom." },
+  { name: "Mobility Scooter", icon: "🛵", slug: "mobility-scooter", description: "Lightweight, foldable mobility scooter perfect for exploring Bali.", features: ["Max speed: 8 km/h", "Range: 20 km per charge", "Weight capacity: 120 kg", "Foldable for easy transport"], rateDaily: "$25", rate3Days: "$65", rateWeekly: "$130", bestFor: "Travellers with limited mobility who can stand and transfer." },
+  { name: "Wheelchair", icon: "🦽", slug: "wheelchair", description: "Comfortable wheelchair with supportive seating and easy manoeuvrability.", features: ["Lightweight frame", "Removable footrests", "Folding design", "Weight capacity: 120 kg"], rateDaily: "$10", rate3Days: "$25", rateWeekly: "$50", bestFor: "Travellers who need a wheelchair for getting around Bali." },
+  { name: "Baby Push Chair", icon: "👶", slug: "baby-push-chair", description: "Lightweight baby stroller for families with young children.", features: ["Ages 6 months – 4 years", "Reclining seat", "Sun canopy with UV protection", "5-point safety harness"], rateDaily: "$7", rate3Days: "$18", rateWeekly: "$35", bestFor: "Families with young children." },
+  { name: "Baby Car Seat", icon: "🚗", slug: "baby-car-seat", description: "Safe and secure baby car seat for worry-free travel around Bali.", features: ["Suitable for ages 0–4 years", "5-point safety harness", "Easy installation", "Meets safety standards"], rateDaily: "$7", rate3Days: "$18", rateWeekly: "$35", bestFor: "Families travelling with infants or toddlers." },
+  { name: "Walker Frame", icon: "🦯", slug: "walker-frame", description: "Sturdy four-wheel walker with seat, brakes, and basket.", features: ["Four-wheel design with brakes", "Built-in padded seat", "Storage basket underneath", "Adjustable height"], rateDaily: "$7", rate3Days: "$18", rateWeekly: "$35", bestFor: "Travellers who can walk but need extra stability." },
+  { name: "Shower Seat", icon: "🚿", slug: "shower-seat", description: "Adjustable shower chair with backrest and armrests for safe bathing.", features: ["Adjustable seat height", "Backrest and armrests", "Non-slip rubber feet", "Rust-resistant aluminium"], rateDaily: "$5", rate3Days: "$13", rateWeekly: "$25", bestFor: "Travellers who need seated support while showering." },
+  { name: "Toilet Seat", icon: "🚽", slug: "toilet-seat", description: "Raised toilet seat with armrests for safer bathroom use.", features: ["Height adjustable", "Padded armrests", "Fits most toilets", "Tool-free installation"], rateDaily: "$5", rate3Days: "$13", rateWeekly: "$25", bestFor: "Anyone needing extra height or support in the bathroom." },
 ];
 
 export default async function EquipmentPage() {
-  const display = fallbackEquipment;
+  let display = fallbackEquipment;
+
+  try {
+    const cmsEquipment = await client.fetch(equipmentQuery);
+    if (cmsEquipment && cmsEquipment.length > 0) {
+      display = cmsEquipment.map((item: any) => ({
+        name: item.name,
+        icon: item.icon || "📦",
+        slug: item.slug || "",
+        description: item.description || "",
+        features: item.features || [],
+        rateDaily: item.rateDaily || "Contact us",
+        rate3Days: item.rate3Days || "Contact us",
+        rateWeekly: item.rateWeekly || item.rateHoliday || "Contact us",
+        bestFor: item.bestFor || "",
+      }));
+    }
+  } catch {
+    // Use fallback
+  }
 
   return (
     <>
+      <BreadcrumbJsonLd items={[
+        { name: "Home", url: "/" },
+        { name: "Equipment", url: "/equipment" },
+      ]} />
       <PageHeader
         title="Equipment Rental"
         subtitle="Mobility Solutions"
@@ -74,7 +101,34 @@ export default async function EquipmentPage() {
                     </div>
                   </div>
                   <p className="text-xs text-muted mb-4"><strong>Best for:</strong> {item.bestFor}</p>
-                  <Link href="/contact" className="block text-center bg-ocean text-white py-2.5 rounded-full text-sm font-semibold hover:bg-ocean-dark transition-colors">Enquire Now</Link>
+
+                  {/* Stronger CTAs */}
+                  <div className="flex flex-col gap-2">
+                    <div className="grid grid-cols-2 gap-2">
+                      <a
+                        href={whatsappLink(`Hi Bali Mobility! I'd like to check availability for: ${item.name}`)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-center bg-green-500 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-green-600 transition-colors"
+                      >
+                        Check Availability
+                      </a>
+                      <Link
+                        href="/contact"
+                        className="text-center bg-ocean text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-ocean-dark transition-colors"
+                      >
+                        Book Now
+                      </Link>
+                    </div>
+                    <a
+                      href={whatsappLink(`Hi Bali Mobility! I'm not sure which ${item.name.toLowerCase()} is right for me. Can you help?`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-center border border-green-500 text-green-600 py-2 rounded-lg text-xs font-medium hover:bg-green-50 transition-colors"
+                    >
+                      Not sure? Ask which one you need
+                    </a>
+                  </div>
                 </div>
               </article>
             ))}
@@ -88,7 +142,17 @@ export default async function EquipmentPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Need help choosing equipment?</h2>
           <p className="text-white/90 mb-8">Tell us about your mobility needs and we&apos;ll recommend the right equipment.</p>
-          <Link href="/contact" className="inline-block bg-coral text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-coral/90 transition-colors">Get Expert Advice</Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact" className="inline-block bg-coral text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-coral/90 transition-colors">Get Expert Advice</Link>
+            <a
+              href={whatsappLink("Hi Bali Mobility! I need help choosing the right equipment for my trip.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-white/10 border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/20 transition-colors"
+            >
+              Ask on WhatsApp
+            </a>
+          </div>
         </div>
       </section>
     </>

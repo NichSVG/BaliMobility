@@ -4,6 +4,7 @@ import { client } from "@/lib/sanity";
 import { testimonialsQuery } from "@/lib/queries";
 import { urlFor } from "@/lib/image";
 import PageHeader from "@/components/PageHeader";
+import { EMAIL } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "Guest Reviews",
@@ -106,7 +107,7 @@ export default async function TestimonialsPage() {
             travellers plan their trip with confidence.
           </p>
           <a
-            href="mailto:dedikbali@yahoo.com?subject=My Bali Mobility Review"
+            href={`mailto:${EMAIL}?subject=My Bali Mobility Review`}
             className="inline-block bg-ocean text-white px-6 py-3 rounded-full font-semibold hover:bg-ocean-dark transition-colors"
           >
             Share Your Story

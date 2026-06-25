@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import EnquiryForm from "./EnquiryForm";
 import PageHeader from "@/components/PageHeader";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { PHONE_DISPLAY, EMAIL, ADDRESS, BUSINESS_HOURS, whatsappLink } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -19,6 +21,10 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[
+        { name: "Home", url: "/" },
+        { name: "Contact", url: "/contact" },
+      ]} />
       <PageHeader
         title="Plan Your Holiday"
         subtitle="Get in Touch"
@@ -44,35 +50,31 @@ export default function ContactPage() {
                   <div>
                     <div className="font-medium text-foreground">Address</div>
                     <div className="text-muted">
-                      Perumahan Griya Carik No.16
-                      <br />
-                      Bona Kelod, Blahbatuh, Gianyar
-                      <br />
-                      Bali, Indonesia
+                      {ADDRESS}
                     </div>
                   </div>
                   <div>
                     <div className="font-medium text-foreground">WhatsApp</div>
                     <a
-                      href="https://wa.me/6282146522084"
+                      href={whatsappLink()}
                       className="text-ocean hover:underline"
                     >
-                      +62 821-4652-2084
+                      {PHONE_DISPLAY}
                     </a>
                   </div>
                   <div>
                     <div className="font-medium text-foreground">Email</div>
                     <a
-                      href="mailto:dedikbali@yahoo.com"
+                      href={`mailto:${EMAIL}`}
                       className="text-ocean hover:underline"
                     >
-                      dedikbali@yahoo.com
+                      {EMAIL}
                     </a>
                   </div>
                   <div>
                     <div className="font-medium text-foreground">Hours</div>
                     <div className="text-muted">
-                      Daily: 8:00 AM – 4:00 PM (WITA)
+                      {BUSINESS_HOURS}
                     </div>
                   </div>
                 </div>
@@ -87,7 +89,7 @@ export default function ContactPage() {
                   within minutes during business hours.
                 </p>
                 <a
-                  href="https://wa.me/6282146522084?text=Hi%20Bali%20Mobility!%20I%27d%20like%20to%20enquire%20about%20a%20holiday."
+                  href={whatsappLink()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-center bg-white text-green-600 py-3 rounded-full font-semibold hover:bg-white/90 transition-colors"

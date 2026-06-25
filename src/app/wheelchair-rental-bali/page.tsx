@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
+import { BreadcrumbJsonLd, ProductJsonLd } from "@/components/JsonLd";
+import { whatsappLink } from "@/lib/contact";
 
 export const metadata: Metadata = {
   title: "Wheelchair Rental Bali — Delivery to Your Hotel",
@@ -34,6 +36,16 @@ const faqs = [
 export default function WheelchairRentalPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[
+        { name: "Home", url: "/" },
+        { name: "Equipment", url: "/equipment" },
+        { name: "Wheelchair Rental Bali", url: "/wheelchair-rental-bali" },
+      ]} />
+      <ProductJsonLd
+        name="Wheelchair Rental Bali"
+        description="Lightweight, foldable wheelchair delivered to your hotel or villa in Bali. Daily, weekly, and full-holiday rates."
+        price="20"
+      />
       <PageHeader
         title="Wheelchair Rental Bali"
         subtitle="Mobility Equipment"
@@ -124,7 +136,7 @@ export default function WheelchairRentalPage() {
             <Link href="/contact" className="inline-block bg-coral text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-coral/90 transition-colors">
               Rent a Wheelchair
             </Link>
-            <a href="https://wa.me/6282146522084" target="_blank" rel="noopener noreferrer" className="inline-block bg-white/10 border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/20 transition-colors">
+            <a href={whatsappLink()} target="_blank" rel="noopener noreferrer" className="inline-block bg-white/10 border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/20 transition-colors">
               WhatsApp Us
             </a>
           </div>

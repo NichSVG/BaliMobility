@@ -1,6 +1,8 @@
-export default function JsonLd() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://balimobility.com";
+import { PHONE_DISPLAY, EMAIL } from "@/lib/contact";
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://balimobility.com";
+
+export function LocalBusinessJsonLd() {
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -8,8 +10,8 @@ export default function JsonLd() {
     description:
       "Mobility equipment rental in Bali. Scooters, wheelchairs, walker frames, and more delivered to your hotel.",
     url: baseUrl,
-    telephone: "+62-821-4652-2084",
-    email: "dedikbali@yahoo.com",
+    telephone: PHONE_DISPLAY,
+    email: EMAIL,
     address: {
       "@type": "PostalAddress",
       streetAddress: "Perumahan Griya Carik No.16 Bona Kelod",
@@ -46,6 +48,15 @@ export default function JsonLd() {
     },
   };
 
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+    />
+  );
+}
+
+export function TravelAgencyJsonLd() {
   const travelAgency = {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
@@ -53,7 +64,7 @@ export default function JsonLd() {
     description:
       "Mobility equipment rental in Bali. Scooters, wheelchairs, walker frames, and more delivered to your hotel.",
     url: baseUrl,
-    telephone: "+62-821-4652-2084",
+    telephone: PHONE_DISPLAY,
     address: {
       "@type": "PostalAddress",
       streetAddress: "Perumahan Griya Carik No.16 Bona Kelod",
@@ -72,15 +83,69 @@ export default function JsonLd() {
   };
 
   return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(travelAgency) }}
+    />
+  );
+}
+
+type BreadcrumbItem = {
+  name: string;
+  url: string;
+};
+
+export function BreadcrumbJsonLd({ items }: { items: BreadcrumbItem[] }) {
+  const breadcrumbList = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${baseUrl}${item.url}`,
+    })),
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbList) }}
+    />
+  );
+}
+
+export function ProductJsonLd({ name, description, price, currency = "AUD" }: { name: string; description: string; price: string; currency?: string }) {
+  const product = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name,
+    description,
+    offers: {
+      "@type": "Offer",
+      price,
+      priceCurrency: currency,
+      availability: "https://schema.org/InStock",
+      seller: {
+        "@type": "Organization",
+        name: "Bali Mobility",
+      },
+    },
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(product) }}
+    />
+  );
+}
+
+export default function JsonLd() {
+  return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(travelAgency) }}
-      />
+      <LocalBusinessJsonLd />
+      <TravelAgencyJsonLd />
     </>
   );
 }

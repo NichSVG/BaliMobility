@@ -34,20 +34,31 @@ export default function FAQClient({ items }: { items: FAQItem[] }) {
                   const key = `${category}-${i}`;
                   const isOpen = openItems[key];
                   return (
-                    <div key={key} className="bg-white border border-sand-dark rounded-lg overflow-hidden">
+                    <div key={key} className="bg-white border border-sand-dark rounded-xl overflow-hidden transition-shadow hover:shadow-sm">
                       <button
                         onClick={() => toggle(key)}
-                        className="w-full flex items-center justify-between p-4 text-left font-medium text-foreground hover:bg-sand/50 transition-colors"
+                        className="w-full flex items-center justify-between p-5 text-left font-medium text-foreground hover:bg-sand/50 transition-colors"
                         aria-expanded={isOpen}
                       >
-                        <span className="pr-4">{item.question}</span>
-                        <svg className={`w-5 h-5 shrink-0 text-muted transition-transform ${isOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <span className="pr-4 text-base">{item.question}</span>
+                        <svg
+                          className={`w-5 h-5 shrink-0 text-muted transition-transform duration-300 ease-in-out ${isOpen ? "rotate-180" : ""}`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                       </button>
-                      {isOpen && (
-                        <div className="px-4 pb-4 text-sm text-muted border-t border-sand-dark pt-3">{item.answer}</div>
-                      )}
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                        }`}
+                      >
+                        <div className="px-5 pb-5 text-muted leading-relaxed border-t border-sand-dark pt-4">
+                          {item.answer}
+                        </div>
+                      </div>
                     </div>
                   );
                 })}

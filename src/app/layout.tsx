@@ -8,6 +8,7 @@ import VisualEditingOverlay from "@/components/VisualEditing";
 import { Analytics } from "@vercel/analytics/next";
 import JsonLd from "@/components/JsonLd";
 import MobileMenu from "@/components/MobileMenu";
+import { WHATSAPP_NUMBER, PHONE_DISPLAY, EMAIL, ADDRESS, BUSINESS_HOURS, DEFAULT_WHATSAPP_MSG } from "@/lib/contact";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -99,12 +100,12 @@ export default async function RootLayout({
 }>) {
   const settings = await client.fetch(siteSettingsQuery).catch(() => null);
 
-  const phone = settings?.phone || "+62 821-4652-2084";
-  const email = settings?.email || "dedikbali@yahoo.com";
-  const address = settings?.address || "Perumahan Griya Carik No.16 Bona Kelod, Blahbatuh, Gianyar, Bali, Indonesia";
-  const whatsapp = settings?.whatsappNumber || "6282146522084";
-  const whatsappMsg = settings?.whatsappMessage || "Hi Bali Mobility! I'd like to enquire about a holiday.";
-  const hours = settings?.businessHours || "Daily: 8:00 AM - 4:00 PM (WITA)";
+  const phone = settings?.phone || PHONE_DISPLAY;
+  const email = settings?.email || EMAIL;
+  const address = settings?.address || ADDRESS;
+  const whatsapp = settings?.whatsappNumber || WHATSAPP_NUMBER;
+  const whatsappMsg = settings?.whatsappMessage || DEFAULT_WHATSAPP_MSG;
+  const hours = settings?.businessHours || BUSINESS_HOURS;
 
   return (
     <html lang="en" className={`${poppins.variable} h-full antialiased`}>
@@ -177,6 +178,7 @@ export default async function RootLayout({
                   <li><Link href="/wheelchair-rental-bali" className="hover:text-white transition-colors">Wheelchairs</Link></li>
                   <li><Link href="/equipment" className="hover:text-white transition-colors">Walker Frames</Link></li>
                   <li><Link href="/equipment" className="hover:text-white transition-colors">Baby Equipment</Link></li>
+              <li><Link href="/shower-chair-rental-bali" className="hover:text-white transition-colors">Shower Chairs</Link></li>
                 </ul>
               </div>
               <div>
