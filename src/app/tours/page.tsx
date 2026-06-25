@@ -83,7 +83,7 @@ export default function ToursPage() {
             <p className="text-muted text-lg">Per car, not per person. Driver and petrol included.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            <div className="bg-white rounded-2xl border border-sand-dark overflow-hidden shadow-sm p-8 text-center">
+            <div className="bg-white rounded-2xl border border-sand-dark shadow-sm p-8 text-center mt-4">
               <h3 className="text-xl font-bold text-foreground mb-2">Half-Day Tour</h3>
               <p className="text-sm text-muted mb-4">Approximately 4 hours</p>
               <div className="text-4xl font-bold text-ocean mb-1">$60</div>
@@ -103,7 +103,7 @@ export default function ToursPage() {
                 Book on WhatsApp
               </a>
             </div>
-            <div className="bg-white rounded-2xl border border-ocean overflow-hidden shadow-md p-8 text-center relative">
+            <div className="bg-white rounded-2xl border border-ocean shadow-md p-8 text-center relative mt-4">
               <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-ocean text-white text-xs font-bold px-3 py-1 rounded-full">Popular</span>
               <h3 className="text-xl font-bold text-foreground mb-2">Full-Day Tour</h3>
               <p className="text-sm text-muted mb-4">Approximately 8 hours</p>
@@ -155,7 +155,7 @@ export default function ToursPage() {
                 <a href={whatsappLink("Hi Bali Mobility! I'd like to book the half-day Ubud Culture & Nature tour.")} target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-600 transition-colors">Book on WhatsApp</a>
               </div>
             </div>
-            <div className="bg-white rounded-xl border border-ocean p-6 relative">
+            <div className="bg-white rounded-xl border border-ocean p-6 relative mt-4">
               <span className="absolute top-0 left-6 -translate-y-1/2 bg-ocean text-white text-xs font-bold px-3 py-1 rounded-full">Popular</span>
               <div className="flex items-center gap-3 mb-4">
                 <span className="bg-ocean/10 text-ocean text-xs font-bold px-3 py-1 rounded-full">Full Day</span>
