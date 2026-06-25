@@ -2,8 +2,6 @@ import Link from "next/link";
 import { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
-import { client } from "@/lib/sanity";
-import { equipmentQuery } from "@/lib/queries";
 import { whatsappLink } from "@/lib/contact";
 
 export const metadata: Metadata = {
@@ -31,26 +29,7 @@ const fallbackEquipment = [
 ];
 
 export default async function EquipmentPage() {
-  let display = fallbackEquipment;
-
-  try {
-    const cmsEquipment = await client.fetch(equipmentQuery);
-    if (cmsEquipment && cmsEquipment.length > 0) {
-      display = cmsEquipment.map((item: any) => ({
-        name: item.name,
-        icon: item.icon || "📦",
-        slug: item.slug || "",
-        description: item.description || "",
-        features: item.features || [],
-        rateDaily: item.rateDaily || "Contact us",
-        rate3Days: item.rate3Days || "Contact us",
-        rateWeekly: item.rateWeekly || item.rateHoliday || "Contact us",
-        bestFor: item.bestFor || "",
-      }));
-    }
-  } catch {
-    // Use fallback
-  }
+  const display = fallbackEquipment;
 
   return (
     <>
