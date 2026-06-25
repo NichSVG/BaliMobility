@@ -140,6 +140,22 @@ async function updateFaq() {
     },
     {
       _type: "faqItem",
+      category: "Tours",
+      question: "How much does a tour cost?",
+      answer:
+        "Half-day tours (approx. 4 hours) are $60 per car. Full-day tours (approx. 8 hours) are $100 per car. Both include the car, driver, and petrol. Entrance fees and meals are not included.",
+      order: 1,
+    },
+    {
+      _type: "faqItem",
+      category: "Tours",
+      question: "Can I choose my own tour route?",
+      answer:
+        "Absolutely! Tell us where you want to go and we'll plan the route. Popular options include Ubud rice terraces, Tanah Lot temple, Uluwatu, Kintamani volcano, and shopping tours. The driver follows your schedule.",
+      order: 2,
+    },
+    {
+      _type: "faqItem",
       category: "Support",
       question: "What if the equipment breaks down?",
       answer:

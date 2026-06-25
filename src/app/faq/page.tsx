@@ -105,6 +105,18 @@ const faqItems = [
       "Yes! We offer half-day (4 hours) and full-day (8 hours) accessible tours. Popular routes include Ubud rice terraces, Tanah Lot temple, Uluwatu, and beach tours. All vehicles are wheelchair accessible.",
   },
   {
+    category: "Tours",
+    question: "How much does a tour cost?",
+    answer:
+      "Half-day tours (approx. 4 hours) are $60 per car. Full-day tours (approx. 8 hours) are $100 per car. Both include the car, driver, and petrol. Entrance fees and meals are not included.",
+  },
+  {
+    category: "Tours",
+    question: "Can I choose my own tour route?",
+    answer:
+      "Absolutely! Tell us where you want to go and we'll plan the route. Popular options include Ubud rice terraces, Tanah Lot temple, Uluwatu, Kintamani volcano, and shopping tours. The driver follows your schedule.",
+  },
+  {
     category: "Support",
     question: "What if the equipment breaks down?",
     answer:

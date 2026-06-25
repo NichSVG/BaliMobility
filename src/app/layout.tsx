@@ -176,6 +176,7 @@ export default async function RootLayout({
                 <ul className="space-y-2 text-sm text-gray-300">
                   <li><Link href="/mobility-scooter-rental-bali" className="hover:text-white transition-colors">Mobility Scooters</Link></li>
                   <li><Link href="/wheelchair-rental-bali" className="hover:text-white transition-colors">Wheelchairs</Link></li>
+                  <li><Link href="/tours" className="hover:text-white transition-colors">Day Tours</Link></li>
                   <li><Link href="/equipment" className="hover:text-white transition-colors">Walker Frames</Link></li>
                   <li><Link href="/equipment" className="hover:text-white transition-colors">Baby Equipment</Link></li>
               <li><Link href="/shower-chair-rental-bali" className="hover:text-white transition-colors">Shower Chairs</Link></li>
