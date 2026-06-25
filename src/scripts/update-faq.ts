@@ -124,30 +124,6 @@ async function updateFaq() {
     },
     {
       _type: "faqItem",
-      category: "Airport Assistance",
-      question: "What is your airport wheelchair assistance?",
-      answer:
-        "We arrange for a wheelchair and team member to meet you at Ngurah Rai Airport arrivals. They'll assist you through the airport and to your transfer vehicle. We track your flight so we're there on time, even if you're delayed.",
-      order: 1,
-    },
-    {
-      _type: "faqItem",
-      category: "Airport Assistance",
-      question: "How much does airport wheelchair assistance cost?",
-      answer:
-        "Arrival-only assistance is $25. Arrival plus accessible transfer to your hotel is $45. Both include wheelchair, meet-and-greet, and luggage assistance.",
-      order: 2,
-    },
-    {
-      _type: "faqItem",
-      category: "Airport Assistance",
-      question: "How far in advance should I book airport assistance?",
-      answer:
-        "We recommend booking at least 48 hours before your flight. For peak season (July-August, December-January), a week's notice is best. Same-day requests are possible but not guaranteed.",
-      order: 3,
-    },
-    {
-      _type: "faqItem",
       category: "Accessible Transport",
       question: "Do you offer accessible transport in Bali?",
       answer:

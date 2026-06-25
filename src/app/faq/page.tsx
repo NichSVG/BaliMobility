@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "FAQ | Bali Mobility",
     description:
-      "Get answers about mobility scooter, wheelchair, and equipment rental in Bali. Delivery, pricing, airport assistance, and more.",
+      "Get answers about mobility scooter, wheelchair, and equipment rental in Bali. Delivery, pricing, and more.",
   },
 };
 
@@ -93,24 +93,6 @@ const faqItems = [
       "Tell us your hotel or villa name, check-in date, and preferred delivery time. We'll coordinate with your accommodation so the equipment is waiting for you when you arrive. Pickup is also free — just let us know when you're done.",
   },
   {
-    category: "Airport Assistance",
-    question: "What is your airport wheelchair assistance?",
-    answer:
-      "We arrange for a wheelchair and team member to meet you at Ngurah Rai Airport arrivals. They'll assist you through the airport and to your transfer vehicle. We track your flight so we're there on time, even if you're delayed.",
-  },
-  {
-    category: "Airport Assistance",
-    question: "How much does airport wheelchair assistance cost?",
-    answer:
-      "Arrival-only assistance is $25. Arrival plus accessible transfer to your hotel is $45. Both include wheelchair, meet-and-greet, and luggage assistance.",
-  },
-  {
-    category: "Airport Assistance",
-    question: "How far in advance should I book airport assistance?",
-    answer:
-      "We recommend booking at least 48 hours before your flight. For peak season (July-August, December-January), a week's notice is best. Same-day requests are possible but not guaranteed.",
-  },
-  {
     category: "Accessible Transport",
     question: "Do you offer accessible transport in Bali?",
     answer:
@@ -152,7 +134,7 @@ export default function FAQPage() {
       <PageHeader
         title="Frequently Asked Questions"
         subtitle="FAQ"
-        description="Answers to common questions about equipment rental, delivery, pricing, airport assistance, and accessible transport in Bali."
+        description="Answers to common questions about equipment rental, delivery, pricing, and accessible transport in Bali."
         variant="tropical"
         image="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=1920&q=80"
         breadcrumbs={[{ label: "FAQ", href: "/faq" }]}
