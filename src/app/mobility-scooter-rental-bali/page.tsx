@@ -43,7 +43,7 @@ export default function MobilityScooterRentalPage() {
       ]} />
       <ProductJsonLd
         name="Mobility Scooter Rental Bali"
-        description="Lightweight, foldable mobility scooter delivered to your hotel or villa in Bali. Daily, weekly, and full-holiday rates."
+        description="Lightweight, foldable mobility scooter delivered to your hotel or villa in Bali. Daily, 3-day, and weekly rates."
         price="25"
       />
       <PageHeader

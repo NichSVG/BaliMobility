@@ -27,7 +27,7 @@ const features = [
 const faqs = [
   { q: "What size shower chair do you offer?", a: "We offer standard and wide shower chairs. The standard fits most hotel showers. Let us know your weight and we'll recommend the right size — our chairs support up to 130kg." },
   { q: "Will the shower chair fit in my hotel bathroom?", a: "Our shower chairs are designed to fit standard hotel showers and bathrooms in Bali. If you're unsure, send us a photo of your bathroom and we'll confirm it will fit." },
-  { q: "Can I rent a shower chair for just a few days?", a: "Yes! We offer daily, weekly, and full-holiday rates. No minimum rental period. Delivery and pickup are free." },
+  { q: "Can I rent a shower chair for just a few days?", a: "Yes! We offer daily, 3-day, and weekly rates. No minimum rental period. Delivery and pickup are free." },
   { q: "Do you deliver shower chairs to villas?", a: "Yes, we deliver free of charge to hotels, villas, and private accommodations across Bali including Sanur, Kuta, Seminyak, Nusa Dua, Ubud, and surrounding areas." },
   { q: "Is the shower chair easy to set up?", a: "Yes — our shower chairs arrive fully assembled. Just place it in your shower and adjust the height. No tools needed." },
 ];

@@ -22,12 +22,12 @@ const features = [
   { icon: "✈️", title: "Airport Delivery", description: "We can deliver your wheelchair to the airport or your hotel before you arrive." },
   { icon: "🔧", title: "Well Maintained", description: "All wheelchairs are regularly serviced, cleaned, and inspected for safety." },
   { icon: "📞", title: "24/7 Support", description: "Need help? Call or WhatsApp us anytime during your rental period." },
-  { icon: "💰", title: "Flexible Rates", description: "Daily, weekly, or full-holiday rates. Extend your rental anytime." },
+  { icon: "💰", title: "Flexible Rates", description: "Daily, 3-day, or weekly rates. Extend your rental anytime." },
 ];
 
 const faqs = [
   { q: "What type of wheelchairs do you offer?", a: "We offer lightweight, foldable wheelchairs suitable for travel. They have removable footrests, comfortable seating, and are easy to transport in cars." },
-  { q: "Can I rent a wheelchair for just one day?", a: "Yes! We offer daily, weekly, and full-holiday rental rates. There's no minimum rental period." },
+  { q: "Can I rent a wheelchair for just one day?", a: "Yes! We offer daily, 3-day, and weekly rental rates. There's no minimum rental period." },
   { q: "Do you deliver wheelchairs to hotels?", a: "Yes, we deliver free of charge to hotels and villas across Bali including Sanur, Kuta, Seminyak, Nusa Dua, Ubud, and surrounding areas." },
   { q: "What if the wheelchair breaks down?", a: "Call or WhatsApp us immediately. We offer 24/7 support and will repair or replace the wheelchair within hours." },
   { q: "Is the wheelchair suitable for Bali's terrain?", a: "Our wheelchairs are chosen for Bali's conditions. For uneven terrain, we recommend our mobility scooters which handle rough surfaces better." },
@@ -43,7 +43,7 @@ export default function WheelchairRentalPage() {
       ]} />
       <ProductJsonLd
         name="Wheelchair Rental Bali"
-        description="Lightweight, foldable wheelchair delivered to your hotel or villa in Bali. Daily, weekly, and full-holiday rates."
+        description="Lightweight, foldable wheelchair delivered to your hotel or villa in Bali. Daily, 3-day, and weekly rates."
         price="20"
       />
       <PageHeader
