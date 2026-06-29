@@ -40,7 +40,6 @@ async function seed() {
       _type: "service",
       title: "Equipment Rental",
       slug: { current: "equipment-rental" },
-      icon: "🦽",
       description:
         "Mobility scooters, wheelchairs, walkers, and more — delivered to your hotel.",
       details: [
@@ -58,7 +57,6 @@ async function seed() {
       _type: "service",
       title: "Tour Services",
       slug: { current: "tour-services" },
-      icon: "🚐",
       description:
         "Private driver and accessible day tours around Bali's best attractions.",
       details: [
@@ -75,7 +73,6 @@ async function seed() {
       _type: "service",
       title: "Accessible Transport",
       slug: { current: "accessible-transport" },
-      icon: "✈️",
       description:
         "Wheelchair-accessible vehicles with ramps for airport transfers and travel.",
       details: [

@@ -21,9 +21,9 @@ const trustBadges = [
 
 // Fallback data if CMS is empty
 const fallbackServices = [
-  { icon: "🦽", title: "Equipment Rental", description: "Mobility scooters, wheelchairs, walkers, and more — delivered to your hotel.", ctaLink: "/equipment" },
-  { icon: "🚐", title: "Tour Services", description: "Private driver and accessible day tours around Bali's best attractions.", ctaLink: "/tours" },
-  { icon: "✈️", title: "Accessible Transport", description: "Wheelchair-accessible vehicles with ramps for airport transfers and travel.", ctaLink: "/accessible-transport-bali" },
+  { title: "Equipment Rental", description: "Mobility scooters, wheelchairs, walkers, and more — delivered to your hotel.", ctaLink: "/equipment" },
+  { title: "Tour Services", description: "Private driver and accessible day tours around Bali's best attractions.", ctaLink: "/tours" },
+  { title: "Accessible Transport", description: "Wheelchair-accessible vehicles with ramps for airport transfers and travel.", ctaLink: "/accessible-transport-bali" },
 ];
 
 const fallbackTestimonials = [
