@@ -5,7 +5,6 @@ export const equipment = {
   fields: [
     { name: "name", title: "Name", type: "string", validation: (r: any) => r.required() },
     { name: "slug", title: "Slug", type: "slug", options: { source: "name" }, validation: (r: any) => r.required() },
-    { name: "icon", title: "Icon (emoji)", type: "string" },
     { name: "description", title: "Description", type: "text", rows: 3 },
     {
       name: "features",

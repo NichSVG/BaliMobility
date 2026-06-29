@@ -98,7 +98,6 @@ async function seed() {
       _type: "equipment",
       name: "Mobility Scooter",
       slug: { current: "mobility-scooter" },
-      icon: "🛵",
       description:
         "Lightweight mobility scooter perfect for exploring Bali.",
       features: [
@@ -118,7 +117,6 @@ async function seed() {
       _type: "equipment",
       name: "Wheelchair",
       slug: { current: "wheelchair" },
-      icon: "🦽",
       description:
         "Comfortable wheelchair with supportive seating and easy manoeuvrability.",
       features: [
@@ -137,7 +135,6 @@ async function seed() {
       _type: "equipment",
       name: "Baby Push Chair",
       slug: { current: "baby-push-chair" },
-      icon: "👶",
       description:
         "Lightweight baby stroller for families with young children.",
       features: [
@@ -156,7 +153,6 @@ async function seed() {
       _type: "equipment",
       name: "Baby Car Seat",
       slug: { current: "baby-car-seat" },
-      icon: "🚗",
       description:
         "Safe and secure baby car seat for worry-free travel around Bali.",
       features: [
@@ -175,7 +171,6 @@ async function seed() {
       _type: "equipment",
       name: "Walker Frame",
       slug: { current: "walker-frame" },
-      icon: "🦯",
       description:
         "Sturdy four-wheel walker with seat, brakes, and basket.",
       features: [
@@ -194,7 +189,6 @@ async function seed() {
       _type: "equipment",
       name: "Shower Seat",
       slug: { current: "shower-seat" },
-      icon: "🚿",
       description:
         "Adjustable shower chair with backrest and armrests for safe bathing.",
       features: [
@@ -213,7 +207,6 @@ async function seed() {
       _type: "equipment",
       name: "Toilet Seat",
       slug: { current: "toilet-seat" },
-      icon: "🚽",
       description:
         "Raised toilet seat with armrests for safer bathroom use.",
       features: [

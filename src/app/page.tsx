@@ -171,7 +171,7 @@ export default async function Home() {
                 href={service.ctaLink || "/services"} 
                 className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-100 group hover:-translate-y-1"
               >
-                {service.image ? (
+                {service.image && (
                   <div className="relative h-48 overflow-hidden">
                     <Image
                       src={service.image.startsWith("/") ? service.image : urlFor(service.image).width(600).height(400).quality(80).url()}
@@ -180,10 +180,6 @@ export default async function Home() {
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                  </div>
-                ) : (
-                  <div className="w-14 h-14 bg-ocean/10 rounded-xl flex items-center justify-center text-3xl m-8 mb-0 group-hover:bg-ocean/20 transition-colors">
-                    {service.icon}
                   </div>
                 )}
                 <div className="p-8">
