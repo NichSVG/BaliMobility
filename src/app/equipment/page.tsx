@@ -42,7 +42,7 @@ export default async function EquipmentPage() {
         slug: item.slug,
         image: item.image
           ? urlFor(item.image).width(600).url()
-          : `/images/equipment/${item.slug}.jpg`,
+          : (fallbackEquipment.find(f => f.slug === item.slug)?.image || `/images/equipment/${item.slug}.jpg`),
         description: item.description,
         features: item.features || [],
         rateDaily: item.rateDaily,
