@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
@@ -19,13 +20,13 @@ export const metadata: Metadata = {
 };
 
 const fallbackEquipment = [
-  { name: "Mobility Scooter", icon: "🛵", slug: "mobility-scooter", description: "Lightweight mobility scooter perfect for exploring Bali.", features: ["Max speed: 8 km/h", "Range: 20 km per charge", "Weight capacity: 120 kg", "Easy to transport"], rateDaily: "$25", rate3Days: "$65", rateWeekly: "$130", bestFor: "Travellers with limited mobility who can stand and transfer." },
-  { name: "Wheelchair", icon: "🦽", slug: "wheelchair", description: "Comfortable wheelchair with supportive seating and easy manoeuvrability.", features: ["Lightweight frame", "Removable footrests", "Folding design", "Weight capacity: 120 kg"], rateDaily: "$10", rate3Days: "$25", rateWeekly: "$50", bestFor: "Travellers who need a wheelchair for getting around Bali." },
-  { name: "Baby Push Chair", icon: "👶", slug: "baby-push-chair", description: "Lightweight baby stroller for families with young children.", features: ["Ages 6 months – 4 years", "Reclining seat", "Sun canopy with UV protection", "5-point safety harness"], rateDaily: "$7", rate3Days: "$18", rateWeekly: "$35", bestFor: "Families with young children." },
-  { name: "Baby Car Seat", icon: "🚗", slug: "baby-car-seat", description: "Safe and secure baby car seat for worry-free travel around Bali.", features: ["Suitable for ages 0–4 years", "5-point safety harness", "Easy installation", "Meets safety standards"], rateDaily: "$7", rate3Days: "$18", rateWeekly: "$35", bestFor: "Families travelling with infants or toddlers." },
-  { name: "Walker Frame", icon: "🦯", slug: "walker-frame", description: "Sturdy four-wheel walker with seat, brakes, and basket.", features: ["Four-wheel design with brakes", "Built-in padded seat", "Storage basket underneath", "Adjustable height"], rateDaily: "$7", rate3Days: "$18", rateWeekly: "$35", bestFor: "Travellers who can walk but need extra stability." },
-  { name: "Shower Seat", icon: "🚿", slug: "shower-seat", description: "Adjustable shower chair with backrest and armrests for safe bathing.", features: ["Adjustable seat height", "Backrest and armrests", "Non-slip rubber feet", "Rust-resistant aluminium"], rateDaily: "$5", rate3Days: "$13", rateWeekly: "$25", bestFor: "Travellers who need seated support while showering." },
-  { name: "Toilet Seat", icon: "🚽", slug: "toilet-seat", description: "Raised toilet seat with armrests for safer bathroom use.", features: ["Height adjustable", "Padded armrests", "Fits most toilets", "Tool-free installation"], rateDaily: "$5", rate3Days: "$13", rateWeekly: "$25", bestFor: "Anyone needing extra height or support in the bathroom." },
+  { name: "Mobility Scooter", icon: "🛵", slug: "mobility-scooter", image: "/images/equipment/mobility-scooter.jpeg", description: "Lightweight mobility scooter perfect for exploring Bali.", features: ["Max speed: 8 km/h", "Range: 20 km per charge", "Weight capacity: 120 kg", "Easy to transport"], rateDaily: "$25", rate3Days: "$65", rateWeekly: "$130", bestFor: "Travellers with limited mobility who can stand and transfer." },
+  { name: "Wheelchair", icon: "🦽", slug: "wheelchair", image: "/images/equipment/wheelchair.jpg", description: "Comfortable wheelchair with supportive seating and easy manoeuvrability.", features: ["Lightweight frame", "Removable footrests", "Folding design", "Weight capacity: 120 kg"], rateDaily: "$10", rate3Days: "$25", rateWeekly: "$50", bestFor: "Travellers who need a wheelchair for getting around Bali." },
+  { name: "Baby Push Chair", icon: "👶", slug: "baby-push-chair", image: "/images/equipment/baby-push-chair.jpg", description: "Lightweight baby stroller for families with young children.", features: ["Ages 6 months – 4 years", "Reclining seat", "Sun canopy with UV protection", "5-point safety harness"], rateDaily: "$7", rate3Days: "$18", rateWeekly: "$35", bestFor: "Families with young children." },
+  { name: "Baby Car Seat", icon: "🚗", slug: "baby-car-seat", image: "/images/equipment/baby-car-seat.webp", description: "Safe and secure baby car seat for worry-free travel around Bali.", features: ["Suitable for ages 0–4 years", "5-point safety harness", "Easy installation", "Meets safety standards"], rateDaily: "$7", rate3Days: "$18", rateWeekly: "$35", bestFor: "Families travelling with infants or toddlers." },
+  { name: "Walker Frame", icon: "🦯", slug: "walker-frame", image: "/images/equipment/walker-frame.png", description: "Sturdy four-wheel walker with seat, brakes, and basket.", features: ["Four-wheel design with brakes", "Built-in padded seat", "Storage basket underneath", "Adjustable height"], rateDaily: "$7", rate3Days: "$18", rateWeekly: "$35", bestFor: "Travellers who can walk but need extra stability." },
+  { name: "Shower Seat", icon: "🚿", slug: "shower-seat", image: "/images/equipment/shower-seat.jpg", description: "Adjustable shower chair with backrest and armrests for safe bathing.", features: ["Adjustable seat height", "Backrest and armrests", "Non-slip rubber feet", "Rust-resistant aluminium"], rateDaily: "$5", rate3Days: "$13", rateWeekly: "$25", bestFor: "Travellers who need seated support while showering." },
+  { name: "Toilet Seat", icon: "🚽", slug: "toilet-seat", image: "/images/equipment/toilet-seat.jpeg", description: "Raised toilet seat with armrests for safer bathroom use.", features: ["Height adjustable", "Padded armrests", "Fits most toilets", "Tool-free installation"], rateDaily: "$5", rate3Days: "$13", rateWeekly: "$25", bestFor: "Anyone needing extra height or support in the bathroom." },
 ];
 
 export default async function EquipmentPage() {
@@ -54,6 +55,15 @@ export default async function EquipmentPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {display.map((item: any) => (
               <article key={item.name} className="bg-white rounded-xl border border-sand-dark overflow-hidden hover:shadow-md transition-shadow">
+                <div className="relative w-full h-48">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
                 <div className="p-6">
 
                   <div className="flex items-start gap-4 mb-4">
