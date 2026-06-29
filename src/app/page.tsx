@@ -22,8 +22,8 @@ const trustBadges = [
 // Fallback data if CMS is empty
 const fallbackServices = [
   { icon: "🦽", title: "Equipment Rental", description: "Mobility scooters, wheelchairs, walkers, and more — delivered to your hotel.", ctaLink: "/equipment" },
-  { icon: "👶", title: "Baby Equipment", description: "Pushchairs and car seats for families with young children.", ctaLink: "/equipment" },
-  { icon: "🚿", title: "Bathroom Aids", description: "Shower seats and toilet seats for safer, more comfortable stays.", ctaLink: "/equipment" },
+  { icon: "🚐", title: "Tour Services", description: "Private driver and accessible day tours around Bali's best attractions.", ctaLink: "/tours" },
+  { icon: "✈️", title: "Accessible Transport", description: "Wheelchair-accessible vehicles with ramps for airport transfers and travel.", ctaLink: "/accessible-transport-bali" },
 ];
 
 const fallbackTestimonials = [
@@ -140,9 +140,9 @@ export default async function Home() {
       <section className="py-20 md:py-28 bg-gray-50" aria-label="Our services">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="inline-block text-ocean font-semibold text-sm uppercase tracking-wider mb-4">Our Equipment</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Mobility equipment rental for your Bali holiday</h2>
-            <p className="text-muted max-w-2xl mx-auto text-lg">Quality mobility equipment delivered to your hotel or villa. Daily, 3-day, or weekly rates.</p>
+            <span className="inline-block text-ocean font-semibold text-sm uppercase tracking-wider mb-4">Our Services</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How we help you enjoy Bali</h2>
+            <p className="text-muted max-w-2xl mx-auto text-lg">Equipment rental, accessible transport, and guided tours — everything you need for a comfortable trip.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayServices.map((service: any) => (
