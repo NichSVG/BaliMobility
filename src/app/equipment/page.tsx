@@ -4,6 +4,9 @@ import { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { whatsappLink } from "@/lib/contact";
+import { client } from "@/lib/sanity";
+import { equipmentQuery } from "@/lib/queries";
+import { urlFor } from "@/lib/image";
 
 export const metadata: Metadata = {
   title: "Equipment Rental",
@@ -30,7 +33,24 @@ const fallbackEquipment = [
 ];
 
 export default async function EquipmentPage() {
-  const display = fallbackEquipment;
+  const sanityEquipment = await client.fetch(equipmentQuery).catch(() => []);
+
+  // Use Sanity data if available, otherwise use fallback
+  const display = sanityEquipment.length > 0
+    ? sanityEquipment.map((item: any) => ({
+        name: item.name,
+        slug: item.slug,
+        image: item.image
+          ? urlFor(item.image).width(600).height(400).url()
+          : `/images/equipment/${item.slug}.jpg`,
+        description: item.description,
+        features: item.features || [],
+        rateDaily: item.rateDaily,
+        rate3Days: item.rate3Days,
+        rateWeekly: item.rateWeekly,
+        bestFor: item.bestFor,
+      }))
+    : fallbackEquipment;
 
   return (
     <>

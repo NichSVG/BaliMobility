@@ -16,7 +16,6 @@ export const equipmentQuery = groq`*[_type == "equipment"] | order(order asc) {
   _id,
   name,
   "slug": slug.current,
-  icon,
   description,
   features,
   rateDaily,
