@@ -6,22 +6,22 @@ import { urlFor } from "@/lib/image";
 import { whatsappLink } from "@/lib/contact";
 
 const stats = [
-  { value: "15+", label: "Years Experience", icon: "📅" },
-  { value: "2,000+", label: "Happy Guests", icon: "😊" },
-  { value: "4.9", label: "Google Rating", icon: "⭐" },
-  { value: "100%", label: "Satisfaction", icon: "✅" },
+  { value: "15+", label: "Years Experience" },
+  { value: "2,000+", label: "Happy Guests" },
+  { value: "4.9", label: "Google Rating" },
+  { value: "100%", label: "Satisfaction" },
 ];
 
 const trustBadges = [
-  { name: "NDIS Registered", icon: "🛡️" },
-  { name: "Licensed & Insured", icon: "📋" },
-  { name: "24/7 Support", icon: "📞" },
-  { name: "Local Bali Team", icon: "🌴" },
+  { name: "NDIS Registered" },
+  { name: "Licensed & Insured" },
+  { name: "24/7 Support" },
+  { name: "Local Bali Team" },
 ];
 
 // Fallback data if CMS is empty
 const fallbackServices = [
-  { title: "Equipment Rental", description: "Mobility scooters, wheelchairs, walkers, and more — delivered to your hotel.", ctaLink: "/equipment" },
+  { title: "Equipment Rental", description: "Mobility scooters, wheelchairs, walkers, and more — delivered to your hotel.", ctaLink: "/equipment", image: "/images/equipment/mobility-scooter.jpeg" },
   { title: "Tour Services", description: "Private driver and accessible day tours around Bali's best attractions.", ctaLink: "/tours" },
   { title: "Accessible Transport", description: "Wheelchair-accessible vehicles with ramps for airport transfers and travel.", ctaLink: "/accessible-transport-bali" },
 ];
@@ -64,52 +64,72 @@ export default async function Home() {
 
         {/* Hero Content */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <div className="max-w-2xl">
-            {/* Trust Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-              <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
-              <span className="text-white text-sm font-medium">Rated 4.9/5 by 500+ guests</span>
+          <div className="flex items-center gap-12">
+            <div className="max-w-2xl flex-1">
+              {/* Trust Badge */}
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+                <span className="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                <span className="text-white text-sm font-medium">Rated 4.9/5 by 500+ guests</span>
+              </div>
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                Your mobility holiday
+                <br />
+                <span className="text-ocean-light">in beautiful Bali</span>
+              </h1>
+              
+              <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl leading-relaxed">
+                A family-run company dedicated to making your Bali holiday enjoyable
+                and stress-free. We specialise in mobility equipment rental —
+                so everyone can experience paradise.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                <Link 
+                  href="/equipment" 
+                  className="inline-flex items-center justify-center gap-2 bg-coral text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-coral/90 transition-all shadow-lg hover:shadow-xl"
+                >
+                  Rent Equipment
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+                <Link 
+                  href="/contact" 
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/20 transition-all"
+                >
+                  Get in Touch
+                </Link>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="flex flex-wrap gap-4">
+                {trustBadges.map((badge) => (
+                  <div key={badge.name} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2">
+                    <span className="text-white text-sm font-medium">{badge.name}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Your mobility holiday
-              <br />
-              <span className="text-ocean-light">in beautiful Bali</span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl leading-relaxed">
-              A family-run company dedicated to making your Bali holiday enjoyable
-              and stress-free. We specialise in mobility equipment rental —
-              so everyone can experience paradise.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <Link 
-                href="/equipment" 
-                className="inline-flex items-center justify-center gap-2 bg-coral text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-coral/90 transition-all shadow-lg hover:shadow-xl"
-              >
-                Rent Equipment
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-              <Link 
-                href="/contact" 
-                className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white/20 transition-all"
-              >
-                Get in Touch
-              </Link>
-            </div>
-
-            {/* Trust Badges */}
-            <div className="flex flex-wrap gap-4">
-              {trustBadges.map((badge) => (
-                <div key={badge.name} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2">
-                  <span>{badge.icon}</span>
-                  <span className="text-white text-sm font-medium">{badge.name}</span>
+            {/* Floating Equipment Card */}
+            <div className="hidden lg:block flex-shrink-0 w-80">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden shadow-2xl">
+                <div className="relative w-full h-64 bg-white/5">
+                  <Image
+                    src="/images/equipment/mobility-scooter.jpeg"
+                    alt="Mobility scooter rental in Bali"
+                    fill
+                    className="object-contain p-4"
+                    sizes="320px"
+                  />
                 </div>
-              ))}
+                <div className="p-5">
+                  <p className="text-white font-semibold text-lg">Mobility Scooter</p>
+                  <p className="text-white/70 text-sm">From $25/day — delivered to your hotel</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -154,10 +174,11 @@ export default async function Home() {
                 {service.image ? (
                   <div className="relative h-48 overflow-hidden">
                     <Image
-                      src={urlFor(service.image).width(600).height(400).quality(80).url()}
+                      src={service.image.startsWith("/") ? service.image : urlFor(service.image).width(600).height(400).quality(80).url()}
                       alt={service.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   </div>
                 ) : (
@@ -190,7 +211,7 @@ export default async function Home() {
             <p className="text-muted text-lg">Real stories from travellers who experienced Bali with our support.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {displayTestimonials.map((t: any, i: number) => (
+            {displayTestimonials.map((t: any) => (
               <div key={t.name} className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100">
                 {/* Stars */}
                 <div className="flex gap-1 mb-4" aria-label={`${t.rating} out of 5 stars`}>
