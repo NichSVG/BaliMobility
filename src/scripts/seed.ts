@@ -103,12 +103,12 @@ async function seed() {
       slug: { current: "mobility-scooter" },
       icon: "🛵",
       description:
-        "Lightweight, foldable mobility scooter perfect for exploring Bali's footpaths, markets, and beachside paths.",
+        "Lightweight mobility scooter perfect for exploring Bali.",
       features: [
         "Max speed: 8 km/h",
         "Range: 20 km per charge",
         "Weight capacity: 120 kg",
-        "Foldable for easy transport",
+        "Easy to transport",
       ],
       rateDaily: "$25",
       rate3Days: "$65",
@@ -123,9 +123,9 @@ async function seed() {
       slug: { current: "wheelchair" },
       icon: "🦽",
       description:
-        "Lightweight aluminium wheelchair with removable footrests and folding design.",
+        "Comfortable wheelchair with supportive seating and easy manoeuvrability.",
       features: [
-        "Lightweight aluminium frame",
+        "Lightweight frame",
         "Removable footrests",
         "Folding design",
         "Weight capacity: 120 kg",

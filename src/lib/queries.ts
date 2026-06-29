@@ -20,11 +20,8 @@ export const equipmentQuery = groq`*[_type == "equipment"] | order(order asc) {
   description,
   features,
   rateDaily,
+  rate3Days,
   rateWeekly,
-  rateHoliday,
-  rateDailyAud,
-  rateWeeklyAud,
-  rateHolidayAud,
   bestFor,
   image
 }`;
