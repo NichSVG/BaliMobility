@@ -55,12 +55,12 @@ export default async function EquipmentPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {display.map((item: any) => (
               <article key={item.name} className="bg-white rounded-xl border border-sand-dark overflow-hidden hover:shadow-md transition-shadow">
-                <div className="relative w-full h-48">
+                <div className="relative w-full h-64 bg-sand">
                   <Image
                     src={item.image}
                     alt={item.name}
                     fill
-                    className="object-cover"
+                    className="object-contain p-4"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
