@@ -21,10 +21,8 @@ export function getTypeFromPath(path: string): string {
   const map: Record<string, string> = {
     services: "service",
     equipment: "equipment",
-    packages: "holidayPackage",
     testimonials: "testimonial",
     faq: "faqItem",
-    team: "teamMember",
     settings: "siteSettings",
   };
   return map[path] || path;

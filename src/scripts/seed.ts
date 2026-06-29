@@ -447,57 +447,6 @@ async function seed() {
     await client.create(faq);
   }
 
-  // Team Members
-  console.log("👥 Creating team members...");
-  const team = [
-    {
-      _type: "teamMember",
-      name: "Wayan Sudarma",
-      role: "Founder & Director",
-      bio: "Born in Sanur, Wayan started Bali Mobility after seeing his own family members struggle to travel. He oversees all operations and personally ensures every client has a great experience.",
-      order: 1,
-    },
-    {
-      _type: "teamMember",
-      name: "Ketut Ariani",
-      role: "Client Coordinator",
-      bio: "Ketut is your first point of contact. She speaks fluent English and Indonesian, and will help plan every detail of your accessible Bali holiday.",
-      order: 2,
-    },
-    {
-      _type: "teamMember",
-      name: "Made Dharma",
-      role: "Head of Equipment",
-      bio: "Made ensures all mobility equipment is maintained, cleaned, and delivered on time. He's also our technical expert for specialised equipment needs.",
-      order: 3,
-    },
-    {
-      _type: "teamMember",
-      name: "Ni Luh Sari",
-      role: "Lead Carer",
-      bio: "Ni Luh leads our team of personal carers. With 10+ years in disability support, she trains and supervises all carers to our high standards.",
-      order: 4,
-    },
-    {
-      _type: "teamMember",
-      name: "Gede Wirawan",
-      role: "Transport Manager",
-      bio: "Gede manages our fleet of accessible vehicles and drivers. He ensures safe, comfortable transport across Bali for all our clients.",
-      order: 5,
-    },
-    {
-      _type: "teamMember",
-      name: "Putu Eka",
-      role: "Tour Coordinator",
-      bio: "Putu designs and coordinates our accessible tours. She knows every accessible path, restaurant, and attraction in Bali.",
-      order: 6,
-    },
-  ];
-
-  for (const t of team) {
-    await client.create(t);
-  }
-
   console.log("\n✅ Seed complete! All content has been added to Sanity.");
   console.log("👉 Open Sanity Studio at /studio to edit content.");
 }

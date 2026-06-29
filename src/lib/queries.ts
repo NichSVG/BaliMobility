@@ -26,22 +26,6 @@ export const equipmentQuery = groq`*[_type == "equipment"] | order(order asc) {
   image
 }`;
 
-export const packagesQuery = groq`*[_type == "holidayPackage"] | order(order asc) {
-  _id,
-  name,
-  "slug": slug.current,
-  nights,
-  priceAud,
-  priceGbp,
-  priceUsd,
-  popular,
-  description,
-  included,
-  excluded,
-  itinerary,
-  image
-}`;
-
 export const testimonialsQuery = groq`*[_type == "testimonial"] {
   _id,
   name,
@@ -66,14 +50,6 @@ export const faqQuery = groq`*[_type == "faqItem"] | order(category asc, order a
   category,
   question,
   answer
-}`;
-
-export const teamQuery = groq`*[_type == "teamMember"] | order(order asc) {
-  _id,
-  name,
-  role,
-  bio,
-  photo
 }`;
 
 export const siteSettingsQuery = groq`*[_type == "siteSettings"][0] {
