@@ -101,10 +101,12 @@ async function seed() {
       description:
         "Lightweight mobility scooter perfect for exploring Bali.",
       features: [
-        "Max speed: 8 km/h",
-        "Range: 20 km per charge",
-        "Weight capacity: 120 kg",
-        "Easy to transport",
+        "Long Range — Up to 20km per charge",
+        "Fast Charging — Full charge in 4-6 hours",
+        "Foldable Design — Folds down, weighs just 25kg",
+        "120kg Capacity — Padded seat with armrests",
+        "Storage Basket — Front basket for bags and shopping",
+        "Well Maintained — Serviced, cleaned, and charged before delivery",
       ],
       rateDaily: "$25",
       rate3Days: "$65",
