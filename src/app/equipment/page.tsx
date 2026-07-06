@@ -53,6 +53,11 @@ export default async function EquipmentPage() {
       }))
     : fallbackEquipment;
 
+  // Sort most expensive to cheapest (by daily rate)
+  const sortedDisplay = [...display].sort(
+    (a, b) => parseFloat(b.rateDaily.replace(/[^0-9.]/g, "")) - parseFloat(a.rateDaily.replace(/[^0-9.]/g, ""))
+  );
+
   return (
     <>
       <BreadcrumbJsonLd items={[
@@ -71,72 +76,79 @@ export default async function EquipmentPage() {
         ]}
       />
 
-      <section className="py-16 md:py-24" aria-label="Equipment catalogue">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {display.map((item: any) => (
+      <section className="py-12 md:py-16" aria-label="Equipment catalogue">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-3">
+            {sortedDisplay.map((item: any) => (
               <article key={item.name} className="bg-white rounded-xl border border-sand-dark overflow-hidden hover:shadow-md transition-shadow">
-                <div className="relative w-full h-64 bg-sand">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-contain p-4"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-                <div className="p-6">
+                <div className="flex flex-col sm:flex-row">
+                  <div className="relative w-full sm:w-44 h-36 sm:h-auto bg-sand shrink-0">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      className="object-contain p-3"
+                      sizes="(max-width: 640px) 100vw, 176px"
+                    />
+                  </div>
+                  <div className="p-4 flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-2 flex-wrap">
+                      <div className="min-w-0">
+                        <h2 className="text-base font-bold text-foreground">{item.name}</h2>
+                        <p className="text-xs text-muted mt-0.5">{item.description}</p>
+                      </div>
+                    </div>
 
-                  <div className="flex items-start gap-4 mb-4">
-                    <div>
-                      <h2 className="text-xl font-bold text-foreground">{item.name}</h2>
-                      <p className="text-sm text-muted mt-1">{item.description}</p>
+                    <div className="mt-3 bg-sand rounded-lg p-2.5">
+                      <div className="grid grid-cols-3 gap-1 text-center">
+                        <div><div className="text-[10px] text-muted leading-none">Daily</div><div className="font-bold text-ocean text-sm mt-0.5">{item.rateDaily}</div></div>
+                        <div><div className="text-[10px] text-muted leading-none">3 Days</div><div className="font-bold text-ocean text-sm mt-0.5">{item.rate3Days}</div></div>
+                        <div><div className="text-[10px] text-muted leading-none">Weekly</div><div className="font-bold text-ocean text-sm mt-0.5">{item.rateWeekly}</div></div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="mb-4">
-                    <h3 className="text-sm font-semibold text-foreground mb-2">Features:</h3>
-                    <ul className="grid grid-cols-2 gap-1">
-                      {(item.features || []).map((f: string) => (
-                        <li key={f} className="text-xs text-muted flex items-center gap-1"><span className="text-tropical" aria-hidden="true">✓</span>{f}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="mb-4 bg-sand rounded-lg p-4">
-                    <h3 className="text-sm font-semibold text-foreground mb-2">Rental Rates:</h3>
-                    <div className="grid grid-cols-3 gap-2 text-center">
-                      <div><div className="text-xs text-muted">Daily</div><div className="font-bold text-ocean text-sm">{item.rateDaily}</div></div>
-                      <div><div className="text-xs text-muted">3 Days</div><div className="font-bold text-ocean text-sm">{item.rate3Days}</div></div>
-                      <div><div className="text-xs text-muted">Weekly</div><div className="font-bold text-ocean text-sm">{item.rateWeekly}</div></div>
-                    </div>
-                  </div>
-                  <p className="text-xs text-muted mb-4"><strong>Best for:</strong> {item.bestFor}</p>
 
-                  {/* Stronger CTAs */}
-                  <div className="flex flex-col gap-2">
-                    <div className="grid grid-cols-2 gap-2">
-                      <a
-                        href={whatsappLink(`Hi Bali Mobility! I'd like to check availability for: ${item.name}`)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-center bg-green-500 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-green-600 transition-colors"
-                      >
-                        Check Availability
-                      </a>
-                      <Link
-                        href="/contact"
-                        className="text-center bg-ocean text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-ocean-dark transition-colors"
-                      >
-                        Book Now
-                      </Link>
+                    <div className="flex flex-col gap-2 mt-3">
+                      <div className="grid grid-cols-2 gap-2">
+                        <a
+                          href={whatsappLink(`Hi Bali Mobility! I'd like to check availability for: ${item.name}`)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-center bg-green-500 text-white py-2 rounded-lg text-xs font-semibold hover:bg-green-600 transition-colors"
+                        >
+                          Check Availability
+                        </a>
+                        <Link
+                          href="/contact"
+                          className="text-center bg-ocean text-white py-2 rounded-lg text-xs font-semibold hover:bg-ocean-dark transition-colors"
+                        >
+                          Book Now
+                        </Link>
+                      </div>
+
+                      <details className="group">
+                        <summary className="text-xs font-medium text-tropical cursor-pointer select-none list-none flex items-center gap-1">
+                          <span className="group-open:hidden">View details</span>
+                          <span className="hidden group-open:inline">Hide details</span>
+                          <svg className="w-3 h-3 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                        </summary>
+                        <div className="mt-2">
+                          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1">
+                            {(item.features || []).map((f: string) => (
+                              <li key={f} className="text-xs text-muted flex items-start gap-1"><span className="text-tropical mt-0.5" aria-hidden="true">✓</span><span>{f}</span></li>
+                            ))}
+                          </ul>
+                          <p className="text-xs text-muted mt-2"><strong>Best for:</strong> {item.bestFor}</p>
+                          <a
+                            href={whatsappLink(`Hi Bali Mobility! I'm not sure which ${item.name.toLowerCase()} is right for me. Can you help?`)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block border border-green-500 text-green-600 py-1.5 px-3 rounded-lg text-xs font-medium hover:bg-green-50 transition-colors mt-2"
+                          >
+                            Not sure? Ask which one you need
+                          </a>
+                        </div>
+                      </details>
                     </div>
-                    <a
-                      href={whatsappLink(`Hi Bali Mobility! I'm not sure which ${item.name.toLowerCase()} is right for me. Can you help?`)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-center border border-green-500 text-green-600 py-2 rounded-lg text-xs font-medium hover:bg-green-50 transition-colors"
-                    >
-                      Not sure? Ask which one you need
-                    </a>
                   </div>
                 </div>
               </article>
