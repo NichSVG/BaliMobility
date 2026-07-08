@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import Image from "next/image";
 import "./globals.css";
 import Link from "next/link";
 import { client } from "@/lib/sanity";
@@ -93,8 +94,8 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: "/logo-square.png",
+    apple: "/logo-square.png",
   },
 };
 
@@ -126,7 +127,7 @@ export default async function RootLayout({
             aria-label="Main navigation"
           >
             <Link href="/" className="flex items-center gap-2 font-bold text-xl text-ocean">
-              <span aria-hidden="true">♿</span>
+              <Image src="/logo-square.png" alt="Bali Mobility" width={40} height={40} className="rounded-sm" />
               <span>Bali Mobility</span>
             </Link>
 
