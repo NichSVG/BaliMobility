@@ -69,7 +69,7 @@ export default async function EquipmentPage() {
         subtitle="Mobility Solutions"
         description="Quality mobility equipment delivered to your hotel or villa. Rates shown in USD."
         variant="tropical"
-        image="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=1920&q=80"
+        image="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80"
         breadcrumbs={[
           { label: "Services", href: "/services" },
           { label: "Equipment", href: "/equipment" },
