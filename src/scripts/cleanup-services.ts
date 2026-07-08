@@ -12,7 +12,7 @@ const client = createClient({
   useCdn: false,
 });
 
-const VALID_slugs = ["equipment-rental", "tour-services", "accessible-transport"];
+const VALID_slugs = ["equipment-rental", "tour-services"];
 
 async function cleanup() {
   console.log("Fetching all service documents...");

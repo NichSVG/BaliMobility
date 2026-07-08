@@ -88,7 +88,7 @@ async function cleanup() {
   );
   console.log(`Found ${services.length} service documents.`);
 
-  const VALID_SERVICE_SLUGS = ["equipment-rental", "tour-services", "accessible-transport"];
+  const VALID_SERVICE_SLUGS = ["equipment-rental", "tour-services"];
   const toDeleteServices: string[] = [];
   const seenServiceSlugs: string[] = [];
 

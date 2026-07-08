@@ -69,22 +69,6 @@ async function seed() {
       ctaLink: "/tours",
       order: 2,
     },
-    {
-      _type: "service",
-      title: "Accessible Transport",
-      slug: { current: "accessible-transport" },
-      description:
-        "Wheelchair-accessible vehicles with ramps for airport transfers and travel.",
-      details: [
-        "Wheelchair-accessible vehicles with ramps",
-        "Airport collection and return",
-        "Professional, trained drivers",
-        "Comfortable and safe transfers",
-      ],
-      ctaText: "Book Transport",
-      ctaLink: "/accessible-transport-bali",
-      order: 3,
-    },
   ];
 
   for (const svc of services) {
@@ -376,22 +360,6 @@ async function seed() {
       answer:
         "Tell us your hotel or villa name, check-in date, and preferred delivery time. We'll coordinate with your accommodation so the equipment is waiting for you when you arrive. Pickup is also free — just let us know when you're done.",
       order: 3,
-    },
-    {
-      _type: "faqItem",
-      category: "Accessible Transport",
-      question: "Do you offer accessible transport in Bali?",
-      answer:
-        "Yes — we have wheelchair-accessible vehicles with ramps and secure tie-down systems. We offer airport transfers ($30), half-day tours ($55), and full-day tours ($95). All include a trained driver.",
-      order: 1,
-    },
-    {
-      _type: "faqItem",
-      category: "Accessible Transport",
-      question: "Can I book an accessible day tour?",
-      answer:
-        "Yes! We offer half-day (4 hours) and full-day (8 hours) accessible tours. Popular routes include Ubud rice terraces, Tanah Lot temple, Uluwatu, and beach tours. All vehicles are wheelchair accessible.",
-      order: 2,
     },
     {
       _type: "faqItem",

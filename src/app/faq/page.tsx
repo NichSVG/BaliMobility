@@ -93,18 +93,6 @@ const faqItems = [
       "Tell us your hotel or villa name, check-in date, and preferred delivery time. We'll coordinate with your accommodation so the equipment is waiting for you when you arrive. Pickup is also free — just let us know when you're done.",
   },
   {
-    category: "Accessible Transport",
-    question: "Do you offer accessible transport in Bali?",
-    answer:
-      "Yes — we have wheelchair-accessible vehicles with ramps and secure tie-down systems. We offer airport transfers ($30), half-day tours ($55), and full-day tours ($95). All include a trained driver.",
-  },
-  {
-    category: "Accessible Transport",
-    question: "Can I book an accessible day tour?",
-    answer:
-      "Yes! We offer half-day (4 hours) and full-day (8 hours) accessible tours. Popular routes include Ubud rice terraces, Tanah Lot temple, Uluwatu, and beach tours. All vehicles are wheelchair accessible.",
-  },
-  {
     category: "Tours",
     question: "How much does a tour cost?",
     answer:
@@ -146,7 +134,7 @@ export default function FAQPage() {
       <PageHeader
         title="Frequently Asked Questions"
         subtitle="FAQ"
-        description="Answers to common questions about equipment rental, delivery, pricing, and accessible transport in Bali."
+        description="Answers to common questions about equipment rental, delivery, pricing, and tours in Bali."
         variant="tropical"
         image="https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?w=1920&q=80"
         breadcrumbs={[{ label: "FAQ", href: "/faq" }]}
