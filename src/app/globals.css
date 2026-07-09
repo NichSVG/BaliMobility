@@ -1,22 +1,22 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-ocean: #0077B6;
-  --color-ocean-dark: #005F8A;
-  --color-ocean-light: #90E0EF;
-  --color-tropical: #2D9A4E;
-  --color-tropical-dark: #1E6B35;
-  --color-sand: #FFF8F0;
-  --color-sand-dark: #F0E6D6;
-  --color-coral: #E8744F;
-  --color-foreground: #1A1A2E;
-  --color-muted: #6B7280;
+  --color-ocean: #2A5D44;
+  --color-ocean-dark: #1E4432;
+  --color-ocean-light: #3D8B63;
+  --color-tropical: #B08A3E;
+  --color-tropical-dark: #8A6B2F;
+  --color-sand: #FBF5EC;
+  --color-sand-dark: #EDE3D3;
+  --color-coral: #B54A1E;
+  --color-foreground: #1C1917;
+  --color-muted: #78716C;
   --font-sans: var(--font-poppins);
 }
 
 :root {
-  --background: #FFF8F0;
-  --foreground: #1A1A2E;
+  --background: #FBF5EC;
+  --foreground: #1C1917;
 }
 
 html {
@@ -36,7 +36,7 @@ body {
   position: absolute;
   top: -40px;
   left: 0;
-  background: #0077B6;
+  background: #2A5D44;
   color: white;
   padding: 8px 16px;
   z-index: 100;
@@ -58,11 +58,11 @@ body {
 /* Button animations */
 .btn-primary {
   transition: all 0.2s ease;
-  box-shadow: 0 4px 14px rgba(0, 119, 182, 0.25);
+  box-shadow: 0 4px 14px rgba(42, 93, 68, 0.25);
 }
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 119, 182, 0.35);
+  box-shadow: 0 6px 20px rgba(42, 93, 68, 0.35);
 }
 
 /* Card animations */
@@ -76,13 +76,13 @@ body {
 
 /* Smooth focus styles for accessibility */
 :focus-visible {
-  outline: 2px solid #0077B6;
+  outline: 2px solid #2A5D44;
   outline-offset: 2px;
 }
 
 /* Selection color */
 ::selection {
-  background: #0077B6;
+  background: #2A5D44;
   color: white;
 }
 
@@ -94,11 +94,11 @@ body {
   background: #f1f1f1;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0077B6;
+  background: #2A5D44;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #005F8A;
+  background: #1E4432;
 }
 
 /* Loading animation for images */
