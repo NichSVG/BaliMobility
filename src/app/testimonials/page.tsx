@@ -21,11 +21,16 @@ export const metadata: Metadata = {
 };
 
 const fallbackTestimonials = [
-  { name: "Sarah M.", location: "Melbourne, Australia", rating: 5, text: "Bali Mobility made our family holiday absolutely stress-free. The scooter was waiting at our hotel and the equipment was in perfect condition. We could actually relax for the first time in years." },
-  { name: "James & Linda P.", location: "London, UK", rating: 5, text: "We were nervous about visiting Bali with my wheelchair, but the team handled everything — delivery, pickup, even made sure we had the right equipment for our needs. Truly life-changing." },
-  { name: "Tom K.", location: "Sydney, Australia", rating: 5, text: "The equipment rental was worth every penny. They thought of everything we didn't even know we needed. Highly recommend for anyone with mobility challenges." },
-  { name: "Margaret H.", location: "Auckland, New Zealand", rating: 5, text: "As an elderly traveller, I was worried about visiting Bali alone. The mobility scooter they provided gave me independence and confidence. I felt safe and supported the entire trip." },
-  { name: "David & Karen W.", location: "Perth, Australia", rating: 5, text: "We've used Bali Mobility three times now. The consistency is amazing — every trip has been perfect. The equipment is always in great condition and the team is wonderful." },
+  { name: "Sarah M.", location: "Melbourne, Australia", rating: 5, text: "The mobility scooter was a game-changer for our Bali holiday. It was fully charged and waiting at our hotel when we arrived. We explored Seminyak, Ubud, and even Tanah Lot temple — all without worrying about getting tired. Best rental experience ever.", service: "Mobility Scooter" },
+  { name: "James & Linda P.", location: "London, UK", rating: 5, text: "We hired a wheelchair for my father and the team delivered it to our villa in Nusa Dua before we even checked in. The chair was in excellent condition and made our family holiday so much more enjoyable. Can't recommend them enough.", service: "Wheelchair" },
+  { name: "Tom K.", location: "Sydney, Australia", rating: 5, text: "Booked a full-day tour to Kintamani and the rice terraces. Our driver Putu was fantastic — knowledgeable, patient, and made sure every stop was accessible for my wife who uses a walker. The van had plenty of room and the whole day was seamless.", service: "Day Tour" },
+  { name: "Rachel D.", location: "Auckland, New Zealand", rating: 5, text: "Travelling with a toddler and a baby is stressful enough, but Bali Mobility took care of everything. We rented a baby push chair and a car seat — both were clean, safe, and perfect quality. Made getting around Bali so much easier.", service: "Baby Push Chair" },
+  { name: "Margaret H.", location: "Brisbane, Australia", rating: 5, text: "The shower seat was exactly what I needed after my hip surgery. It fit perfectly in the hotel bathroom and gave me the confidence to shower safely. Such a simple thing but it made a huge difference to my trip.", service: "Shower Seat" },
+  { name: "David & Karen W.", location: "Perth, Australia", rating: 5, text: "We've rented mobility scooters from Bali Mobility three trips in a row now. Every time the scooter is in great condition, fully charged, and delivered on time. The team even remembers our preferences. That's the kind of service that keeps us coming back.", service: "Mobility Scooter" },
+  { name: "Chen W.", location: "Singapore", rating: 5, text: "The electric wheelchair rental was brilliant. My mother could explore Bali independently — she loved the freedom. The battery lasted all day and the team showed us how to operate it before we left. Fantastic service.", service: "Electric Wheelchair" },
+  { name: "Patricia & John R.", location: "Dublin, Ireland", rating: 5, text: "We booked a half-day tour to Tanah Lot and it was the highlight of our trip. Our driver was wonderful — helped John with his walker at every stop and knew exactly where to go for the best sunset views. Already planning our next visit.", service: "Day Tour" },
+  { name: "Angela F.", location: "Toronto, Canada", rating: 5, text: "The walker frame rental was perfect for my mum. It was sturdy, easy to fold, and the team delivered it to our hotel in Sanur. They even adjusted the height for her before leaving. Such thoughtful, caring service.", service: "Walker Frame" },
+  { name: "Michael & Susan T.", location: "Christchurch, New Zealand", rating: 5, text: "We rented a baby car seat for our 2-year-old and it was installed perfectly in our taxi. The team met us at the airport and had everything ready. Made travelling with a toddler in Bali so much less stressful. Highly recommend.", service: "Baby Car Seat" },
 ];
 
 export default async function TestimonialsPage() {
@@ -88,6 +93,9 @@ export default async function TestimonialsPage() {
                   <div>
                     <div className="font-semibold">{t.name}</div>
                     <div className="text-sm text-muted">{t.location}</div>
+                    {t.service && (
+                      <div className="text-xs text-ocean font-medium mt-0.5">{t.service}</div>
+                    )}
                   </div>
                 </div>
               </div>

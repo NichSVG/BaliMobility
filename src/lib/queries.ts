@@ -32,6 +32,7 @@ export const testimonialsQuery = groq`*[_type == "testimonial"] {
   rating,
   text,
   photo,
+  service,
   featured
 }`;
 
@@ -41,7 +42,8 @@ export const featuredTestimonialsQuery = groq`*[_type == "testimonial" && featur
   location,
   rating,
   text,
-  photo
+  photo,
+  service
 }`;
 
 export const faqQuery = groq`*[_type == "faqItem"] | order(category asc, order asc) {

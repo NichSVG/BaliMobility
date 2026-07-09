@@ -26,9 +26,9 @@ const fallbackServices = [
 ];
 
 const fallbackTestimonials = [
-  { name: "Sarah M.", location: "Melbourne, Australia", rating: 5, text: "Bali Mobility made our family holiday absolutely stress-free. The scooter was waiting at our hotel and the equipment was in perfect condition. We could actually relax for the first time in years." },
-  { name: "James & Linda P.", location: "London, UK", rating: 5, text: "We were nervous about visiting Bali with my wheelchair, but the team handled everything — delivery, pickup, even arranged the right equipment for our needs. Truly life-changing." },
-  { name: "Tom K.", location: "Sydney, Australia", rating: 5, text: "The equipment rental was worth every penny. They thought of everything we didn't even know we needed. Highly recommend for anyone with mobility challenges." },
+  { name: "Sarah M.", location: "Melbourne, Australia", rating: 5, text: "The mobility scooter was a game-changer for our Bali holiday. It was fully charged and waiting at our hotel when we arrived. We explored Seminyak, Ubud, and even Tanah Lot temple — all without worrying about getting tired." },
+  { name: "Tom K.", location: "Sydney, Australia", rating: 5, text: "Booked a full-day tour to Kintamani and the rice terraces. Our driver was fantastic — knowledgeable, patient, and made sure every stop was accessible for my wife who uses a walker. The whole day was seamless." },
+  { name: "Rachel D.", location: "Auckland, New Zealand", rating: 5, text: "Travelling with a toddler is stressful enough, but Bali Mobility took care of everything. We rented a baby push chair and a car seat — both were clean, safe, and perfect quality. Made getting around so much easier." },
 ];
 
 export default async function Home() {

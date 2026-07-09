@@ -75,6 +75,9 @@ export async function TestimonialsSection({
                 <div>
                   <div className="font-semibold text-foreground">{t.name}</div>
                   <div className="text-sm text-muted">{t.location}</div>
+                  {t.service && (
+                    <div className="text-xs text-ocean font-medium mt-0.5">{t.service}</div>
+                  )}
                 </div>
               </div>
             </div>
