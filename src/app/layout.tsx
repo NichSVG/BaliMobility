@@ -112,6 +112,9 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${poppins.variable} h-full antialiased`}>
+      <head>
+        <link rel="icon" href="/logo-square.png" type="image/png" />
+      </head>
       <body className="min-h-full flex flex-col font-sans">
         <VisualEditingOverlay />
         <Analytics />
