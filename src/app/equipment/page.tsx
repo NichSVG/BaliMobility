@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
-import PageHeader from "@/components/PageHeader";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
 import { whatsappLink } from "@/lib/contact";
 import { client } from "@/lib/sanity";
@@ -64,17 +63,74 @@ export default async function EquipmentPage() {
         { name: "Home", url: "/" },
         { name: "Equipment", url: "/equipment" },
       ]} />
-      <PageHeader
-        title="Equipment Rental"
-        subtitle="Mobility Solutions"
-        description="Quality mobility equipment delivered to your hotel or villa. Rates shown in USD."
-        variant="tropical"
-        image="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80"
-        breadcrumbs={[
-          { label: "Services", href: "/services" },
-          { label: "Equipment", href: "/equipment" },
-        ]}
-      />
+
+      {/* Gallery Header */}
+      <section className="relative bg-ocean-dark text-white overflow-hidden" aria-label="Equipment header">
+        {/* Equipment Image Gallery Background */}
+        <div className="absolute inset-0 grid grid-cols-3 md:grid-cols-6 gap-1 opacity-50">
+          <div className="relative aspect-square">
+            <Image src="/images/equipment/mobility-scooter.jpeg" alt="Mobility scooter" fill className="object-cover" sizes="(max-width: 768px) 33vw, 16vw" />
+          </div>
+          <div className="relative aspect-square hidden md:block">
+            <Image src="/images/equipment/wheelchair.jpeg" alt="Wheelchair" fill className="object-cover" sizes="16vw" />
+          </div>
+          <div className="relative aspect-square">
+            <Image src="/images/equipment/electric-wheelchair.jpeg" alt="Electric wheelchair" fill className="object-cover" sizes="(max-width: 768px) 33vw, 16vw" />
+          </div>
+          <div className="relative aspect-square hidden md:block">
+            <Image src="/images/equipment/walker-frame.webp" alt="Walker frame" fill className="object-cover" sizes="16vw" />
+          </div>
+          <div className="relative aspect-square">
+            <Image src="/images/equipment/baby-push-chair.jpg" alt="Baby push chair" fill className="object-cover" sizes="(max-width: 768px) 33vw, 16vw" />
+          </div>
+          <div className="relative aspect-square hidden md:block">
+            <Image src="/images/equipment/shower-seat.jpg" alt="Shower seat" fill className="object-cover" sizes="16vw" />
+          </div>
+        </div>
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-ocean-dark/85 via-ocean/75 to-ocean-dark/85" />
+
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+          {/* Breadcrumbs */}
+          <nav className="mb-6" aria-label="Breadcrumb">
+            <ol className="flex items-center gap-2 text-sm">
+              <li>
+                <Link href="/" className="text-ocean-light hover:text-white transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                <Link href="/services" className="text-ocean-light hover:text-white transition-colors">
+                  Services
+                </Link>
+              </li>
+              <li className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+                <span className="text-white font-medium">Equipment</span>
+              </li>
+            </ol>
+          </nav>
+
+          <span className="inline-block text-ocean-light font-semibold text-sm uppercase tracking-widest mb-4">
+            Mobility Solutions
+          </span>
+
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            Equipment Rental
+          </h1>
+
+          <p className="text-ocean-light text-lg md:text-xl max-w-2xl leading-relaxed">
+            Quality mobility equipment delivered to your hotel or villa. Rates shown in USD.
+          </p>
+        </div>
+      </section>
 
       <section className="py-12 md:py-16" aria-label="Equipment catalogue">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
