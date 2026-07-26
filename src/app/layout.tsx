@@ -210,6 +210,7 @@ export default async function RootLayout({
               </div>
             </div>
             <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400">
+              <p className="mb-2">Our other business: <a href="https://balifishboat.com" target="_blank" rel="noopener noreferrer" className="text-coral hover:text-white transition-colors">Bali Fish Boat</a> — Fishing charters & boat trips in Bali</p>
               © {new Date().getFullYear()} Bali Mobility. All rights reserved.
             </div>
           </div>
