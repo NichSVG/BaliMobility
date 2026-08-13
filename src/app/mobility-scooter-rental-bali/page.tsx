@@ -7,7 +7,7 @@ import { whatsappLink } from "@/lib/contact";
 export const metadata: Metadata = {
   title: "Mobility Scooter Rental Bali — Hire a Scooter | Bali Mobility",
   description:
-    "Rent a mobility scooter in Bali from $25/day. Lightweight, foldable scooters delivered free to your hotel in Sanur, Kuta, Seminyak, Nusa Dua, Ubud, and Canggu. Book on WhatsApp.",
+    "Rent a mobility scooter in Bali from AUD$25/day. Lightweight, foldable scooters delivered free to your hotel in Sanur, Kuta, Seminyak, Nusa Dua, Ubud, and Canggu. Book on WhatsApp.",
   keywords: [
     "mobility scooter rental Bali",
     "mobility scooter hire Bali",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mobility Scooter Rental Bali | Bali Mobility",
     description:
-      "Rent a mobility scooter in Bali from $25/day. Lightweight, foldable scooters delivered free to your hotel. Book on WhatsApp.",
+      "Rent a mobility scooter in Bali from AUD$25/day. Lightweight, foldable scooters delivered free to your hotel. Book on WhatsApp.",
   },
 };
 
@@ -49,7 +49,7 @@ const faqs = [
   { q: "Is the scooter suitable for Bali's roads?", a: "Our scooters work well on footpaths, in shopping areas, hotel grounds, and on smooth roads. For very uneven terrain or cobblestone areas, we recommend a wheelchair with a companion." },
   { q: "Do you deliver scooters to hotels?", a: "Yes, we deliver free of charge to hotels and villas across Bali including Sanur, Kuta, Seminyak, Nusa Dua, Ubud, Canggu, and surrounding areas. We can also deliver to the airport." },
   { q: "What if the scooter runs out of battery?", a: "Our scooters have a 20km range per charge, so this rarely happens. If it does, call or WhatsApp us and we'll arrange assistance. We recommend charging overnight as a precaution." },
-  { q: "Can I rent a scooter for just one day?", a: "Yes! We offer daily ($25), 3-day ($65), and weekly ($130) rates. There's no minimum rental period. You can extend your rental anytime during your trip." },
+  { q: "Can I rent a scooter for just one day?", a: "Yes! We offer daily (AUD$25), 3-day (AUD$65), and weekly (AUD$130) rates. There's no minimum rental period. You can extend your rental anytime during your trip." },
   { q: "Do I need a driver's licence to use a mobility scooter?", a: "No licence required. Mobility scooters are classified as mobility aids, not motor vehicles. They're legal to use on footpaths and pedestrian areas throughout Bali." },
 ];
 
@@ -63,7 +63,7 @@ export default function MobilityScooterRentalPage() {
       ]} />
       <ProductJsonLd
         name="Mobility Scooter Rental Bali"
-        description="Lightweight, foldable mobility scooter delivered to your hotel or villa in Bali. Daily, 3-day, and weekly rates from $25/day."
+        description="Lightweight, foldable mobility scooter delivered to your hotel or villa in Bali. Daily, 3-day, and weekly rates from AUD$25/day."
         price="25"
       />
       <PageHeader
@@ -106,18 +106,18 @@ export default function MobilityScooterRentalPage() {
               <div className="grid grid-cols-3 gap-4 text-center mb-6">
                 <div className="bg-sand rounded-xl p-4">
                   <div className="text-sm text-muted mb-1">Daily</div>
-                  <div className="text-2xl font-bold text-ocean">$25</div>
+                  <div className="text-2xl font-bold text-ocean">AUD$25</div>
                   <div className="text-xs text-muted">per day</div>
                 </div>
                 <div className="bg-sand rounded-xl p-4">
                   <div className="text-sm text-muted mb-1">3 Days</div>
-                  <div className="text-2xl font-bold text-ocean">$65</div>
-                  <div className="text-xs text-muted">$22/day</div>
+                  <div className="text-2xl font-bold text-ocean">AUD$65</div>
+                  <div className="text-xs text-muted">AUD$22/day</div>
                 </div>
                 <div className="bg-sand rounded-xl p-4">
                   <div className="text-sm text-muted mb-1">Weekly</div>
-                  <div className="text-2xl font-bold text-ocean">$130</div>
-                  <div className="text-xs text-muted">$19/day</div>
+                  <div className="text-2xl font-bold text-ocean">AUD$130</div>
+                  <div className="text-xs text-muted">AUD$19/day</div>
                 </div>
               </div>
               <div className="flex flex-col gap-2">
@@ -218,7 +218,7 @@ export default function MobilityScooterRentalPage() {
                   ["Range", "20km per charge", "Unlimited (manual)"],
                   ["Terrain", "Smooth roads, footpaths, shopping areas", "All terrain with companion help"],
                   ["In a car", "Folds to fit in boot", "Folds to fit in boot"],
-                  ["Daily rate", "$25", "$10"],
+                  ["Daily rate", "AUD$25", "AUD$10"],
                 ].map(([feature, scooter, wheelchair], i) => (
                   <tr key={feature} className={i % 2 === 0 ? "border-t border-sand-dark" : "border-t border-sand-dark bg-sand/50"}>
                     <td className="p-4 font-medium text-foreground">{feature}</td>

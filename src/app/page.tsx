@@ -126,7 +126,7 @@ export default async function Home() {
                 </div>
                 <div className="p-5">
                   <p className="text-white font-semibold text-lg">Mobility Scooter</p>
-                  <p className="text-white/70 text-sm">From $25/day — delivered to your hotel</p>
+                  <p className="text-white/70 text-sm">From AUD$25/day — delivered to your hotel</p>
                 </div>
               </div>
             </div>

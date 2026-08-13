@@ -68,16 +68,16 @@ export default function WheelchairRentalPage() {
               <div className="grid grid-cols-3 gap-4 text-center mb-6">
                 <div className="bg-sand rounded-xl p-4">
                   <div className="text-sm text-muted mb-1">Daily</div>
-                  <div className="text-2xl font-bold text-ocean">$10</div>
+                  <div className="text-2xl font-bold text-ocean">AUD$10</div>
                   <div className="text-xs text-muted">per day</div>
                 </div>
                 <div className="bg-sand rounded-xl p-4">
                   <div className="text-sm text-muted mb-1">3 Days</div>
-                  <div className="text-2xl font-bold text-ocean">$25</div>
+                  <div className="text-2xl font-bold text-ocean">AUD$25</div>
                 </div>
                 <div className="bg-sand rounded-xl p-4">
                   <div className="text-sm text-muted mb-1">Weekly</div>
-                  <div className="text-2xl font-bold text-ocean">$50</div>
+                  <div className="text-2xl font-bold text-ocean">AUD$50</div>
                 </div>
               </div>
               <Link href="/contact" className="block text-center bg-coral text-white py-3 rounded-full font-semibold hover:bg-coral/90 transition-colors">

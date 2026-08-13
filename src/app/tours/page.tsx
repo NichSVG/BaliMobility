@@ -7,14 +7,14 @@ import { whatsappLink } from "@/lib/contact";
 export const metadata: Metadata = {
   title: "Bali Tours — Accessible Day Tours with Driver",
   description:
-    "Book a private day tour in Bali with driver and petrol included. Half-day tours from $60 and full-day tours from $100 per car. Explore Bali at your own pace.",
+    "Book a private day tour in Bali with driver and petrol included. Half-day tours from AUD$60 and full-day tours from AUD$100 per car. Explore Bali at your own pace.",
   alternates: {
     canonical: "/tours",
   },
   openGraph: {
     title: "Bali Tours | Bali Mobility",
     description:
-      "Book a private day tour in Bali with driver and petrol included. Half-day from $60, full-day from $100 per car.",
+      "Book a private day tour in Bali with driver and petrol included. Half-day from AUD$60, full-day from AUD$100 per car.",
   },
 };
 
@@ -86,7 +86,7 @@ export default function ToursPage() {
             <div className="bg-white rounded-2xl border border-sand-dark shadow-sm p-8 text-center mt-4">
               <h3 className="text-xl font-bold text-foreground mb-2">Half-Day Tour</h3>
               <p className="text-sm text-muted mb-4">Approximately 4 hours</p>
-              <div className="text-4xl font-bold text-ocean mb-1">$60</div>
+              <div className="text-4xl font-bold text-ocean mb-1">AUD$60</div>
               <div className="text-sm text-muted mb-6">per car</div>
               <ul className="text-sm text-muted text-left space-y-2 mb-6">
                 <li className="flex items-center gap-2"><span className="text-tropical">✓</span> Private car with driver</li>
@@ -107,7 +107,7 @@ export default function ToursPage() {
               <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-ocean text-white text-xs font-bold px-3 py-1 rounded-full">Popular</span>
               <h3 className="text-xl font-bold text-foreground mb-2">Full-Day Tour</h3>
               <p className="text-sm text-muted mb-4">Approximately 8 hours</p>
-              <div className="text-4xl font-bold text-ocean mb-1">$100</div>
+              <div className="text-4xl font-bold text-ocean mb-1">AUD$100</div>
               <div className="text-sm text-muted mb-6">per car</div>
               <ul className="text-sm text-muted text-left space-y-2 mb-6">
                 <li className="flex items-center gap-2"><span className="text-tropical">✓</span> Private car with driver</li>
@@ -151,7 +151,7 @@ export default function ToursPage() {
                 <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">1:30 PM</span> Return to hotel</li>
               </ol>
               <div className="mt-4 pt-4 border-t border-sand-dark flex items-center justify-between">
-                <span className="text-ocean font-bold text-lg">$60</span>
+                <span className="text-ocean font-bold text-lg">AUD$60</span>
                 <a href={whatsappLink("Hi Bali Mobility! I'd like to book the half-day Ubud Culture & Nature tour.")} target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-600 transition-colors">Book on WhatsApp</a>
               </div>
             </div>
@@ -172,7 +172,7 @@ export default function ToursPage() {
                 <li className="flex gap-3"><span className="font-semibold text-ocean shrink-0">7:00 PM</span> Return to hotel</li>
               </ol>
               <div className="mt-4 pt-4 border-t border-sand-dark flex items-center justify-between">
-                <span className="text-ocean font-bold text-lg">$100</span>
+                <span className="text-ocean font-bold text-lg">AUD$100</span>
                 <a href={whatsappLink("Hi Bali Mobility! I'd like to book the full-day Temples & Sunset tour.")} target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-green-600 transition-colors">Book on WhatsApp</a>
               </div>
             </div>

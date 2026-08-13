@@ -55,15 +55,15 @@ export default function BlogPost() {
                 <tbody>
                   <tr className="border-b border-sand-dark">
                     <td className="p-3 text-muted">Daily</td>
-                    <td className="p-3 text-muted">$10</td>
+                    <td className="p-3 text-muted">AUD$10</td>
                   </tr>
                   <tr className="border-b border-sand-dark">
                     <td className="p-3 text-muted">3 Days</td>
-                    <td className="p-3 text-muted">$25</td>
+                    <td className="p-3 text-muted">AUD$25</td>
                   </tr>
                   <tr className="border-b border-sand-dark">
                     <td className="p-3 text-muted">Weekly</td>
-                    <td className="p-3 text-muted">$50</td>
+                    <td className="p-3 text-muted">AUD$50</td>
                   </tr>
                 </tbody>
               </table>

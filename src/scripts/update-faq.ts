@@ -71,7 +71,7 @@ async function updateFaq() {
       category: "Pricing",
       question: "How much does it cost to rent equipment?",
       answer:
-        "Daily rates: mobility scooter $25, wheelchair $10, walker frame $7, shower seat $5, toilet seat $5. We also offer 3-day and weekly rates at a discount. See our equipment page for full pricing.",
+        "Daily rates: mobility scooter AUD$25, wheelchair AUD$10, walker frame AUD$7, shower seat AUD$5, toilet seat AUD$5. We also offer 3-day and weekly rates at a discount. See our equipment page for full pricing.",
       order: 1,
     },
     {
@@ -127,7 +127,7 @@ async function updateFaq() {
       category: "Accessible Transport",
       question: "Do you offer accessible transport in Bali?",
       answer:
-        "Yes — we have wheelchair-accessible vehicles with ramps and secure tie-down systems. We offer airport transfers ($30), half-day tours ($55), and full-day tours ($95). All include a trained driver.",
+        "Yes — we have wheelchair-accessible vehicles with ramps and secure tie-down systems. We offer airport transfers (AUD$30), half-day tours (AUD$55), and full-day tours (AUD$95). All include a trained driver.",
       order: 1,
     },
     {
@@ -143,7 +143,7 @@ async function updateFaq() {
       category: "Tours",
       question: "How much does a tour cost?",
       answer:
-        "Half-day tours (approx. 4 hours) are $60 per car. Full-day tours (approx. 8 hours) are $100 per car. Both include the car, driver, and petrol. Entrance fees and meals are not included.",
+        "Half-day tours (approx. 4 hours) are AUD$60 per car. Full-day tours (approx. 8 hours) are AUD$100 per car. Both include the car, driver, and petrol. Entrance fees and meals are not included.",
       order: 1,
     },
     {
@@ -207,29 +207,29 @@ async function updateFaq() {
   console.log("🦽 Updating equipment pricing to AUD...");
   const equipmentUpdates: Record<string, any> = {
     "mobility-scooter": {
-      rateDaily: "$25",
-      rate3Days: "$65",
-      rateWeekly: "$130",
+      rateDaily: "AUD$25",
+      rate3Days: "AUD$65",
+      rateWeekly: "AUD$130",
     },
     "manual-wheelchair": {
-      rateDaily: "$10",
-      rate3Days: "$25",
-      rateWeekly: "$50",
+      rateDaily: "AUD$10",
+      rate3Days: "AUD$25",
+      rateWeekly: "AUD$50",
     },
     "electric-wheelchair": {
-      rateDaily: "$15",
-      rate3Days: "$40",
-      rateWeekly: "$75",
+      rateDaily: "AUD$15",
+      rate3Days: "AUD$40",
+      rateWeekly: "AUD$75",
     },
     walker: {
-      rateDaily: "$7",
-      rate3Days: "$18",
-      rateWeekly: "$35",
+      rateDaily: "AUD$7",
+      rate3Days: "AUD$18",
+      rateWeekly: "AUD$35",
     },
     "beach-wheelchair": {
-      rateDaily: "$20",
-      rate3Days: "$50",
-      rateWeekly: "$100",
+      rateDaily: "AUD$20",
+      rate3Days: "AUD$50",
+      rateWeekly: "AUD$100",
     },
   };
 

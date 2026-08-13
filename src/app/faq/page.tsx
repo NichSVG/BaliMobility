@@ -54,7 +54,7 @@ const faqItems = [
     category: "Pricing",
     question: "How much does it cost to rent equipment?",
     answer:
-      "Daily rates: mobility scooter $25, wheelchair $10, walker frame $7, shower seat $5, toilet seat $5. We also offer 3-day and weekly rates at a discount. See our equipment page for full pricing.",
+      "Daily rates: mobility scooter AUD$25, wheelchair AUD$10, walker frame AUD$7, shower seat AUD$5, toilet seat AUD$5. We also offer 3-day and weekly rates at a discount. See our equipment page for full pricing.",
   },
   {
     category: "Pricing",
@@ -78,7 +78,7 @@ const faqItems = [
     category: "Delivery",
     question: "Do you deliver to my hotel?",
     answer:
-      "Yes — we deliver to hotels, villas, and private accommodations across Bali. Delivery and collection are by car, with a small fee depending on your area:\n\n• Sanur area: $20\n• Ubud: $20\n• Kuta, Seminyak, Canggu, Nusa Dua: $30\n\nFree delivery on rentals of 1 week or longer. Tell us your hotel or villa name and we'll confirm the exact fee for your area.",
+      "Yes — we deliver to hotels, villas, and private accommodations across Bali. Delivery and collection are by car, with a small fee depending on your area:\n\n• Sanur area: AUD$20\n• Ubud: AUD$20\n• Kuta, Seminyak, Canggu, Nusa Dua: AUD$30\n\nFree delivery on rentals of 1 week or longer. Tell us your hotel or villa name and we'll confirm the exact fee for your area.",
   },
   {
     category: "Delivery",
@@ -96,7 +96,7 @@ const faqItems = [
     category: "Tours",
     question: "How much does a tour cost?",
     answer:
-      "Half-day tours (approx. 4 hours) are $60 per car. Full-day tours (approx. 8 hours) are $100 per car. Both include the car, driver, and petrol. Entrance fees and meals are not included.",
+      "Half-day tours (approx. 4 hours) are AUD$60 per car. Full-day tours (approx. 8 hours) are AUD$100 per car. Both include the car, driver, and petrol. Entrance fees and meals are not included.",
   },
   {
     category: "Tours",
