@@ -203,8 +203,8 @@ async function updateFaq() {
       console.log("   ⚠️  siteSettings not found, skipping.");
     });
 
-  // 4. Update equipment pricing to USD
-  console.log("🦽 Updating equipment pricing to USD...");
+  // 4. Update equipment pricing to AUD
+  console.log("🦽 Updating equipment pricing to AUD...");
   const equipmentUpdates: Record<string, any> = {
     "mobility-scooter": {
       rateDaily: "$25",
@@ -245,9 +245,9 @@ async function updateFaq() {
   }
 
   console.log("\n✅ CMS update complete!");
-  console.log("   FAQ: 20 items across 7 categories (USD pricing, no packages/carers)");
+  console.log("   FAQ: 20 items across 7 categories (AUD pricing, no packages/carers)");
   console.log("   Site settings: contact info updated");
-  console.log("   Equipment: pricing converted to USD");
+  console.log("   Equipment: pricing converted to AUD");
 }
 
 updateFaq().catch((err) => {

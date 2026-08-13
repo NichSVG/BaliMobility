@@ -49,7 +49,7 @@ export default function BlogPost() {
                 <thead>
                   <tr className="bg-sand">
                     <th className="text-left p-3 font-semibold text-foreground">Duration</th>
-                    <th className="text-left p-3 font-semibold text-foreground">USD</th>
+                    <th className="text-left p-3 font-semibold text-foreground">AUD</th>
                   </tr>
                 </thead>
                 <tbody>

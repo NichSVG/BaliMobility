@@ -127,7 +127,7 @@ export default async function EquipmentPage() {
           </h1>
 
           <p className="text-ocean-light text-lg md:text-xl max-w-2xl leading-relaxed">
-            Quality mobility equipment delivered to your hotel or villa. Rates shown in USD.
+            Quality mobility equipment delivered to your hotel or villa. Rates shown in AUD.
           </p>
         </div>
       </section>
