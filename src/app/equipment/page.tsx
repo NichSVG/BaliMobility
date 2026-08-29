@@ -215,6 +215,28 @@ export default async function EquipmentPage() {
 
 
 
+      {/* Transport Delivery Info */}
+      <section className="bg-sand py-12" aria-label="Transport delivery fees">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Transport Delivery &amp; Collection</h2>
+          <p className="text-muted mb-4">We deliver and collect equipment to and from your hotel for an extra charge:</p>
+          <ul className="space-y-2 text-foreground">
+            <li className="flex items-center gap-3">
+              <span className="text-tropical font-bold">•</span>
+              <span><strong>Sanur area:</strong> US$20</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="text-tropical font-bold">•</span>
+              <span><strong>Ubud area:</strong> US$20</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <span className="text-tropical font-bold">•</span>
+              <span><strong>Kuta, Seminyak, Canggu, Nusa Dua:</strong> US$30</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
       <section className="bg-ocean text-white py-16" aria-label="Get started">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">Need help choosing equipment?</h2>

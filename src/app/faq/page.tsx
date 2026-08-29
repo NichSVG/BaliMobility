@@ -82,6 +82,12 @@ const faqItems = [
   },
   {
     category: "Delivery",
+    question: "How much is transport delivery and collection to my hotel?",
+    answer:
+      "Transport delivery and collection to your hotel is an extra charge depending on your area:\n\n• Sanur area: US$20\n• Ubud area: US$20\n• Kuta, Seminyak, Canggu, Nusa Dua: US$30\n\nTell us your hotel or villa name and we'll confirm the exact fee for your area.",
+  },
+  {
+    category: "Delivery",
     question: "Can you deliver to the airport?",
     answer:
       "We do not deliver directly to the airport. Ngurah Rai International Airport already provides free wheelchairs at arrivals for anyone who needs one, so most guests prefer to use that service at the airport and have us deliver their equipment directly to their hotel or villa instead. This way you have comfortable equipment ready and waiting at your accommodation.",
