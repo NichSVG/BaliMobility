@@ -17,6 +17,13 @@ export const equipment = {
     { name: "rateWeekly", title: "Rate — Weekly (AUD)", type: "string" },
     { name: "bestFor", title: "Best For", type: "text", rows: 2 },
     { name: "image", title: "Photo", type: "image", options: { hotspot: true } },
+    {
+      name: "images",
+      title: "Gallery Photos",
+      type: "array",
+      of: [{ type: "image", options: { hotspot: true } }],
+      description: "Additional photos shown as a slideshow on the equipment page.",
+    },
     { name: "order", title: "Display Order", type: "number" },
   ],
   orderings: [{ title: "Order", name: "orderAsc", by: [{ field: "order", direction: "asc" }] }],

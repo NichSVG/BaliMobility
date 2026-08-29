@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import { BreadcrumbJsonLd, ProductJsonLd } from "@/components/JsonLd";
 import { whatsappLink } from "@/lib/contact";
+import ImageCarousel from "@/components/ImageCarousel";
 
 export const metadata: Metadata = {
   title: "Mobility Scooter Rental Bali — Hire a Scooter | Bali Mobility",
@@ -88,6 +89,21 @@ export default function MobilityScooterRentalPage() {
             <p>
               Each scooter has a range of 20km per charge, a comfortable padded seat, and folds down to fit in a car boot. Whether you&apos;re visiting markets in Ubud, shopping in Seminyak, or enjoying the beachfront in Sanur, our scooters let you experience Bali independently.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Scooter Gallery */}
+      <section className="py-12 md:py-16 bg-gray-50" aria-label="Scooter images">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl border border-sand-dark overflow-hidden shadow-sm">
+            <ImageCarousel
+              images={["/images/equipment/mobility-scooter.jpeg", "/images/equipment/mobility-scooter2.jpeg"]}
+              alt="Mobility scooter available for rental in Bali"
+            />
+            <div className="p-4 text-center">
+              <p className="text-sm text-muted">Our mobility scooters — lightweight, foldable, and ready for your Bali adventure.</p>
+            </div>
           </div>
         </div>
       </section>

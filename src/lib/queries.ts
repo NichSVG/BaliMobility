@@ -22,7 +22,8 @@ export const equipmentQuery = groq`*[_type == "equipment"] | order(order asc) {
   rate3Days,
   rateWeekly,
   bestFor,
-  image
+  image,
+  images
 }`;
 
 export const testimonialsQuery = groq`*[_type == "testimonial"] {

@@ -6,6 +6,7 @@ import { whatsappLink } from "@/lib/contact";
 import { client } from "@/lib/sanity";
 import { equipmentQuery } from "@/lib/queries";
 import { urlFor } from "@/lib/image";
+import ImageCarousel from "@/components/ImageCarousel";
 
 export const metadata: Metadata = {
   title: "Equipment Rental",
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 const fallbackEquipment = [
-  { name: "Mobility Scooter", slug: "mobility-scooter", image: "/images/equipment/mobility-scooter.jpeg", description: "Lightweight mobility scooter perfect for exploring Bali.", features: ["Long Range — Up to 20km per charge", "Fast Charging — Full charge in 4-6 hours", "Foldable Design — Folds down, weighs just 25kg", "120kg Capacity — Padded seat with armrests", "Storage Basket — Front basket for bags and shopping", "Well Maintained — Serviced, cleaned, and charged before delivery"], rateDaily: "AUD$25", rate3Days: "AUD$65", rateWeekly: "AUD$130", bestFor: "Travellers with limited mobility who can stand and transfer." },
+  { name: "Mobility Scooter", slug: "mobility-scooter", image: "/images/equipment/mobility-scooter.jpeg", images: ["/images/equipment/mobility-scooter.jpeg", "/images/equipment/mobility-scooter2.jpeg"], description: "Lightweight mobility scooter perfect for exploring Bali.", features: ["Long Range — Up to 20km per charge", "Fast Charging — Full charge in 4-6 hours", "Foldable Design — Folds down, weighs just 25kg", "120kg Capacity — Padded seat with armrests", "Storage Basket — Front basket for bags and shopping", "Well Maintained — Serviced, cleaned, and charged before delivery"], rateDaily: "AUD$25", rate3Days: "AUD$65", rateWeekly: "AUD$130", bestFor: "Travellers with limited mobility who can stand and transfer." },
   { name: "Wheelchair", slug: "wheelchair", image: "/images/equipment/wheelchair.jpeg", description: "Comfortable wheelchair with supportive seating and easy manoeuvrability.", features: ["Lightweight frame", "Removable footrests", "Folding design", "Weight capacity: 120 kg"], rateDaily: "AUD$10", rate3Days: "AUD$25", rateWeekly: "AUD$50", bestFor: "Travellers who need a wheelchair for getting around Bali." },
   { name: "Baby Push Chair", slug: "baby-push-chair", image: "/images/equipment/baby-push-chair.jpg", description: "Lightweight baby stroller for families with young children.", features: ["Ages 6 months – 4 years", "Reclining seat", "Sun canopy with UV protection", "5-point safety harness"], rateDaily: "AUD$7", rate3Days: "AUD$18", rateWeekly: "AUD$35", bestFor: "Families with young children." },
   { name: "Baby Car Seat", slug: "baby-car-seat", image: "/images/equipment/baby-car-seat.webp", description: "Safe and secure baby car seat for worry-free travel around Bali.", features: ["Suitable for ages 0–4 years", "5-point safety harness", "Easy installation", "Meets safety standards"], rateDaily: "AUD$7", rate3Days: "AUD$18", rateWeekly: "AUD$35", bestFor: "Families travelling with infants or toddlers." },
@@ -43,6 +44,9 @@ export default async function EquipmentPage() {
         image: item.image
           ? urlFor(item.image).width(600).url()
           : (fallbackEquipment.find(f => f.slug === item.slug)?.image || `/images/equipment/${item.slug}.jpeg`),
+        images: item.images
+          ? item.images.map((img: any) => urlFor(img).width(600).url())
+          : (fallbackEquipment.find(f => f.slug === item.slug)?.images || [item.image ? urlFor(item.image).width(600).url() : `/images/equipment/${item.slug}.jpeg`]),
         description: item.description,
         features: item.features || [],
         rateDaily: item.rateDaily,
@@ -139,12 +143,9 @@ export default async function EquipmentPage() {
               <article key={item.name} className="bg-white rounded-xl border border-sand-dark overflow-hidden hover:shadow-md transition-shadow">
                 <div className="flex flex-col sm:flex-row">
                   <div className="relative w-full sm:w-44 h-36 sm:h-auto bg-sand shrink-0">
-                    <Image
-                      src={item.image}
+                    <ImageCarousel
+                      images={item.images || [item.image]}
                       alt={item.name}
-                      fill
-                      className="object-contain p-3"
-                      sizes="(max-width: 640px) 100vw, 176px"
                     />
                   </div>
                   <div className="p-4 flex-1 min-w-0">
