@@ -97,10 +97,12 @@ export default function MobilityScooterRentalPage() {
       <section className="py-12 md:py-16 bg-gray-50" aria-label="Scooter images">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl border border-sand-dark overflow-hidden shadow-sm">
-            <ImageCarousel
-              images={["/images/equipment/mobility-scooter.jpeg", "/images/equipment/mobility-scooter2.jpeg"]}
-              alt="Mobility scooter available for rental in Bali"
-            />
+            <div className="relative aspect-[4/3]">
+              <ImageCarousel
+                images={["/images/equipment/mobility-scooter.jpeg", "/images/equipment/mobility-scooter2.jpeg"]}
+                alt="Mobility scooter available for rental in Bali"
+              />
+            </div>
             <div className="p-4 text-center">
               <p className="text-sm text-muted">Our mobility scooters — lightweight, foldable, and ready for your Bali adventure.</p>
             </div>

@@ -6,14 +6,15 @@ import Image from "next/image";
 interface ImageCarouselProps {
   images: string[];
   alt: string;
+  className?: string;
 }
 
-export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
+export default function ImageCarousel({ images, alt, className = "" }: ImageCarouselProps) {
   const [current, setCurrent] = useState(0);
 
   if (images.length <= 1) {
     return (
-      <div className="relative w-full aspect-[4/3]">
+      <div className={`relative h-full w-full ${className}`}>
         <Image
           src={images[0]}
           alt={alt}
@@ -26,7 +27,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
   }
 
   return (
-    <div className="relative w-full aspect-[4/3] group">
+    <div className={`relative h-full w-full group ${className}`}>
       <Image
         src={images[current]}
         alt={`${alt} — photo ${current + 1}`}
@@ -37,7 +38,7 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
       />
 
       {/* Dots */}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
         {images.map((_, i) => (
           <button
             key={i}
@@ -56,14 +57,14 @@ export default function ImageCarousel({ images, alt }: ImageCarouselProps) {
           <button
             onClick={() => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1))}
             aria-label="Previous photo"
-            className="absolute left-1 top-1/2 -translate-y-1/2 bg-black/40 text-white w-6 h-6 rounded-full text-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute left-1 top-1/2 -translate-y-1/2 bg-black/40 text-white w-6 h-6 rounded-full text-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10"
           >
             &#8249;
           </button>
           <button
             onClick={() => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))}
             aria-label="Next photo"
-            className="absolute right-1 top-1/2 -translate-y-1/2 bg-black/40 text-white w-6 h-6 rounded-full text-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute right-1 top-1/2 -translate-y-1/2 bg-black/40 text-white w-6 h-6 rounded-full text-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10"
           >
             &#8250;
           </button>
