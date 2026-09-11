@@ -277,7 +277,7 @@ export default async function Home() {
                 {[
                   { title: "Family-Run & Caring", desc: "We're a local Balinese family — not a big corporation. When you message us, you talk to the owners. We personally deliver your equipment and make sure everything works perfectly before we leave." },
                   { title: "Local Knowledge", desc: "We've lived in Bali our whole lives. We know which hotels have accessible rooms, which restaurants have ramps, and which beaches work for wheelchairs. We'll save you hours of research." },
-                  { title: "Equipment Ready When You Arrive", desc: "No airport queues, no searching for a rental shop. We deliver scooters, wheelchairs, and more straight to your hotel before you check in. Free delivery across Bali." },
+                  { title: "Equipment Ready When You Arrive", desc: "No airport queues, no searching for a rental shop. We deliver scooters, wheelchairs, and more straight to your hotel before you check in. Delivery available across Bali." },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4">
                     <div className="w-12 h-12 bg-ocean/10 rounded-xl flex items-center justify-center shrink-0">

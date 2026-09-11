@@ -27,8 +27,8 @@ const features = [
 const faqs = [
   { q: "What size shower chair do you offer?", a: "We offer standard and wide shower chairs. The standard fits most hotel showers. Let us know your weight and we'll recommend the right size — our chairs support up to 130kg." },
   { q: "Will the shower chair fit in my hotel bathroom?", a: "Our shower chairs are designed to fit standard hotel showers and bathrooms in Bali. If you're unsure, send us a photo of your bathroom and we'll confirm it will fit." },
-  { q: "Can I rent a shower chair for just a few days?", a: "Yes! We offer daily, 3-day, and weekly rates. No minimum rental period. Delivery and pickup are free." },
-  { q: "Do you deliver shower chairs to villas?", a: "Yes, we deliver free of charge to hotels, villas, and private accommodations across Bali including Sanur, Kuta, Seminyak, Nusa Dua, Ubud, and surrounding areas." },
+  { q: "Can I rent a shower chair for just a few days?", a: "Yes! We offer daily, 3-day, and weekly rates. No minimum rental period." },
+  { q: "Do you deliver shower chairs to villas?", a: "Yes, we deliver to hotels, villas, and private accommodations across Bali including Sanur, Kuta, Seminyak, Nusa Dua, Ubud, and surrounding areas. Delivery fees apply depending on your area." },
   { q: "Is the shower chair easy to set up?", a: "Yes — our shower chairs arrive fully assembled. Just place it in your shower and adjust the height. No tools needed." },
 ];
 
@@ -48,7 +48,7 @@ export default function ShowerChairRentalPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Shower Chair Rental Rates</h2>
-            <p className="text-muted text-lg">All prices include free delivery and pickup.</p>
+            <p className="text-muted text-lg">Delivery and collection to your hotel or villa is available for an extra fee.</p>
           </div>
           <div className="max-w-lg mx-auto bg-white rounded-2xl border border-sand-dark overflow-hidden shadow-sm">
             <div className="p-8">
@@ -123,7 +123,7 @@ export default function ShowerChairRentalPage() {
       <section className="py-16 md:py-24 bg-ocean text-white" aria-label="Get started">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Need a shower chair in Bali?</h2>
-          <p className="text-white/90 text-lg mb-8">Contact us to reserve your shower chair. Free delivery to your hotel or villa.</p>
+          <p className="text-white/90 text-lg mb-8">Contact us to reserve your shower chair. Delivery to your hotel or villa is available.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="inline-block bg-coral text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-coral/90 transition-colors">
               Book a Shower Chair

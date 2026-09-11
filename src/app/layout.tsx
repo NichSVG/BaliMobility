@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s | Bali Mobility",
   },
   description:
-    "Rent wheelchairs, mobility scooters, walker frames and more in Bali. Free delivery to your hotel. Family-run equipment rental service since 2010.",
+    "Rent wheelchairs, mobility scooters, walker frames and more in Bali. Delivery to your hotel. Family-run equipment rental service since 2010.",
   keywords: [
     "wheelchair rental Bali",
     "mobility scooter hire Bali",

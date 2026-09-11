@@ -48,7 +48,7 @@ const faqs = [
   { q: "How far can I go on one charge?", a: "Up to 20km per charge, which is enough for a full day of exploring Bali's tourist areas like Sanur beachfront, Kuta shopping district, or Ubud centre. We recommend charging overnight." },
   { q: "Can I take the scooter in a car?", a: "Yes! Our scooters fold down for easy transport. They fit in most car boots, making it easy to get to restaurants, beaches, and attractions. Many guests use them alongside our day tours." },
   { q: "Is the scooter suitable for Bali's roads?", a: "Our scooters work well on footpaths, in shopping areas, hotel grounds, and on smooth roads. For very uneven terrain or cobblestone areas, we recommend a wheelchair with a companion." },
-  { q: "Do you deliver scooters to hotels?", a: "Yes, we deliver free of charge to hotels and villas across Bali including Sanur, Kuta, Seminyak, Nusa Dua, Ubud, Canggu, and surrounding areas. We can also deliver to the airport." },
+  { q: "Do you deliver scooters to hotels?", a: "Yes, we deliver to hotels and villas across Bali including Sanur, Kuta, Seminyak, Nusa Dua, Ubud, Canggu, and surrounding areas. Delivery fees apply depending on your area." },
   { q: "What if the scooter runs out of battery?", a: "Our scooters have a 20km range per charge, so this rarely happens. If it does, call or WhatsApp us and we'll arrange assistance. We recommend charging overnight as a precaution." },
   { q: "Can I rent a scooter for just one day?", a: "Yes! We offer daily (AUD$25), 3-day (AUD$65), and weekly (AUD$130) rates. There's no minimum rental period. You can extend your rental anytime during your trip." },
   { q: "Do I need a driver's licence to use a mobility scooter?", a: "No licence required. Mobility scooters are classified as mobility aids, not motor vehicles. They're legal to use on footpaths and pedestrian areas throughout Bali." },
@@ -84,7 +84,7 @@ export default function MobilityScooterRentalPage() {
               Bali is a beautiful island with so much to see — from the rice terraces of Ubud to the beaches of Seminyak and the temples of Tanah Lot. But if you have limited mobility, getting around can be challenging. That&apos;s where a mobility scooter rental makes all the difference.
             </p>
             <p>
-              At Bali Mobility, we rent lightweight, foldable mobility scooters that give you the freedom to explore Bali at your own pace. Our scooters are delivered directly to your hotel or villa — free of charge — so you can start exploring from the moment you arrive.
+              At Bali Mobility, we rent lightweight, foldable mobility scooters that give you the freedom to explore Bali at your own pace. Our scooters are delivered directly to your hotel or villa so you can start exploring from the moment you arrive.
             </p>
             <p>
               Each scooter has a range of 20km per charge, a comfortable padded seat, and folds down to fit in a car boot. Whether you&apos;re visiting markets in Ubud, shopping in Seminyak, or enjoying the beachfront in Sanur, our scooters let you experience Bali independently.
@@ -115,7 +115,7 @@ export default function MobilityScooterRentalPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Mobility Scooter Rental Rates</h2>
-            <p className="text-muted text-lg">All prices include free delivery and pickup to your hotel or villa.</p>
+            <p className="text-muted text-lg">Delivery and collection to your hotel or villa is available for an extra fee.</p>
           </div>
           <div className="max-w-lg mx-auto bg-white rounded-2xl border border-sand-dark shadow-sm">
             <div className="p-8">
@@ -179,8 +179,8 @@ export default function MobilityScooterRentalPage() {
       <section className="py-16 md:py-24 bg-gray-50" aria-label="Delivery areas">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Free Delivery Across Bali</h2>
-            <p className="text-muted text-lg">We deliver mobility scooters free of charge to hotels, villas, and private accommodations in all major Bali areas.</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Delivery Across Bali</h2>
+            <p className="text-muted text-lg">We deliver mobility scooters to hotels, villas, and private accommodations in all major Bali areas. Delivery fees apply depending on your area.</p>
           </div>
           <div className="flex flex-wrap justify-center gap-3 mb-8">
             {deliveryAreas.map((area) => (
@@ -202,7 +202,7 @@ export default function MobilityScooterRentalPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { step: "1", title: "Book", description: "WhatsApp us or use the booking form. Tell us your dates, hotel, and any questions." },
-              { step: "2", title: "Delivery", description: "We deliver the scooter to your hotel or villa at your preferred time. Free of charge." },
+              { step: "2", title: "Delivery", description: "We deliver the scooter to your hotel or villa at your preferred time. Delivery fees apply." },
               { step: "3", title: "Explore", description: "Use the scooter to explore Bali at your own pace. 20km range per charge." },
               { step: "4", title: "Return", description: "When you're done, we pick up the scooter from your hotel. No hassle." },
             ].map((item) => (
@@ -276,7 +276,7 @@ export default function MobilityScooterRentalPage() {
       <section className="py-16 md:py-24 bg-ocean text-white" aria-label="Get started">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to explore Bali on a mobility scooter?</h2>
-          <p className="text-white/90 text-lg mb-8">Book now and we&apos;ll deliver your scooter to your hotel. Free delivery, no deposit required.</p>
+          <p className="text-white/90 text-lg mb-8">Book now and we&apos;ll deliver your scooter to your hotel. No deposit required.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={whatsappLink("Hi Bali Mobility! I'd like to rent a mobility scooter for my Bali trip.")}

@@ -7,14 +7,14 @@ import { whatsappLink } from "@/lib/contact";
 export const metadata: Metadata = {
   title: "Wheelchair Rental Bali — Delivery to Your Hotel",
     description:
-      "Rent a wheelchair in Bali. Lightweight, comfortable wheelchairs delivered to your hotel or villa. Daily, 3-day, and weekly rates. Free delivery across Bali.",
+      "Rent a wheelchair in Bali. Lightweight, comfortable wheelchairs delivered to your hotel or villa. Daily, 3-day, and weekly rates. Delivery available across Bali.",
   alternates: {
     canonical: "/wheelchair-rental-bali",
   },
   openGraph: {
     title: "Wheelchair Rental Bali | Bali Mobility",
     description:
-      "Rent a wheelchair in Bali. Lightweight, comfortable wheelchairs delivered to your hotel. Free delivery across Bali.",
+      "Rent a wheelchair in Bali. Lightweight, comfortable wheelchairs delivered to your hotel. Delivery available across Bali.",
   },
 };
 
@@ -28,7 +28,7 @@ const features = [
 const faqs = [
   { q: "What type of wheelchairs do you offer?", a: "We offer lightweight, foldable wheelchairs suitable for travel. They have removable footrests, comfortable seating, and are easy to transport in cars." },
   { q: "Can I rent a wheelchair for just one day?", a: "Yes! We offer daily, 3-day, and weekly rental rates. There's no minimum rental period." },
-  { q: "Do you deliver wheelchairs to hotels?", a: "Yes, we deliver free of charge to hotels and villas across Bali including Sanur, Kuta, Seminyak, Nusa Dua, Ubud, and surrounding areas." },
+  { q: "Do you deliver wheelchairs to hotels?", a: "Yes, we deliver to hotels and villas across Bali including Sanur, Kuta, Seminyak, Nusa Dua, Ubud, and surrounding areas. Delivery fees apply depending on your area." },
   { q: "What if the wheelchair breaks down?", a: "Call or WhatsApp us immediately. We offer 24/7 support and will repair or replace the wheelchair within hours." },
   { q: "Is the wheelchair suitable for Bali's terrain?", a: "Our wheelchairs are chosen for Bali's conditions. For uneven terrain, we recommend our mobility scooters which handle rough surfaces better." },
 ];
@@ -59,7 +59,7 @@ export default function WheelchairRentalPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Wheelchair Rental Rates</h2>
-            <p className="text-muted text-lg">All prices include free delivery and pickup.</p>
+            <p className="text-muted text-lg">Delivery and collection to your hotel or villa is available for an extra fee.</p>
           </div>
           <div className="max-w-lg mx-auto bg-white rounded-2xl border border-sand-dark overflow-hidden shadow-sm">
             <div className="p-8">
@@ -129,7 +129,7 @@ export default function WheelchairRentalPage() {
       <section className="py-16 md:py-24 bg-ocean text-white" aria-label="Get started">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Need a wheelchair in Bali?</h2>
-          <p className="text-white/90 text-lg mb-8">Contact us to reserve your wheelchair. Free delivery to your hotel or villa.</p>
+          <p className="text-white/90 text-lg mb-8">Contact us to reserve your wheelchair. Delivery to your hotel or villa is available.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact" className="inline-block bg-coral text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-coral/90 transition-colors">
               Rent a Wheelchair

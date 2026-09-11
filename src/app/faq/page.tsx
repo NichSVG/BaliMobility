@@ -78,7 +78,7 @@ const faqItems = [
     category: "Delivery",
     question: "Do you deliver to my hotel?",
     answer:
-      "Yes — we deliver to hotels, villas, and private accommodations across Bali. Delivery and collection are by car, with a small fee depending on your area:\n\n• Sanur area: AUD$20\n• Ubud: AUD$20\n• Kuta, Seminyak, Canggu, Nusa Dua: AUD$30\n\nFree delivery on rentals of 1 week or longer. Tell us your hotel or villa name and we'll confirm the exact fee for your area.",
+      "Yes — we deliver to hotels, villas, and private accommodations across Bali. Delivery and collection are by car, with a fee depending on your area:\n\n• Sanur area: AUD$20\n• Ubud: AUD$20\n• Kuta, Seminyak, Canggu, Nusa Dua: AUD$30\n\nTell us your hotel or villa name and we'll confirm the exact fee for your area.",
   },
   {
     category: "Delivery",

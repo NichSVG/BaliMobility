@@ -37,7 +37,7 @@ export default function BlogPost() {
             </p>
 
             <p className="text-muted mb-4">
-              We deliver free of charge to hotels and villas across Bali including Sanur, Kuta, Seminyak, Nusa Dua, Ubud, and surrounding areas. We can deliver <strong>before you arrive</strong> so the wheelchair is waiting at your hotel when you check in.
+              We deliver to hotels and villas across Bali including Sanur, Kuta, Seminyak, Nusa Dua, Ubud, and surrounding areas. Delivery fees apply depending on your area. We can deliver <strong>before you arrive</strong> so the wheelchair is waiting at your hotel when you check in.
             </p>
 
             <p className="text-muted mb-4">

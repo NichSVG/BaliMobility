@@ -157,7 +157,7 @@ export default async function BlogPostPage({
               </h3>
               <p className="text-muted mb-4">
                 We rent wheelchairs, mobility scooters, walker frames and more.
-                Free delivery to your hotel.
+                Delivery to your hotel is available.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
