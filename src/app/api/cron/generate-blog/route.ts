@@ -11,6 +11,12 @@ const sanity = createClient({
 
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 
+// Groq deprecates models periodically. Set GROQ_MODEL to pin one, otherwise
+// these are tried in order until one succeeds.
+const GROQ_MODELS = process.env.GROQ_MODEL
+  ? [process.env.GROQ_MODEL]
+  : ["openai/gpt-oss-120b", "openai/gpt-oss-20b"];
+
 const BLOG_TOPICS = [
   // Mobility & Equipment SEO
   "Mobility scooter vs wheelchair for Bali holidays: Which is right for you?",
@@ -72,7 +78,7 @@ function generateSlug(title: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
-async function generateBlogPost(topic: string) {
+async function generateBlogPost(topic: string, model: string) {
   const prompt = `Write a single blog post, roughly 900 to 1100 words, for a blog about Bali. Before writing, randomly pick ONE of the following as the main topic and commit to it fully rather than trying to cover everything:
 
 1. A specific Balinese festival or ceremony — Nyepi and the Ogoh-ogoh parade, Galungan and Kuningan, a village odalan temple anniversary, the Bali Arts Festival, or a smaller local ritual.
@@ -127,7 +133,7 @@ Return ONLY valid JSON. No text before or after the JSON.`;
         Authorization: `Bearer ${GROQ_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "llama-3.3-70b-versatile",
+        model,
         messages: [
           {
             role: "system",
@@ -148,7 +154,7 @@ Return ONLY valid JSON. No text before or after the JSON.`;
 
   if (!response.ok) {
     const error = await response.text();
-    throw new Error(`Groq API error: ${response.status} - ${error}`);
+    throw new Error(`Groq API error (${model}): ${response.status} - ${error}`);
   }
 
   const data = await response.json();
@@ -185,7 +191,24 @@ export async function GET(req: NextRequest) {
     const topic = getRandomTopic();
     console.log(`Generating blog post about: ${topic}`);
 
-    const post = await generateBlogPost(topic);
+    let post: any = null;
+    let usedModel = "";
+    let lastError: any = null;
+    for (const model of GROQ_MODELS) {
+      try {
+        console.log(`Trying model: ${model}`);
+        post = await generateBlogPost(topic, model);
+        usedModel = model;
+        break;
+      } catch (err: any) {
+        lastError = err;
+        console.error(`Model ${model} failed: ${err.message}`);
+      }
+    }
+
+    if (!post) {
+      throw lastError || new Error("All Groq models failed");
+    }
 
     // Save to Sanity
     const doc = await sanity.create({
@@ -223,6 +246,7 @@ export async function GET(req: NextRequest) {
       id: doc._id,
       title: post.title,
       topic,
+      model: usedModel,
     });
   } catch (error: any) {
     console.error("Blog generation error:", error);
