@@ -20,6 +20,13 @@ const GROQ_MODELS = process.env.GROQ_MODEL
   ? [process.env.GROQ_MODEL]
   : ["openai/gpt-oss-120b", "openai/gpt-oss-20b"];
 
+// gpt-oss models occasionally return invalid JSON. Retry each model a few
+// times before moving on to the next. Override with GROQ_MAX_ATTEMPTS.
+const MAX_ATTEMPTS_PER_MODEL = Math.max(
+  1,
+  parseInt(process.env.GROQ_MAX_ATTEMPTS || "3", 10) || 3
+);
+
 const BLOG_TOPICS = [
   // Mobility & Equipment SEO
   "Mobility scooter vs wheelchair for Bali holidays: Which is right for you?",
@@ -198,15 +205,22 @@ export async function GET(req: NextRequest) {
     let usedModel = "";
     let lastError: any = null;
     for (const model of GROQ_MODELS) {
-      try {
-        console.log(`Trying model: ${model}`);
-        post = await generateBlogPost(topic, model);
-        usedModel = model;
-        break;
-      } catch (err: any) {
-        lastError = err;
-        console.error(`Model ${model} failed: ${err.message}`);
+      for (let attempt = 1; attempt <= MAX_ATTEMPTS_PER_MODEL; attempt++) {
+        try {
+          console.log(
+            `Trying model ${model} (attempt ${attempt}/${MAX_ATTEMPTS_PER_MODEL})`
+          );
+          post = await generateBlogPost(topic, model);
+          usedModel = model;
+          break;
+        } catch (err: any) {
+          lastError = err;
+          console.error(
+            `Model ${model} attempt ${attempt} failed: ${err.message}`
+          );
+        }
       }
+      if (post) break;
     }
 
     if (!post) {
