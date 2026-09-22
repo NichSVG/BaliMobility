@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@sanity/client";
+import { Resend } from "resend";
 
 const sanity = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "demo-project",
@@ -8,6 +9,8 @@ const sanity = createClient({
   token: process.env.SANITY_API_TOKEN,
   useCdn: false,
 });
+
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 const GROQ_API_KEY = process.env.GROQ_API_KEY;
 
@@ -250,6 +253,28 @@ export async function GET(req: NextRequest) {
     });
   } catch (error: any) {
     console.error("Blog generation error:", error);
+
+    // Alert the admin so a failure never goes unnoticed again
+    if (resend) {
+      try {
+        await resend.emails.send({
+          from: "Bali Mobility Cron <noreply@balimobility.com>",
+          to: process.env.ADMIN_EMAIL || "admin@balimobility.com",
+          subject: "Auto blog post FAILED - action needed",
+          html: `
+            <h2>Automated blog post failed</h2>
+            <p>The weekly auto-blog cron job ran but did not create a post.</p>
+            <p><strong>Error:</strong> ${error.message}</p>
+            <p><strong>Models tried:</strong> ${GROQ_MODELS.join(", ")}</p>
+            <p>Common causes: the Groq model was deprecated, the GROQ_API_KEY is invalid or out of quota, or the Sanity token expired.</p>
+            <p>Fix: set the <code>GROQ_MODEL</code> environment variable in Vercel to a current model from https://console.groq.com/docs/models, or update the default model list in the code.</p>
+          `,
+        });
+      } catch (emailErr) {
+        console.error("Failed to send cron alert email:", emailErr);
+      }
+    }
+
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
