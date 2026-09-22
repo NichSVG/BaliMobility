@@ -72,7 +72,8 @@ export default function MobilityScooterRentalPage() {
         subtitle="Mobility Equipment"
         description="Lightweight, foldable mobility scooters delivered to your hotel or villa anywhere in Bali. Explore Bali independently."
         variant="tropical"
-        image="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80"
+        image="/images/equipment/mobility-scooter.jpeg"
+        imageAlt="Mobility scooter available for rental in Bali"
       />
 
       {/* Intro Content */}
